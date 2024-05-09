@@ -84,10 +84,11 @@ public class SecurityConfig {
         http.httpBasic((auth) -> auth.disable());
 
         //경로별 인가 작업
-        // "login", "/", "/join"에 모든 허용 권한 사용
+        // "/login", "/", "/join"에 모든 허용 권한 사용
         // "/admin" 은 "ADMIN" 권한을 가진 사용자만 사용
         // anyRequest => 그 외에 다른 사이트는 로그인 한 사용자만 사용 가능
-        http.authorizeHttpRequests((auth) -> auth
+        http
+                .authorizeHttpRequests((auth) -> auth
                 .requestMatchers("/login", "/", "/join").permitAll()
                 .requestMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated());

@@ -1,4 +1,4 @@
-package com.example.hansumproject.api;
+package com.example.hansumproject.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -29,5 +29,7 @@ public class MainController {
         String role = auth.getAuthority();
 
         return "main Controller : " + name + role;
+
+//        return "main Controller";
     }
 }

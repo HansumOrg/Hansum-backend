@@ -1,9 +1,9 @@
-package com.example.hansumproject.api;
+package com.example.hansumproject.controller;
 
 
 import com.example.hansumproject.dto.JoinDTO;
+import com.example.hansumproject.dto.UserDto;
 import com.example.hansumproject.service.JoinService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,9 +19,9 @@ public class JoinController {
     }
 
     @PostMapping("/join")
-    public String joinProcess(JoinDTO joinDTO){
+    public String joinProcess(UserDto userDto){
 
-        joinService.joinProcess(joinDTO);
+        joinService.joinProcess(userDto);
 
         return"ok";
     }

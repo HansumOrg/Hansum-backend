@@ -10,11 +10,11 @@ import lombok.*;
 public class UserDto {
     private Long userId; // 회원 ID
 
-    private String loginId; // 로그인 ID
+    private String username; // 로그인 ID
 
     private String password; // 비밀번호
 
-    private String username; // 이름
+    private String name; // 이름
 
     private String phone; // 전화번호
 
@@ -26,11 +26,11 @@ public class UserDto {
 
     private String mbti; // MBTI
 
-    private Integer user_agreement; // 이용약관 동의
+    private Integer userAgreement; // 이용약관 동의
 
-    private String interested_location; // 관심사-제주여행지
+    private String interestedLocation; // 관심사-제주여행지
 
-    private String interested_hobby; //관심사-취미
+    private String interestedHobby; //관심사-취미
 
-    private String interested_food; // 관심사-음식
+    private String interestedFood; // 관심사-음식
 }

@@ -1,4 +1,4 @@
-package com.example.hansumproject.api;
+package com.example.hansumproject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

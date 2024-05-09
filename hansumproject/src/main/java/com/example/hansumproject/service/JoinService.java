@@ -1,6 +1,7 @@
 package com.example.hansumproject.service;
 
 import com.example.hansumproject.dto.JoinDTO;
+import com.example.hansumproject.dto.UserDto;
 import com.example.hansumproject.entity.UserEntity;
 import com.example.hansumproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,17 @@ public class JoinService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public void joinProcess(JoinDTO joinDTO){
+    public void joinProcess(UserDto userDto){
 
-        String username = joinDTO.getUsername();
-        String password = joinDTO.getPassword();
+        String username = userDto.getUsername();
+        String password = userDto.getPassword();
+        String name = userDto.getName();
+        String phone = userDto.getPhone();
+        String sex = userDto.getSex();
+        String birthday = userDto.getBirthday();
+        String nickname = userDto.getNickname();
+        String mbti = userDto.getMbti();
+        int userAgreement = userDto.getUserAgreement();
 
         //Username이 존재하는지 확인
         Boolean isExist = userRepository.existsByUsername(username);
@@ -30,6 +38,7 @@ public class JoinService {
         //존재한다면 회원가입을 중단하는 로직
         if (isExist){
 
+            //중단 메세지 오류 추가
             return;
         }
 
@@ -38,6 +47,15 @@ public class JoinService {
         newUser.setUsername(username);
         //password는 인코딩해서 저장
         newUser.setPassword(bCryptPasswordEncoder.encode(password));
+
+        newUser.setName(name);
+        newUser.setPhone(phone);
+        newUser.setSex(sex);
+        newUser.setBirthday(birthday);
+        newUser.setNickname(nickname);
+        newUser.setMbti(mbti);
+        newUser.setUserAgreement(userAgreement);
+
         //Spring에서는 권한을 부여할 때 "ROLE_XXX" 포맷을 맞춰야함.
         newUser.setRole("ROLE_ADMIN");
 
