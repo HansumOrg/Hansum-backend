@@ -42,8 +42,6 @@ public class JoinService {
         newUser.setRole("ROLE_ADMIN");
 
         userRepository.save(newUser);
-
-
     }
 
 }
