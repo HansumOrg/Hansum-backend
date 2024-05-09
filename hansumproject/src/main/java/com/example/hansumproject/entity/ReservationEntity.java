@@ -14,19 +14,20 @@ import java.sql.Timestamp;
 public class ReservationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long reservation_id; // 예약 ID
+    @Column(name = "reservationId")
+    private Long reservationId; // 예약 ID
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private UserEntity user; // 회원 ID
-//
-//    @ManyToOne
-//    @JoinColumn(name = "guesthouse_id", nullable = false)
-//    private GuesthouseEntity guesthouse; // 게스트하우스 ID
-//
-//    @Column(nullable = false)
-//    private Timestamp checkin_date; // 체크인 날짜
-//
-//    @Column(nullable = false)
-//    private Timestamp checkout_date; // 체크아웃 날짜
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private UserEntity user; // 회원 ID
+
+    @ManyToOne
+    @JoinColumn(name = "guesthouseId", nullable = false)
+    private GuesthouseEntity guesthouse; // 게스트하우스 ID
+
+    @Column(name = "checkinDate", nullable = false)
+    private Timestamp checkinDate; // 체크인 날짜
+
+    @Column(name = "checkoutDate", nullable = false)
+    private Timestamp checkoutDate; // 체크아웃 날짜
 }

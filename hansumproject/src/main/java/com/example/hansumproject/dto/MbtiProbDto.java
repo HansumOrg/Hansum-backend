@@ -1,6 +1,9 @@
 package com.example.hansumproject.dto;
 
 import com.example.hansumproject.entity.GuesthouseEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @AllArgsConstructor
@@ -9,7 +12,7 @@ import lombok.*;
 @Getter
 @Setter
 public class MbtiProbDto {
-    private Long probability_id; // 확률 ID
+    private Long probabilityId; // 확률 ID
 
     private GuesthouseEntity guesthouse; // 게스트하우스 ID
 

@@ -12,7 +12,7 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
-    private Long userId;
+    private Long userId; // 회원ID
 
     @Column(name = "userName", nullable = false)
     private String username; // 로그인 ID
@@ -41,7 +41,7 @@ public class UserEntity {
     @Column(name = "mbit", nullable = false)
     private String mbti; // MBTI
 
-    @Column(name = "userAgreement")
+    @Column(name = "userAgreement", nullable = false)
     private Integer userAgreement; // 이용약관 동의
 
     @Column(name = "interestedLocation")

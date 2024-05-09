@@ -11,15 +11,16 @@ import lombok.*;
 public class MbtiProbEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long probability_id; // 확률 ID
+    @Column(name = "probabilityId")
+    private Long probabilityId; // 확률 ID
 
     @ManyToOne
-    @JoinColumn(name = "guesthouse_id", nullable = false)
+    @JoinColumn(name = "guesthouseId", nullable = false)
     private GuesthouseEntity guesthouse; // 게스트하우스 ID
 
-    @Column(nullable = false)
+    @Column(name = "mbti", nullable = false)
     private String mbti; // MBTI
 
-    @Column(nullable = false)
+    @Column(name = "probability", nullable = false)
     private float probability; // 확률
 }

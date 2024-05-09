@@ -12,33 +12,34 @@ import org.hibernate.annotations.ColumnDefault;
 public class FacilityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long facility_id; // 편의시설 ID
+    @Column(name = "facilityId")
+    private Long facilityId; // 편의시설 ID
 
     @OneToOne
-    @JoinColumn(name = "guesthouse_id", nullable = false)
+    @JoinColumn(name = "guesthouseId", nullable = false)
     private GuesthouseEntity guesthouse; //게스트하우스 ID
 
-    @Column(nullable = false)
+    @Column(name = "party", nullable = false)
     @ColumnDefault("0") // 기본값 0
     private Integer party; // 파티 유무
 
-    @Column(nullable = false)
+    @Column(name = "breakfast", nullable = false)
     @ColumnDefault("0")
     private Integer breakfast; // 조식 유무
 
-    @Column(nullable = false)
+    @Column(name = "singleroom", nullable = false)
     @ColumnDefault("0")
     private Integer singleroom; // 1인실 유무
 
-    @Column(nullable = false)
+    @Column(name = "parking", nullable = false)
     @ColumnDefault("0")
     private Integer parking; // 주차장 유무
 
-    @Column(nullable = false)
+    @Column(name = "swimmingpool", nullable = false)
     @ColumnDefault("0")
     private Integer swimmingpool; // 수영장 유무
 
-    @Column(nullable = false)
+    @Column(name = "womanOnly", nullable = false)
     @ColumnDefault("0")
-    private Integer woman_only; // 여성전용
+    private Integer womanOnly; // 여성전용
 }

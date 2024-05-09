@@ -1,5 +1,6 @@
 package com.example.hansumproject.dto;
 
+import jakarta.persistence.Column;
 import lombok.*;
 
 @AllArgsConstructor
@@ -8,11 +9,13 @@ import lombok.*;
 @Getter
 @Setter
 public class UserDto {
-    private Long userId; // 회원 ID
+    private Long userId; // 회원ID
 
     private String username; // 로그인 ID
 
     private String password; // 비밀번호
+
+    private String role; // 사용자 권한
 
     private String name; // 이름
 

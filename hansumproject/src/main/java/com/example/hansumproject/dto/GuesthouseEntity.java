@@ -1,6 +1,8 @@
 package com.example.hansumproject.dto;
 
+import jakarta.persistence.Column;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8,9 +10,9 @@ import lombok.*;
 @Getter
 @Setter
 public class GuesthouseEntity {
-    private Long guesthouse_id; // 게스트하우스 ID
+    private Long guesthouseId; // 게스트하우스 ID
 
-    private String guesthouse_name; // 게스트하우스 이름
+    private String guesthouseName; // 게스트하우스 이름
 
     private String address; // 주소
 

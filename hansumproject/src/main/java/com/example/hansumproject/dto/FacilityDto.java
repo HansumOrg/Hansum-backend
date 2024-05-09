@@ -1,7 +1,11 @@
 package com.example.hansumproject.dto;
 
 import com.example.hansumproject.entity.GuesthouseEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -9,7 +13,7 @@ import lombok.*;
 @Getter
 @Setter
 public class FacilityDto {
-    private Long facility_id; // 편의시설 ID
+    private Long facilityId; // 편의시설 ID
 
     private GuesthouseEntity guesthouse; //게스트하우스 ID
 
@@ -23,5 +27,5 @@ public class FacilityDto {
 
     private Integer swimmingpool; // 수영장 유무
 
-    private Integer woman_only; // 여성전용
+    private Integer womanOnly; // 여성전용
 }
