@@ -3,6 +3,7 @@ package com.example.hansumproject.config;
 import com.example.hansumproject.jwt.JWTFilter;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.jwt.LoginFilter;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,6 +14,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+
+import java.util.Collections;
 
 @Configuration
 @EnableWebSecurity
@@ -38,16 +43,39 @@ public class SecurityConfig {
 
     // 패스워드를 인코딩하기 위한 BCryptPasswordEncoder
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws  Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
+        //CORS 설정
+//        http.cors((corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
+//
+//            @Override
+//            public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+//
+//                CorsConfiguration configuration = new CorsConfiguration();
+//
+//                3000포트 허용
+//                configuration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
+//                모든 메소드 허용
+//                configuration.setAllowedMethods(Collections.singletonList("*"));
+//                configuration.setAllowCredentials(true);
+//                configuration.setAllowedHeaders(Collections.singletonList("*"));
+//                configuration.setMaxAge(3600L);
+//
+//                configuration.setExposedHeaders(Collections.singletonList("Authorization"));
+//
+//                return configuration;
+//            }
+//        })));
+
 
         //csrf disable
         //세션을 사용할 때는 csrf가 필수이지만 JWT 사용 시는 csrf에 대해서 방어하지 않아됨
-        http.csrf((auth)-> auth.disable());
+        http.csrf((auth) -> auth.disable());
 
         //Form 로그인 방식 disable
         http.formLogin((auth) -> auth.disable());
@@ -59,7 +87,7 @@ public class SecurityConfig {
         // "login", "/", "/join"에 모든 허용 권한 사용
         // "/admin" 은 "ADMIN" 권한을 가진 사용자만 사용
         // anyRequest => 그 외에 다른 사이트는 로그인 한 사용자만 사용 가능
-        http.authorizeHttpRequests((auth)-> auth
+        http.authorizeHttpRequests((auth) -> auth
                 .requestMatchers("/login", "/", "/join").permitAll()
                 .requestMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated());
