@@ -1,5 +1,6 @@
 package com.example.hansumproject.config;
 
+import com.example.hansumproject.jwt.CustomLogoutFilter;
 import com.example.hansumproject.jwt.JWTFilter;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.jwt.LoginFilter;
@@ -15,6 +16,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -103,6 +105,9 @@ public class SecurityConfig {
 
         //Login 필터
         http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil, refreshRepository), UsernamePasswordAuthenticationFilter.class);
+
+        //Logout 필터
+        http.addFilterBefore(new CustomLogoutFilter(jwtUtil, refreshRepository), LogoutFilter.class);
 
         //세션 설정
         //JWT를 통한 인증/인가를 위해 STATELESS 상태로 설정
