@@ -3,6 +3,7 @@ package com.example.hansumproject.config;
 import com.example.hansumproject.jwt.JWTFilter;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.jwt.LoginFilter;
+import com.example.hansumproject.repository.RefreshRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,10 +29,13 @@ public class SecurityConfig {
 
     private final JWTUtil jwtUtil;
 
-    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JWTUtil jwtUtil) {
+    private RefreshRepository refreshRepository;
+
+    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JWTUtil jwtUtil, RefreshRepository refreshRepository) {
 
         this.authenticationConfiguration = authenticationConfiguration;
         this.jwtUtil = jwtUtil;
+        this.refreshRepository = refreshRepository;
     }
 
     //AuthenticationManager Bean 등록
@@ -98,7 +102,7 @@ public class SecurityConfig {
         http.addFilterAt(new JWTFilter(jwtUtil), LoginFilter.class);
 
         //Login 필터
-        http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil, refreshRepository), UsernamePasswordAuthenticationFilter.class);
 
         //세션 설정
         //JWT를 통한 인증/인가를 위해 STATELESS 상태로 설정
