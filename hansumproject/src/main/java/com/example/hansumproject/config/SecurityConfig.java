@@ -84,6 +84,8 @@ public class SecurityConfig {
         http.csrf((auth) -> auth.disable());
 
         //Form 로그인 방식 disable
+        //FormLogin을 disable 시키면 UsernamePasswordAuthenticationFilter가 동작을 안한다.
+        //그래서 우리는 로그인 검증을 하기 위해 UsernamePasswordAuthenticationFilter를 상속받아 LoginFilter로 만들어 Filter를 추가함.
         http.formLogin((auth) -> auth.disable());
 
         //http basic 인증 방식 disable
