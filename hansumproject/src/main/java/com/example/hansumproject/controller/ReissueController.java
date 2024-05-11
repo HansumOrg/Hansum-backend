@@ -9,11 +9,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 
 @Controller
 @ResponseBody
@@ -33,16 +38,8 @@ public class ReissueController {
     @PostMapping("/reissue")
     public ResponseEntity<?> reissue(HttpServletRequest request, HttpServletResponse response){
 
-        //get refresh token
-        String refresh = null;
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-
-            if (cookie.getName().equals("refresh")) {
-
-                refresh = cookie.getValue();
-            }
-        }
+        //Header에서 refresh token 가지고 옴.
+        String refresh = request.getHeader("refresh");
 
         //refresh token이 있는지 확인
         if (refresh == null) {
@@ -93,7 +90,7 @@ public class ReissueController {
 
         //response
         response.setHeader("access", newAccess);
-        response.addCookie(createCookie("refresh", newRefresh));
+        response.setHeader("refresh", newRefresh);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -110,20 +107,4 @@ public class ReissueController {
 
         refreshRepository.save(refreshEntity);
     }
-
-    //쿠키 생성 메소드
-    private Cookie createCookie(String key, String value) {
-
-        Cookie cookie = new Cookie(key, value);
-        cookie.setMaxAge(24 * 60 * 60);
-        //Https 사용시 setSecure(true) 설정
-        //cookie.setSecure(true);
-        //쿠키를 어떤 Path에 적용시킬 지
-        //cookie.setPath("/");
-        //client에서 js로 쿠키를 접근하지 못하도록 HttpOnly 설정을 할 수 있음.
-        cookie.setHttpOnly(true);
-
-        return cookie;
-    }
-
 }

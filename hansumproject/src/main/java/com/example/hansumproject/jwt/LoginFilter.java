@@ -72,9 +72,10 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         //Refresh token을 DB에 저장
         addRefreshEntity(username, refresh, 86400000L);
 
-        //응답 설정
+        //로그인 성공 시 Header에 access token, refresh token 담아서 보냄
         response.setHeader("access", access);
-        response.addCookie(createCookie("refresh", refresh));
+        response.setHeader("refresh", refresh);
+        //response.addCookie(createCookie("refresh", refresh));
         response.setStatus(HttpStatus.OK.value());
     }
 
@@ -83,21 +84,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
         //로그인 실패시 401 응답 코드 반환
         response.setStatus(401);
-    }
-
-    //쿠키 생성 메소드
-    private Cookie createCookie(String key, String value) {
-
-        Cookie cookie = new Cookie(key, value);
-        cookie.setMaxAge(24 * 60 * 60);
-        //Https 사용시 setSecure(true) 설정
-        //cookie.setSecure(true);
-        //쿠키를 어떤 Path에 적용시킬 지
-        //cookie.setPath("/");
-        //client에서 js로 쿠키를 접근하지 못하도록 HttpOnly 설정을 할 수 있음.
-        cookie.setHttpOnly(true);
-
-        return cookie;
     }
 
     // Refresh token을 DB에 저장하는 메서드

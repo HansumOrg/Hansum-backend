@@ -23,13 +23,14 @@ public class JWTFilter extends OncePerRequestFilter {
         this.jwtUtil = jwtUtil;
     }
 
+    //client에서 요청 시 token 검증 메서드
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        // 헤더에서 access키에 담긴 토큰을 꺼냄
+        //헤더에서 access키에 담긴 토큰을 꺼냄
         //Header에서 access token key를 꺼냄.
         String accessToken = request.getHeader("access");
 
-        // 토큰이 없다면 다음 필터로 넘김
+        // access 토큰이 없다면 다음 필터로 넘김
         if (accessToken == null) {
 
             filterChain.doFilter(request, response);
@@ -81,12 +82,13 @@ public class JWTFilter extends OncePerRequestFilter {
         //customUserDetails에 회원 정보 객체 담기
         CustomUserDetails customUserDetails = new CustomUserDetails(userEntity);
 
-        //스프링 시큐리티 인증 토큰 생성 후 로그인 진행
+        //스프링 시큐리티 인증 토큰 생성
         Authentication authToken = new UsernamePasswordAuthenticationToken(customUserDetails, null, customUserDetails.getAuthorities());
 
         //세션에 사용자(authToken) 등록
         SecurityContextHolder.getContext().setAuthentication(authToken);
 
+        //다음 필터로 이동
         filterChain.doFilter(request, response);
     }
 }
