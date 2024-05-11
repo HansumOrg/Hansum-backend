@@ -1,5 +1,6 @@
-package com.example.hansumproject.exception;
+package com.example.hansumproject.exception.handler;
 
+import com.example.hansumproject.exception.DuplicateUsernameException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

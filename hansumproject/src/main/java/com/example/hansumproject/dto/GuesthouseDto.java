@@ -1,15 +1,13 @@
 package com.example.hansumproject.dto;
 
-import jakarta.persistence.Column;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Getter
 @Setter
-public class GuesthouseEntity {
+public class GuesthouseDto {
     private Long guesthouseId; // 게스트하우스 ID
 
     private String guesthouseName; // 게스트하우스 이름
