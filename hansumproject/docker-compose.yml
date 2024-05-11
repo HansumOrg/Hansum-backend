@@ -9,10 +9,8 @@ services:
       MYSQL_DATABASE: hansumDB
     ports:
       - "3306:3306"
-    command:
-      - "mysqld"
-      - "--character-set-server=utf8mb4"
-      - "--collation-server=utf8mb4_unicode_ci"
+    volumes:
+      - ./my-custom.cnf:/etc/mysql/conf.d/my-custom.cnf
     networks:
       - test_network
 
