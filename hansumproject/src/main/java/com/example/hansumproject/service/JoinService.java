@@ -3,6 +3,7 @@ package com.example.hansumproject.service;
 import com.example.hansumproject.dto.JoinDTO;
 import com.example.hansumproject.dto.UserDto;
 import com.example.hansumproject.entity.UserEntity;
+import com.example.hansumproject.exception.DuplicateUsernameException;
 import com.example.hansumproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,12 +16,12 @@ public class JoinService {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public JoinService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public JoinService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) throws DuplicateUsernameException {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public void joinProcess(UserDto userDto){
+    public UserEntity joinProcess(UserDto userDto){
 
         String username = userDto.getUsername();
         String password = userDto.getPassword();
@@ -39,7 +40,7 @@ public class JoinService {
         if (isExist){
 
             //중단 메세지 오류 추가
-            return;
+            throw new DuplicateUsernameException("이미 사용 중인 사용자 ID 입니다.");
         }
 
         UserEntity newUser = new UserEntity();
@@ -60,6 +61,7 @@ public class JoinService {
         newUser.setRole("ROLE_ADMIN");
 
         userRepository.save(newUser);
-    }
 
+        return newUser;
+    }
 }

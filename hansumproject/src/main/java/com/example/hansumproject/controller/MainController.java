@@ -17,6 +17,7 @@ public class MainController {
     @GetMapping("/")
     public String mainP(){
 
+        //아래 세션은 요청이 들어 왔을 때 일시적으로 생기는 세션임
         //세션 현재 사용자 이름 가지고 오기
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
 
