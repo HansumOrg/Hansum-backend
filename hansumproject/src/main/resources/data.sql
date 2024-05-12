@@ -1019,3 +1019,7 @@ INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
 VALUES (479, 30, 'ESTJ', 0.0065);
 INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
 VALUES (480, 30, 'ESTP', 0.0092);
+
+#
+# INSERT INTO image_entity (image_id, file_path, name, type)
+# VALUES (1, 'https://github.com/HansumOrg/Hansum-backend/assets/53862911/58eeec35-4db8-458f-9447-2bea1deff2d9', '3_제주도게스트하우스 파티 간장남들', )
