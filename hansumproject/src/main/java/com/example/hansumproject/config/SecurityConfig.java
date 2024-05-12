@@ -97,10 +97,11 @@ public class SecurityConfig {
         // anyRequest => 그 외에 다른 사이트는 로그인 한 사용자만 사용 가능
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/", "/join").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
-                        .requestMatchers("/reissue").permitAll()
-                        .anyRequest().authenticated());
+                .requestMatchers("/login", "/", "/join", "/image/**").permitAll()
+                .requestMatchers("/admin").hasRole("ADMIN")
+                .requestMatchers("/reissue").permitAll()
+                .anyRequest().authenticated());
+
 
         //JWT token 검증 필터
         http.addFilterAt(new JWTFilter(jwtUtil), LoginFilter.class);
