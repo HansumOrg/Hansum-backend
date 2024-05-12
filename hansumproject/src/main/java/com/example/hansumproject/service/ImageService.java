@@ -25,6 +25,7 @@ public class ImageService {
 
     private final ImageRepository imageRepository;
 
+    // 이미지 파일을 서버 FileSystem에 업로드하고 DB에는 Path를 저장.
     public String uploadImageToFileSystem(MultipartFile file) throws IOException {
         log.info("upload file: {}", file.getOriginalFilename());
         String filePath = FOLDER_PATH + file.getOriginalFilename();
@@ -36,9 +37,10 @@ public class ImageService {
                         .build()
         );
 
-        // 파일경로
+        // 받은 파일을 filePath에 저장.
         file.transferTo(new File(filePath));
 
+        // 정상적으로 저장되었는지 확인
         if (fileData != null) {
             return "file uploaded successfully! filePath : " + filePath;
         }
@@ -46,21 +48,22 @@ public class ImageService {
         return null;
     }
 
-
+    // FileSystem에서 이미지를 다운로드하여 byte 배열로 반환
     public byte[] downloadImageFromFileSystem(String fileName) throws IOException {
         log.info("fileName : {}", fileName);
+        // 파일 이름 정규화(조합형)
         String newFileName = Normalizer.normalize(fileName, Normalizer.Form.NFD);
         ImageEntity fileData = imageRepository.findByNameContaining(newFileName);
         if (fileData == null){
             log.info("fileData null");
         }
-//                .orElseThrow(() -> new RuntimeException("File not found: " + fileName));
 
         String filePath = fileData.getFilePath();
 
         log.info("download fileData: {}", fileData);
         log.info("download filePath: {}", filePath);
 
+        // 파일의 byte 배열을 읽어 반환
         return Files.readAllBytes(new File(filePath).toPath());
     }
 }
