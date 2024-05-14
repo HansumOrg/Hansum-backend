@@ -50,8 +50,16 @@ public class GuesthouseController {
     }
 
     // 게스트하우스 검색 결과 조회
+    @GetMapping("/search")
+    public ResponseEntity<?> searchGuesthouses(@RequestParam(required = false) String location,
+                                               @RequestParam(required = false) String checkin_date,
+                                               @RequestParam(required = false) String checkout_date) {
+        log.info("Received search request with location: {}, checkin_date: {}, checkout_date: {}", location, checkin_date, checkout_date);
 
-
+        Map<String, Object> result = guesthouseService.searchGuesthouses(location, checkin_date, checkout_date);
+        log.info("controller:{}",result.toString());
+        return ResponseEntity.ok(result);
+    }
 
 
     // 추천 게스트하우스 조회

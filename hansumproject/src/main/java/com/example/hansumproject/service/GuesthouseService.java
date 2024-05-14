@@ -64,6 +64,37 @@ public class GuesthouseService {
         return Files.readAllBytes(new File(fullPath).toPath());
     }
 
+    // 게스트하우스 검색 결과 조회
+    public Map<String, Object> searchGuesthouses(String location, String checkinDate, String checkoutDate) {
+        try {
+            List<GuesthouseEntity> guesthouses = guesthouseRepository.findByLocation(location);
+
+            List<Map<String, Object>> guesthouseList = guesthouses.stream().map(guesthouse -> {
+                Map<String, Object> guesthouseMap = new HashMap<>();
+                guesthouseMap.put("guesthouse_id", guesthouse.getGuesthouseId());
+                guesthouseMap.put("guesthouse_name", guesthouse.getGuesthouseName());
+                guesthouseMap.put("address", guesthouse.getAddress());
+                guesthouseMap.put("location", guesthouse.getLocation());
+                guesthouseMap.put("price", guesthouse.getPrice());
+                guesthouseMap.put("phone", guesthouse.getPhone());
+                guesthouseMap.put("rating", guesthouse.getRating());
+                guesthouseMap.put("imageUrl", guesthouse.getImageUrl() != null ? guesthouse.getImageUrl() : "default.jpg");
+                guesthouseMap.put("mood", guesthouse.getMood());
+                return guesthouseMap;
+            }).collect(Collectors.toList());
+
+            Map<String, Object> result = new HashMap<>();
+            result.put("location", location);
+            result.put("checkin_date", checkinDate);
+            result.put("checkout_date", checkoutDate);
+            result.put("guesthouses", guesthouseList);
+            return result;
+        } catch (Exception e) {
+            throw e;
+        }
+
+    }
+
     // 추천 게스트하우스 조회
     public List<Map<String,?>> getRecommendationsByMbti(String mbti) {
         List<MbtiProbEntity> recommendations = mbtiProbRepository.findByMbtiOrderByProbabilityDesc(mbti);
@@ -124,5 +155,6 @@ public class GuesthouseService {
         return reservationRepository.save(reservationEntity);
 
     }
+
 }
 
