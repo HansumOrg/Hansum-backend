@@ -49,6 +49,11 @@ public class GuesthouseController {
                 .body(downloadImage);
     }
 
+    // 게스트하우스 검색 결과 조회
+
+
+
+
     // 추천 게스트하우스 조회
     @GetMapping("/recommendation")
     public ResponseEntity<?> getRecommendations(@RequestParam String mbti) {

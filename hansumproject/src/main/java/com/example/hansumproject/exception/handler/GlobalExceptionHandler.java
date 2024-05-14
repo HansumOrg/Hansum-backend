@@ -17,23 +17,29 @@ public class GlobalExceptionHandler {
     //시스템 오류 예외 처리
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGeneralException(Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("서버 오류가 발생했습니다. 관리자에게 문의하세요.");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "서버 오류가 발생했습니다."));
+    }
+
+    // 사용자 ID 또는 게스트하우스 ID 유효하지 않을 때의 예외
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<?> handleIllegalArgumentException(IllegalArgumentException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", e.getMessage()));
     }
 
     //ID 중복 예외 처리
     @ExceptionHandler(DuplicateUsernameException.class)
     public ResponseEntity<Object> handleDuplicateUsername(DuplicateUsernameException e) {
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("message", e.getMessage()));
     }
 
-    // guesthouse ID 타입에러
+    // 타입 불일치 예외 처리
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<?> handleTypeMismatchException(MethodArgumentTypeMismatchException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(Map.of("message", "guesthouse ID must be a number"));
+                .body(Map.of("message", "ID must be a number"));
     }
 
-    // 해당 guesthouse ID에 관한 내용을 찾지 못함.
+    // 상태 코드와 함께 발생하는 예외 처리
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<?> handleResponseStatusException(ResponseStatusException e) {
         return ResponseEntity.status(e.getStatusCode())
