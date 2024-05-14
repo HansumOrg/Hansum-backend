@@ -3,9 +3,13 @@ package com.example.hansumproject.controller;
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.entity.ReservationEntity;
 import com.example.hansumproject.entity.ReviewEntity;
+import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.repository.GuesthouseRepository;
 import com.example.hansumproject.service.GuesthouseService;
 //import com.example.hansumproject.service.ImageService;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,15 +19,20 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping("/guesthouses")
 public class GuesthouseController {
 
     @Autowired
     private GuesthouseService guesthouseService;
+
+    @Autowired
+    private JWTUtil jwtUtil;
 
     // 게스트하우스 상세 정보 조회
     @GetMapping("/{guesthouseId}")
@@ -58,4 +67,22 @@ public class GuesthouseController {
         return ResponseEntity.ok(reviewData);
     }
 
+    // 게스트하우스 예약
+    @PostMapping("/{guesthouseId}")
+    public ResponseEntity<?> createReservation(@PathVariable Long guesthouseId,
+                                               HttpServletRequest request,
+                                               @RequestBody Map<String, String> requestBody) throws ParseException {
+        String access = request.getHeader("access"); // 'access' 헤더에서 토큰 가져오기
+        Long userId = jwtUtil.getUserId(access);
+
+        // Body 값 가져오기
+        String checkin = requestBody.get("checkin_date");
+        String checkout = requestBody.get("checkout_date");
+
+        // 예약 로직
+        guesthouseService.createReservation(guesthouseId, userId, checkin, checkout);
+
+        return ResponseEntity.ok(Map.of("message", "Reservation created successfully"));
+    }
 }
+

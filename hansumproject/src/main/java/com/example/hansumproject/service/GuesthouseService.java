@@ -1,6 +1,5 @@
 package com.example.hansumproject.service;
 
-import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.entity.*;
 import com.example.hansumproject.repository.*;
 import lombok.extern.slf4j.Slf4j;
@@ -16,10 +15,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -100,6 +98,31 @@ public class GuesthouseService {
                 "guesthouse_name", reviews.get(0).getGuesthouse().getGuesthouseName(),
                 "reviews", formattedReviews
         );
+    }
+
+    // 게스트하우스 예약
+    @Transactional
+    public ReservationEntity createReservation(Long guesthouseId, Long userId, String checkinStr, String checkoutStr) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Timestamp checkinDate = new Timestamp(dateFormat.parse(checkinStr).getTime());
+        Timestamp checkoutDate = new Timestamp(dateFormat.parse(checkoutStr).getTime());
+
+        // 유저 Entity와 게스트하우스 Entity 찾기
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user ID: " + userId));
+        GuesthouseEntity guesthouse = guesthouseRepository.findById(guesthouseId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid guesthouse ID: " + guesthouseId));
+
+        // 저장 Entity 생성
+        ReservationEntity reservationEntity = new ReservationEntity();
+        reservationEntity.setUser(user);
+        reservationEntity.setGuesthouse(guesthouse);
+        reservationEntity.setCheckinDate(checkinDate);
+        reservationEntity.setCheckoutDate(checkoutDate);
+
+        // 저장
+        return reservationRepository.save(reservationEntity);
+
     }
 }
 
