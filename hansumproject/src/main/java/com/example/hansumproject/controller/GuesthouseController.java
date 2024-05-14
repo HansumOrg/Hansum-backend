@@ -14,6 +14,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -42,7 +43,15 @@ public class GuesthouseController {
     }
 
     // 추천 게스트하우스 조회
+    @GetMapping("/recommendation")
+    public ResponseEntity<?> getRecommendations(@RequestParam String mbti) {
+        // 서비스 호출
+        List<Map<String, ?>> recommendations = guesthouseService.getRecommendationsByMbti(mbti);
 
+        return ResponseEntity.ok(Map.of(
+                "recommendations", recommendations
+        ));
+    }
 
     // 게스트하우스 예약
     @PostMapping("/{guesthouseId}")
