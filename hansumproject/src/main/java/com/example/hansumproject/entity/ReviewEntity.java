@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -29,5 +30,5 @@ public class ReviewEntity {
     private Float rating; // 점수
 
     @Column(name = "createdDate", nullable = false)
-    private Timestamp createdDate; // 작성 일자
+    private LocalDateTime createdDate; // 작성 일자
 }

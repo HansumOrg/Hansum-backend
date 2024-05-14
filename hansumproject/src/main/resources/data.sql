@@ -1019,3 +1019,12 @@ INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
 VALUES (479, 30, 'ESTJ', 0.0065);
 INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
 VALUES (480, 30, 'ESTP', 0.0092);
+
+
+# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (1, 1, 3, 4.0, "2024-05-10 15:00:00");
+# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (2, 1, 5, 3.0, "2024-05-10 16:00:00");
+# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (3, 1, 5, 3.5, "2024-05-10 12:00:00");
+# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (4, 1, 3, 5.0, "2024-05-10 09:00:00");
+# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (5, 1, 3, 5.0, "2024-05-11 15:00:00");
+# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (6, 1, 4, 2.0, "2024-05-12 15:30:00");
+# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (7, 1, 6, 0.0, "2024-05-13 12:00:00");

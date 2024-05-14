@@ -2,9 +2,10 @@ package com.example.hansumproject.controller;
 
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.entity.ReservationEntity;
+import com.example.hansumproject.entity.ReviewEntity;
 import com.example.hansumproject.repository.GuesthouseRepository;
 import com.example.hansumproject.service.GuesthouseService;
-import com.example.hansumproject.service.ImageService;
+//import com.example.hansumproject.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,9 +25,6 @@ public class GuesthouseController {
     @Autowired
     private GuesthouseService guesthouseService;
 
-    @Autowired
-    private ImageService imageService;
-
     // 게스트하우스 상세 정보 조회
     @GetMapping("/{guesthouseId}")
     public ResponseEntity<?> getGuesthouseDetail(@PathVariable Long guesthouseId) {
@@ -36,7 +34,7 @@ public class GuesthouseController {
     // 게스트하우스 이미지 조회
     @GetMapping("/{guesthouseId}/{imageUrl}")
     public ResponseEntity<?> downloadImageFromFileSystem(@PathVariable("imageUrl") String fileName) throws IOException {
-        byte[] downloadImage = imageService.downloadImageFromFileSystem(fileName);
+        byte[] downloadImage = guesthouseService.downloadImageFromFileSystem(fileName);
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.valueOf("image/jpeg"))
                 .body(downloadImage);
@@ -53,9 +51,11 @@ public class GuesthouseController {
         ));
     }
 
-    // 게스트하우스 예약
-    @PostMapping("/{guesthouseId}")
-    public ResponseEntity<?> createReservation(@PathVariable Long guesthouseId, @RequestBody ReservationDto reservationDto) {
-        return guesthouseService.createReservation(guesthouseId, reservationDto);
+    // 게스트하우스 리뷰 조회
+    @GetMapping("/{guesthouseId}/reviews")
+    public ResponseEntity<?> getGuesthouseReviews(@PathVariable("guesthouseId") Long guesthouseId) {
+        Map<String, Object> reviewData = guesthouseService.getFormattedReviewByGuesthouseId(guesthouseId);
+        return ResponseEntity.ok(reviewData);
     }
+
 }

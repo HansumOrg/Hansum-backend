@@ -1,14 +1,8 @@
 package com.example.hansumproject.service;
 
 import com.example.hansumproject.dto.ReservationDto;
-import com.example.hansumproject.entity.GuesthouseEntity;
-import com.example.hansumproject.entity.MbtiProbEntity;
-import com.example.hansumproject.entity.ReservationEntity;
-import com.example.hansumproject.entity.UserEntity;
-import com.example.hansumproject.repository.GuesthouseRepository;
-import com.example.hansumproject.repository.MbtiProbRepository;
-import com.example.hansumproject.repository.ReservationRepository;
-import com.example.hansumproject.repository.UserRepository;
+import com.example.hansumproject.entity.*;
+import com.example.hansumproject.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,9 +11,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -39,6 +38,9 @@ public class GuesthouseService {
     @Autowired
     private MbtiProbRepository mbtiProbRepository;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
     // 게스트하우스 상세 정보 조회
     public ResponseEntity<?> getGuesthouseDetail(Long guesthouseId) {
         Optional<GuesthouseEntity> target = guesthouseRepository.findById(guesthouseId);
@@ -48,31 +50,24 @@ public class GuesthouseService {
         return ResponseEntity.ok(target.get());
     }
 
-    // 게스트하우스 예약(userId 관련 구현 필요)
-    @Transactional
-    public ResponseEntity<?> createReservation(Long guesthouseId, ReservationDto reservationDto) {
-        Optional<GuesthouseEntity> guesthouseEntity = guesthouseRepository.findById(guesthouseId);
-        Optional<UserEntity> userEntity = userRepository.findById(reservationDto.getUser().getUserId());
+    // FileSystem에서 이미지를 다운로드하여 byte 배열로 반환
+    public byte[] downloadImageFromFileSystem(String fileName) throws IOException {
+        log.info("fileName : {}", fileName);
+        // GuesthouseEntity에서 url명 가져와서 image 가져와도 될듯.
+        GuesthouseEntity guesthouseEntity = guesthouseRepository.findByImageUrlContaining(fileName);
+        String test = guesthouseEntity.getImageUrl();
+        log.info("test : {}", test);
+        String currentWorkingDir = System.getProperty("user.dir");
+        String fullPath = Paths.get(currentWorkingDir,"/src/main/java/com/example/hansumproject/files",test).toString();
 
-        if (guesthouseEntity.isEmpty() || userEntity.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The requested user or guesthouse ID does not exist.");
-        }
+        log.info("download filePath : {}",fullPath);
 
-        ReservationEntity reservation = new ReservationEntity();
-        reservation.setUser(userEntity.get());
-        reservation.setGuesthouse(guesthouseEntity.get());
-        reservation.setCheckinDate(Timestamp.valueOf(reservationDto.getCheckinDate().toLocalDateTime()));
-        reservation.setCheckoutDate(Timestamp.valueOf(reservationDto.getCheckoutDate().toLocalDateTime()));
-
-        reservationRepository.save(reservation);
-
-        return ResponseEntity.ok(Map.of(
-                "message", "Reservation created successfully"
-        ));
+        // 파일의 byte 배열을 읽어 반환
+        return Files.readAllBytes(new File(fullPath).toPath());
     }
 
     // 추천 게스트하우스 조회
-    public List<Map<String, ?>> getRecommendationsByMbti(String mbti) {
+    public List<Map<String,?>> getRecommendationsByMbti(String mbti) {
         List<MbtiProbEntity> recommendations = mbtiProbRepository.findByMbtiOrderByProbabilityDesc(mbti);
 
         if (recommendations.isEmpty()) {
@@ -87,4 +82,24 @@ public class GuesthouseService {
         )).collect(Collectors.toList());
     }
 
+    // 게스트하우스 리뷰 조회
+    public Map<String, Object> getFormattedReviewByGuesthouseId(Long guesthouseId) {
+        List<ReviewEntity> reviews = reviewRepository.findByGuesthouse_GuesthouseId(guesthouseId);
+        if (reviews.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Guesthouse NOT FOUND");
+        }
+
+        List<Map<String, ?>> formattedReviews = reviews.stream().map(review -> Map.of(
+                "user_name", review.getUser().getName(),
+                "guesthouse_name", review.getGuesthouse().getGuesthouseName(),
+                "rating", review.getRating(),
+                "created_date", review.getCreatedDate()
+        )).collect(Collectors.toList());
+
+        return Map.of(
+                "guesthouse_name", reviews.get(0).getGuesthouse().getGuesthouseName(),
+                "reviews", formattedReviews
+        );
+    }
 }
+
