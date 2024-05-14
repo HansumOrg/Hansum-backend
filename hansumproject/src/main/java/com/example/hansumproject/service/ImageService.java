@@ -1,6 +1,8 @@
 package com.example.hansumproject.service;
 
+import com.example.hansumproject.entity.GuesthouseEntity;
 import com.example.hansumproject.entity.ImageEntity;
+import com.example.hansumproject.repository.GuesthouseRepository;
 import com.example.hansumproject.repository.ImageRepository;
 import com.example.hansumproject.utils.ImageUtils;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.Normalizer;
 import java.util.Arrays;
 
@@ -21,9 +25,11 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class ImageService {
     // 파일 경로 지정
-    private  final String FOLDER_PATH = "/Users/kimdonguk/coding/캡스톤3/Hansum-backend/hansumproject/src/main/java/com/example/hansumproject/files/";
+    private  final String FOLDER_PATH = "{절대경로}";
 
     private final ImageRepository imageRepository;
+
+    private final GuesthouseRepository guesthouseRepository;
 
     // 이미지 파일을 서버 FileSystem에 업로드하고 DB에는 Path를 저장.
     public String uploadImageToFileSystem(MultipartFile file) throws IOException {
@@ -51,20 +57,17 @@ public class ImageService {
     // FileSystem에서 이미지를 다운로드하여 byte 배열로 반환
     public byte[] downloadImageFromFileSystem(String fileName) throws IOException {
         log.info("fileName : {}", fileName);
-        // 파일 이름 정규화(조합형)
-        String newFileName = Normalizer.normalize(fileName, Normalizer.Form.NFD);
-        ImageEntity fileData = imageRepository.findByNameContaining(newFileName);
-        if (fileData == null){
-            log.info("fileData null");
-        }
+        // GuesthouseEntity에서 url명 가져와서 image 가져와도 될듯.
+        GuesthouseEntity guesthouseEntity = guesthouseRepository.findByImageUrlContaining(fileName);
+        String test = guesthouseEntity.getImageUrl();
+        log.info("test : {}", test);
+        String currentWorkingDir = System.getProperty("user.dir");
+        String fullPath = Paths.get(currentWorkingDir,"/src/main/java/com/example/hansumproject/files",test).toString();
 
-        String filePath = fileData.getFilePath();
-
-        log.info("download fileData: {}", fileData);
-        log.info("download filePath: {}", filePath);
+        log.info("download filePath : {}",fullPath);
 
         // 파일의 byte 배열을 읽어 반환
-        return Files.readAllBytes(new File(filePath).toPath());
+        return Files.readAllBytes(new File(fullPath).toPath());
     }
 }
 
