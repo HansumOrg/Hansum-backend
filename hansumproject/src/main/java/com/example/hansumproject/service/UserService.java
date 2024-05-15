@@ -1,9 +1,12 @@
 package com.example.hansumproject.service;
 
+import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.entity.GuesthouseEntity;
+import com.example.hansumproject.entity.ReservationEntity;
 import com.example.hansumproject.entity.ReviewEntity;
 import com.example.hansumproject.entity.UserEntity;
 import com.example.hansumproject.repository.GuesthouseRepository;
+import com.example.hansumproject.repository.ReservationRepository;
 import com.example.hansumproject.repository.ReviewRepository;
 import com.example.hansumproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -26,6 +30,9 @@ public class UserService {
 
     @Autowired
     private ReviewRepository reviewRepository;
+
+    @Autowired
+    private ReservationRepository reservationRepository;
 
     // 게스트하우스 리뷰 작성
     public Map<String, Object> createReview(Long userId, Long guesthouseId, Float rating) {
@@ -68,5 +75,22 @@ public class UserService {
 
         guesthouse.setRating(roundedRating);
         guesthouseRepository.save(guesthouse);
+    }
+
+    // 사용자의 예약 현황 조회
+    public List<ReservationDto> getUserReservations(Long userId) {
+        List<ReservationEntity> reservationEntities = reservationRepository.findByUserUserId(userId);
+        return reservationEntities.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
+    // ReservationEntity -> ReservationDto
+    private ReservationDto convertToDto(ReservationEntity reservationEntity) {
+        return new ReservationDto(
+                reservationEntity.getReservationId(),
+                reservationEntity.getUser().getUserId(),
+                reservationEntity.getGuesthouse().getGuesthouseId(),
+                reservationEntity.getCheckinDate().toString(),
+                reservationEntity.getCheckoutDate().toString()
+        );
     }
 }

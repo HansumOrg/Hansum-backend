@@ -1,15 +1,14 @@
 package com.example.hansumproject.controller;
 
+import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -36,5 +35,15 @@ public class UserController {
 
         return ResponseEntity.ok(response);
     }
-    
+
+    // 사용자 예약 현황 조회
+    @GetMapping("/reservation-record")
+    public ResponseEntity<?> getUserReservations(HttpServletRequest request) {
+        String access = request.getHeader("access");
+        Long userId = jwtUtil.getUserId(access);
+
+        List<ReservationDto> reservationDtos = userService.getUserReservations(userId);
+
+        return ResponseEntity.ok(Map.of("reservation_records", reservationDtos));
+    }
 }

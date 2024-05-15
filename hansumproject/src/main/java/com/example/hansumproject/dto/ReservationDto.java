@@ -13,12 +13,8 @@ import lombok.*;
 @Setter
 public class ReservationDto {
     private Long reservationId; // 예약 ID
-
-    private UserEntity user; // 회원 ID
-
-    private GuesthouseEntity guesthouse; // 게스트하우스 ID
-
-    private Timestamp checkinDate; // 체크인 날짜
-
-    private Timestamp checkoutDate; // 체크아웃 날짜
+    private Long userId; // 회원 ID
+    private Long guesthouseId; // 게스트하우스 ID
+    private String checkinDate; // 체크인 날짜(string)
+    private String checkoutDate; // 체크아웃 날짜(string)
 }
