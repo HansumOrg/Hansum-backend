@@ -47,6 +47,9 @@ public class JWTFilter extends OncePerRequestFilter {
             //access token이 만료되었다면,
             //response body
             PrintWriter writer = response.getWriter();
+
+            // json 형태로 "messsage" : "access token expired"처럼 출력해야함.
+            // 나중에 GlobalExceptionHandler에 있는 함수쓰면 될듯.
             writer.print("access token expired");
 
             //response status code
@@ -63,6 +66,9 @@ public class JWTFilter extends OncePerRequestFilter {
 
             //response body
             PrintWriter writer = response.getWriter();
+
+            // json 형태로 "messsage" : "invalid access token"처럼 출력해야함.
+            // 나중에 GlobalExceptionHandler에 있는 함수쓰면 될듯.
             writer.print("invalid access token");
 
             //response status code
