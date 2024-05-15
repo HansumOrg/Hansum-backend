@@ -182,5 +182,34 @@ public class GuesthouseService {
         );
     }
 
+    public Map<String, Object> findGuestsByReservationId(Long reservationId) throws Exception {
+        ReservationEntity reservationEntity = reservationRepository.findById(reservationId)
+                .orElseThrow(() -> new IllegalArgumentException("Reservation not found"));
+
+        List<ReservationEntity> reservationEntities = reservationRepository.findOverlappingReservations(
+                reservationEntity.getGuesthouse().getGuesthouseId(),
+                reservationEntity.getCheckinDate(),
+                reservationEntity.getCheckoutDate());
+
+        List<Map<String, ?>> guests = reservationEntities.stream()
+                .filter(r -> !r.getReservationId().equals(reservationId))
+                .map(r -> Map.of(
+                        "user_id", r.getUser().getUserId(),
+                        "username", r.getUser().getUsername(),
+                        "nickname", r.getUser().getNickname(),
+                        "mbti", r.getUser().getMbti(),
+                        "checkin", r.getCheckinDate(),
+                        "checkout", r.getCheckoutDate()
+                )).collect(Collectors.toList());
+
+        return Map.of(
+                "guesthouse_id", reservationEntity.getGuesthouse().getGuesthouseId(),
+                "guesthouse_name", reservationEntity.getGuesthouse().getGuesthouseName(),
+                "checkin_date", reservationEntity.getCheckinDate().toString(),
+                "checkout_date", reservationEntity.getCheckoutDate().toString(),
+                "guests", guests
+        );
+
+    }
 }
 

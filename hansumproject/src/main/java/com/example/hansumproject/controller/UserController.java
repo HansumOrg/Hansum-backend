@@ -2,6 +2,7 @@ package com.example.hansumproject.controller;
 
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.jwt.JWTUtil;
+import com.example.hansumproject.service.GuesthouseService;
 import com.example.hansumproject.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private GuesthouseService guesthouseService;
 
     @Autowired
     private JWTUtil jwtUtil;
@@ -45,5 +49,11 @@ public class UserController {
         List<ReservationDto> reservationDtos = userService.getUserReservations(userId);
 
         return ResponseEntity.ok(Map.of("reservation_records", reservationDtos));
+    }
+
+    // 같이 사용한 게스트 조회
+    @GetMapping("/guest/{reservationId}")
+    public ResponseEntity<?> getGuestsByReservation(@PathVariable Long reservationId) throws Exception {
+        return ResponseEntity.ok(guesthouseService.findGuestsByReservationId(reservationId));
     }
 }
