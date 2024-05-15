@@ -71,4 +71,18 @@ public class UserController {
         userService.sendStickers(recipientId, stickerTexts);
         return ResponseEntity.ok(Map.of("message", "Sticker sent successfully"));
     }
+
+    // 사용자가 받은 스티커 조회
+    @GetMapping("/sticker")
+    public ResponseEntity<?> getUserStickers(@RequestParam(required = false) Long userId, HttpServletRequest request) {
+        // 사용자 ID 가져오기
+        String access = request.getHeader("access");
+        Long defaultUserId = jwtUtil.getUserId(access);
+        // 요청 파라미터에서 userId가 제공되지 않았다면 JWT의 userId 사용
+        // userId가 들어왔다는 것은 다른 사람의 스티커를 조회하겠다는 것.
+        Long effectiveUserId = (userId != null) ? userId : defaultUserId;
+
+        List<StickerDto> stickerDtos = userService.getUserStickers(effectiveUserId);
+        return ResponseEntity.ok(Map.of("user_id", effectiveUserId, "stickers", stickerDtos));
+    }
 }

@@ -15,7 +15,9 @@ import java.util.List;
 @Getter
 @Setter
 public class StickerDto {
+    private Long stickerId; // 스티커 ID
     private Long userId; // 받는 사람의 회원 ID
-
     private List<String> stickerTexts; // 스티커 내용
+    private int stickerCount; // 스티커 개수
+
 }

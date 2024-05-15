@@ -1,16 +1,21 @@
 package com.example.hansumproject.service;
 
 import com.example.hansumproject.dto.ReservationDto;
+import com.example.hansumproject.dto.StickerDto;
 import com.example.hansumproject.entity.*;
 import com.example.hansumproject.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -108,6 +113,22 @@ public class UserService {
 
             stickerRepository.save(sticker);
         }
+    }
+
+    // 받은 스티커 조회
+    public List<StickerDto> getUserStickers(Long userId) {
+        List<StickerEntity> stickerEntities = stickerRepository.findByUserUserId(userId);
+        if (stickerEntities.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found or no stickers available");
+        }
+
+        return stickerEntities.stream()
+                .map(sticker -> new StickerDto(
+                        sticker.getStickerId(),
+                        sticker.getUser().getUserId(),
+                        List.of(sticker.getStickerText()),
+                        sticker.getStickerCount()
+                )).collect(Collectors.toList());
     }
 
 }
