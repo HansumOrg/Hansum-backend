@@ -25,4 +25,12 @@ public class StickerEntity {
     @Column(name = "stickerCount", nullable = false)
     @ColumnDefault("0")
     private int stickerCount ; // 스티커 개수
+
+    // 추가 생성자
+    public StickerEntity(UserEntity user, String stickerText, int stickerCount) {
+        this.user = user;
+        this.stickerText = stickerText;
+        this.stickerCount = stickerCount;
+    }
+
 }

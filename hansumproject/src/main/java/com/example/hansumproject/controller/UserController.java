@@ -1,10 +1,12 @@
 package com.example.hansumproject.controller;
 
 import com.example.hansumproject.dto.ReservationDto;
+import com.example.hansumproject.dto.StickerDto;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.service.GuesthouseService;
 import com.example.hansumproject.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -55,5 +58,17 @@ public class UserController {
     @GetMapping("/guest/{reservationId}")
     public ResponseEntity<?> getGuestsByReservation(@PathVariable Long reservationId) throws Exception {
         return ResponseEntity.ok(guesthouseService.findGuestsByReservationId(reservationId));
+    }
+
+    // 스티커 작성
+    @PostMapping("/sticker")
+    public ResponseEntity<?> sendSticker(@RequestBody StickerDto stickerDto) {
+
+        // 필요 정보 가져오기
+        Long recipientId = stickerDto.getUserId();
+        List<String> stickerTexts = stickerDto.getStickerTexts();
+
+        userService.sendStickers(recipientId, stickerTexts);
+        return ResponseEntity.ok(Map.of("message", "Sticker sent successfully"));
     }
 }

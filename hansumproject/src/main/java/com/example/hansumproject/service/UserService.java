@@ -1,17 +1,13 @@
 package com.example.hansumproject.service;
 
 import com.example.hansumproject.dto.ReservationDto;
-import com.example.hansumproject.entity.GuesthouseEntity;
-import com.example.hansumproject.entity.ReservationEntity;
-import com.example.hansumproject.entity.ReviewEntity;
-import com.example.hansumproject.entity.UserEntity;
-import com.example.hansumproject.repository.GuesthouseRepository;
-import com.example.hansumproject.repository.ReservationRepository;
-import com.example.hansumproject.repository.ReviewRepository;
-import com.example.hansumproject.repository.UserRepository;
+import com.example.hansumproject.entity.*;
+import com.example.hansumproject.repository.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
@@ -20,6 +16,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class UserService {
 
     @Autowired
@@ -33,6 +30,9 @@ public class UserService {
 
     @Autowired
     private ReservationRepository reservationRepository;
+
+    @Autowired
+    private StickerRepository stickerRepository;
 
     // 게스트하우스 리뷰 작성
     public Map<String, Object> createReview(Long userId, Long guesthouseId, Float rating) {
@@ -93,4 +93,21 @@ public class UserService {
                 reservationEntity.getCheckoutDate().toString()
         );
     }
+
+    // 스티커 작성
+    @Transactional
+    public void sendStickers(Long recipientId, List<String> stickerTexts) {
+        UserEntity recipient = userRepository.findById(recipientId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipient not found"));
+
+        for (String text : stickerTexts) {
+            StickerEntity sticker = stickerRepository.findByUserAndStickerText(recipient, text)
+                    .orElse(new StickerEntity(recipient, text, 0));
+
+            sticker.setStickerCount(sticker.getStickerCount() + 1);
+
+            stickerRepository.save(sticker);
+        }
+    }
+
 }
