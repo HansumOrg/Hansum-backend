@@ -97,5 +97,12 @@ public class GuesthouseController {
 
         return ResponseEntity.ok(Map.of("message", "Reservation created successfully"));
     }
+
+    // 게스트하우스 예약자들 MBTI 조회
+    @GetMapping("/{guesthouseId}/members")
+    public ResponseEntity<?> getMembers(@PathVariable Long guesthouseId) {
+        Map<String, Object> memberInfo = guesthouseService.getMembersByGuesthouse(guesthouseId);
+        return ResponseEntity.ok(memberInfo);
+    }
 }
 

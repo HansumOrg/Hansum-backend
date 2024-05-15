@@ -156,5 +156,31 @@ public class GuesthouseService {
 
     }
 
+
+    // 예약한 사람들의 MBTI 조회
+    public Map<String, Object> getMembersByGuesthouse(Long guesthouseId) {
+        GuesthouseEntity guesthouseEntity = guesthouseRepository.findById(guesthouseId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Guesthouse not found"));
+
+        List<ReservationEntity> reservations = reservationRepository.findByGuesthouseGuesthouseId(guesthouseId);
+        if (reservations.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No reservations found");
+        }
+
+        List<Map<String, ?>> members = reservations.stream()
+                .map(reservation -> Map.of(
+                        "user_id", reservation.getUser().getUserId(),
+                        "username", reservation.getUser().getUsername(),
+                        "nickname", reservation.getUser().getNickname(),
+                        "mbti", reservation.getUser().getMbti()
+                )).collect(Collectors.toList());
+
+        return Map.of(
+                "guesthouse_id", guesthouseId,
+                "guesthouse_name", guesthouseEntity.getGuesthouseName(),
+                "members", members
+        );
+    }
+
 }
 
