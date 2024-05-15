@@ -54,10 +54,7 @@ public class GuesthouseController {
     public ResponseEntity<?> searchGuesthouses(@RequestParam(required = false) String location,
                                                @RequestParam(required = false) String checkin_date,
                                                @RequestParam(required = false) String checkout_date) {
-        log.info("Received search request with location: {}, checkin_date: {}, checkout_date: {}", location, checkin_date, checkout_date);
-
         Map<String, Object> result = guesthouseService.searchGuesthouses(location, checkin_date, checkout_date);
-        log.info("controller:{}",result.toString());
         return ResponseEntity.ok(result);
     }
 
