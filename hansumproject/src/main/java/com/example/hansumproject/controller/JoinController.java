@@ -10,9 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,12 +21,12 @@ public class JoinController {
 
     private final JoinService joinService;
 
-    public JoinController(JoinService joinService){
+    public JoinController(JoinService joinService) {
         this.joinService = joinService;
     }
 
     @PostMapping("/join")
-    public ResponseEntity<Object> joinProcess(@RequestBody @Valid UserDto userDto, BindingResult bindingResult){
+    public ResponseEntity<Object> joinProcess(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("message", bindingResult.getFieldError().getDefaultMessage());
@@ -47,5 +45,48 @@ public class JoinController {
         responseBody.put("name", createdUser.getName());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseBody);
+    }
+
+    // username(로그인ID) 중복 확인
+    @GetMapping("/check-username")
+    public ResponseEntity<Map<String, Object>> checkUsername(@RequestParam String username) {
+        Map<String, Object> response = new HashMap<>();
+        try {
+            boolean exists = joinService.existsByUsername(username);
+
+            if (exists) {
+                response.put("message", "Username is already in use.");
+                response.put("is_username_available", false);
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+            } else {
+                response.put("message", "Username is available");
+                response.put("is_username_available", true);
+                return ResponseEntity.ok(response);
+            }
+        } catch (IllegalArgumentException e) {
+            response.put("message", "Username cannot be null or empty.");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
+    }
+
+    @GetMapping("/check-nickname")
+    public ResponseEntity<Map<String, Object>> checkNickname(@RequestParam String nickname) {
+        Map<String, Object> response = new HashMap<>();
+        try {
+            boolean exists = joinService.existsByNickname(nickname);
+
+            if (exists) {
+                response.put("message", "Nickname is already in use.");
+                response.put("is_nickname_available", false);
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+            } else {
+                response.put("message", "Nickname is available");
+                response.put("is_nickname_available", true);
+                return ResponseEntity.ok(response);
+            }
+        } catch (IllegalArgumentException e) {
+            response.put("message", "Nickname cannot be null or empty.");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
     }
 }

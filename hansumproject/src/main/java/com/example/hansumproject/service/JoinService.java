@@ -21,6 +21,7 @@ public class JoinService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+    // 회원가입 메서드
     public UserEntity joinProcess(UserDto userDto){
 
         String username = userDto.getUsername();
@@ -63,5 +64,21 @@ public class JoinService {
         userRepository.save(newUser);
 
         return newUser;
+    }
+
+    // username 중복확인 메서드
+    public boolean existsByUsername(String username) {
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty");
+        }
+        return userRepository.existsByUsername(username);
+    }
+
+    // nickname 중복확인 메서드
+    public boolean existsByNickname(String nickname) {
+        if (nickname == null || nickname.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nickname cannot be null or empty");
+        }
+        return userRepository.existsByNickname(nickname);
     }
 }
