@@ -44,6 +44,42 @@ public class UserService {
         return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 
+    // username 중복확인 메서드
+    public boolean existsByUsername(String username) {
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty");
+        }
+        return userRepository.existsByUsername(username);
+    }
+
+    // nickname 중복확인 메서드
+    public boolean existsByNickname(String nickname) {
+        if (nickname == null || nickname.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nickname cannot be null or empty");
+        }
+        return userRepository.existsByNickname(nickname);
+    }
+
+    // 유저 닉네임 수정
+    @Transactional
+    public UserEntity updateNickname(Long userId, String newNickname) {
+        if (newNickname == null || newNickname.isEmpty()) {
+            throw new IllegalArgumentException("Nickname cannot be null or empty");
+        }
+
+        // 수정할 닉네임이 중복인지
+        if (existsByNickname(newNickname)) {
+            throw new IllegalArgumentException("Nickname is already in use");
+        }
+
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        user.setNickname(newNickname);
+
+        return userRepository.save(user);
+    }
+
     // 게스트하우스 리뷰 작성
     public Map<String, Object> createReview(Long userId, Long guesthouseId, Float rating) {
         // 평점 유효성 검증

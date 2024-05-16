@@ -5,6 +5,7 @@ import com.example.hansumproject.dto.JoinDTO;
 import com.example.hansumproject.dto.UserDto;
 import com.example.hansumproject.entity.UserEntity;
 import com.example.hansumproject.service.JoinService;
+import com.example.hansumproject.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +21,11 @@ import java.util.Map;
 public class JoinController {
 
     private final JoinService joinService;
+    private final UserService userService;
 
-    public JoinController(JoinService joinService) {
+    public JoinController(JoinService joinService, UserService userService) {
         this.joinService = joinService;
+        this.userService = userService;
     }
 
     @PostMapping("/join")
@@ -50,7 +53,7 @@ public class JoinController {
     // username(로그인ID) 중복 확인
     @GetMapping("/check-username")
     public ResponseEntity<Map<String, Object>> checkUsername(@RequestParam String username) {
-        boolean exists = joinService.existsByUsername(username);
+        boolean exists = userService.existsByUsername(username);
 
         Map<String, Object> response = new HashMap<>();
         if (exists) {
@@ -66,7 +69,7 @@ public class JoinController {
 
     @GetMapping("/check-nickname")
     public ResponseEntity<Map<String, Object>> checkNickname(@RequestParam String nickname) {
-        boolean exists = joinService.existsByNickname(nickname);
+        boolean exists = userService.existsByNickname(nickname);
 
         Map<String, Object> response = new HashMap<>();
         if (exists) {

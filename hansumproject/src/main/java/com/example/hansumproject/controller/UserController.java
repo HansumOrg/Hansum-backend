@@ -2,11 +2,13 @@ package com.example.hansumproject.controller;
 
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.dto.StickerDto;
+import com.example.hansumproject.dto.UserDto;
 import com.example.hansumproject.entity.UserEntity;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.service.GuesthouseService;
 import com.example.hansumproject.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +57,22 @@ public class UserController {
         response.put("interested_food", user.getInterestedFood());
         response.put("message", "User Info retrieved successfully");
 
+        return ResponseEntity.ok(response);
+    }
+
+    // 유저 닉네임 수정
+    @PutMapping("/nickname")
+    public ResponseEntity<?> updateNickname(@RequestHeader("access") String accessToken, @RequestBody UserDto userDto) {
+        // JWT 토큰에서 사용자 ID 추출
+        Long userId = jwtUtil.getUserId(accessToken);
+
+        // UserService를 통해 유저 정보 조회 및 닉네임 업데이트
+        UserEntity user = userService.updateNickname(userId, userDto.getNickname());
+
+        // 성공 응답
+        Map<String, Object> response = new HashMap<>();
+        response.put("nickname", user.getNickname());
+        response.put("message", "Nickname updated successfully");
         return ResponseEntity.ok(response);
     }
 
