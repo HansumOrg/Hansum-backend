@@ -38,21 +38,23 @@ public class ReissueService {
     }
 
     public String[] generateNewTokens(String refresh) {
+        Long userId = jwtUtil.getUserId(refresh); // JWT에서 userId 추출
         String username = jwtUtil.getUsername(refresh);
         String role = jwtUtil.getRole(refresh);
 
-        String newAccess = jwtUtil.createJwt("access", username, role, 600000L);
-        String newRefresh = jwtUtil.createJwt("refresh", username, role, 86400000L);
+        String newAccess = jwtUtil.createJwt("access", username, userId, role, 600000L);
+        String newRefresh = jwtUtil.createJwt("refresh", username, userId, role, 86400000L);
 
         // Save new refresh token
-        addRefreshEntity(username, newRefresh, 86400000L);
+        addRefreshEntity(userId, username, newRefresh, 86400000L);
 
         return new String[]{newAccess, newRefresh};
     }
 
-    private void addRefreshEntity(String username, String refresh, Long expiredMs) {
+    private void addRefreshEntity(Long userId, String username, String refresh, Long expiredMs) {
         Date expirationDate = new Date(System.currentTimeMillis() + expiredMs);
         RefreshEntity refreshEntity = new RefreshEntity();
+        refreshEntity.setUserId(userId);
         refreshEntity.setUsername(username);
         refreshEntity.setRefresh(refresh);
         refreshEntity.setExpiration(expirationDate.toString());

@@ -64,7 +64,9 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) {
         //유저 정보 가지고 옴
+        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
         String username = authentication.getName();
+        Long userId = userDetails.getUserId(); // userId 가져오기
 
         //유저 권한 가지고 옴
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -75,11 +77,11 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         //토큰 생성
         //access 토큰 생명주기 10분
         //refresh 토큰 생명 주기 24시간
-        String access = jwtUtil.createJwt("access", username, role, 600000L);
-        String refresh = jwtUtil.createJwt("refresh", username, role, 86400000L);
+        String access = jwtUtil.createJwt("access", username, userId, role, 600000L);
+        String refresh = jwtUtil.createJwt("refresh", username, userId, role, 86400000L);
 
         //Refresh token을 DB에 저장
-        addRefreshEntity(username, refresh, 86400000L);
+        addRefreshEntity(userId, username, refresh, 86400000L);
 
         //로그인 성공 시 Header에 access token, refresh token 담아서 보냄
         response.setHeader("access", access);
@@ -96,11 +98,12 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     }
 
     // Refresh token을 DB에 저장하는 메서드
-    private void addRefreshEntity(String username, String refresh, Long expiredMs) {
+    private void addRefreshEntity(Long userId, String username, String refresh, Long expiredMs) {
 
         Date date = new Date(System.currentTimeMillis() + expiredMs);
 
         RefreshEntity refreshEntity = new RefreshEntity();
+        refreshEntity.setUserId(userId); // userId refresh
         refreshEntity.setUsername(username);
         refreshEntity.setRefresh(refresh);
         refreshEntity.setExpiration(date.toString());
