@@ -30,17 +30,19 @@ public class JoinController {
     @PostMapping("/join")
     public ResponseEntity<Object> joinProcess(@RequestBody @Valid UserDto userDto, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
-            return ResponseEntity.badRequest().body(bindingResult.getFieldError().getDefaultMessage());
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", bindingResult.getFieldError().getDefaultMessage());
+            return ResponseEntity.badRequest().body(errorResponse);
         }
 
         UserEntity createdUser = joinService.joinProcess(userDto);
 
         if (createdUser == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("회원가입 실패");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Registration failed");
         }
 
         Map<String, Object> responseBody = new HashMap<>();
-        responseBody.put("message", "회원가입 성공");
+        responseBody.put("message", "Registration successful");
         responseBody.put("userId", createdUser.getUserId());
         responseBody.put("name", createdUser.getName());
 
