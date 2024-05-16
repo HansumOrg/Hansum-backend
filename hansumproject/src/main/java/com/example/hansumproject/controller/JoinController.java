@@ -50,43 +50,33 @@ public class JoinController {
     // username(로그인ID) 중복 확인
     @GetMapping("/check-username")
     public ResponseEntity<Map<String, Object>> checkUsername(@RequestParam String username) {
-        Map<String, Object> response = new HashMap<>();
-        try {
-            boolean exists = joinService.existsByUsername(username);
+        boolean exists = joinService.existsByUsername(username);
 
-            if (exists) {
-                response.put("message", "Username is already in use.");
-                response.put("is_username_available", false);
-                return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
-            } else {
-                response.put("message", "Username is available");
-                response.put("is_username_available", true);
-                return ResponseEntity.ok(response);
-            }
-        } catch (IllegalArgumentException e) {
-            response.put("message", "Username cannot be null or empty.");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        Map<String, Object> response = new HashMap<>();
+        if (exists) {
+            response.put("message", "Username is already in use.");
+            response.put("is_username_available", false);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+        } else {
+            response.put("message", "Username is available");
+            response.put("is_nickname_available", true);
+            return ResponseEntity.ok(response);
         }
     }
 
     @GetMapping("/check-nickname")
     public ResponseEntity<Map<String, Object>> checkNickname(@RequestParam String nickname) {
-        Map<String, Object> response = new HashMap<>();
-        try {
-            boolean exists = joinService.existsByNickname(nickname);
+        boolean exists = joinService.existsByNickname(nickname);
 
-            if (exists) {
-                response.put("message", "Nickname is already in use.");
-                response.put("is_nickname_available", false);
-                return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
-            } else {
-                response.put("message", "Nickname is available");
-                response.put("is_nickname_available", true);
-                return ResponseEntity.ok(response);
-            }
-        } catch (IllegalArgumentException e) {
-            response.put("message", "Nickname cannot be null or empty.");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        Map<String, Object> response = new HashMap<>();
+        if (exists) {
+            response.put("message", "Nickname is already in use.");
+            response.put("is_nickname_available", false);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+        } else {
+            response.put("message", "Nickname is available");
+            response.put("is_nickname_available", true);
+            return ResponseEntity.ok(response);
         }
     }
 }
