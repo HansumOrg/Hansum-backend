@@ -20,6 +20,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
@@ -87,12 +88,37 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         response.setHeader("access", access);
         response.setHeader("refresh", refresh);
 
+        // 응답 바디에 메시지 추가
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        // 응답 바디에 JSON 메시지 작성
+        try (PrintWriter writer = response.getWriter()) {
+            writer.write("{\"message\": \"Login Success.\"}");
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         response.setStatus(HttpStatus.OK.value());
     }
 
     //로그인 실패시 실행하는 메소드
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
+
+        // 응답 바디에 메시지 추가
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        // 응답 바디에 JSON 메시지 작성
+        try (PrintWriter writer = response.getWriter()) {
+            writer.write("{\"message\": \"Login Fail.\"}");
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //로그인 실패시 401 응답 코드 반환
         response.setStatus(401);
     }
