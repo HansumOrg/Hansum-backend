@@ -2,6 +2,7 @@ package com.example.hansumproject.controller;
 
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.dto.StickerDto;
+import com.example.hansumproject.entity.UserEntity;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.service.GuesthouseService;
 import com.example.hansumproject.service.UserService;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +29,34 @@ public class UserController {
 
     @Autowired
     private JWTUtil jwtUtil;
+
+    // 유저 정보 조회
+    @GetMapping("")
+    public ResponseEntity<?> showUser(@RequestHeader("access") String accessToken) {
+
+        // JWT 토큰에서 사용자 ID 추출
+        Long userId = jwtUtil.getUserId(accessToken);
+
+        // UserService를 통해 유저 정보 조회
+        UserEntity user = userService.getUserInfo(userId);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("user_id", user.getUserId());
+        response.put("username", user.getUsername());
+        response.put("name", user.getName());
+        response.put("phone", user.getPhone());
+        response.put("sex", user.getSex());
+        response.put("birthday", user.getBirthday());
+        response.put("nickname", user.getNickname());
+        response.put("mbti", user.getMbti());
+        response.put("user_agreement", user.getUserAgreement());
+        response.put("interested_location", user.getInterestedLocation());
+        response.put("interest_hobby", user.getInterestedHobby());
+        response.put("interested_food", user.getInterestedFood());
+        response.put("message", "User Info retrieved successfully");
+
+        return ResponseEntity.ok(response);
+    }
 
     // 리뷰 작성
     @PostMapping("/review")

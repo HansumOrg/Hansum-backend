@@ -45,4 +45,6 @@ public class UserDto {
     private String interestedHobby; //관심사-취미
 
     private String interestedFood; // 관심사-음식
+
+    private String interestedLocation; // 관심사-관광지
 }

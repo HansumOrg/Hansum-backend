@@ -39,6 +39,11 @@ public class UserService {
     @Autowired
     private StickerRepository stickerRepository;
 
+    // 유저 정보 조회
+    public UserEntity getUserInfo(Long userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
+    }
+
     // 게스트하우스 리뷰 작성
     public Map<String, Object> createReview(Long userId, Long guesthouseId, Float rating) {
         // 평점 유효성 검증
