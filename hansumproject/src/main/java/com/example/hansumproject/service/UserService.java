@@ -107,6 +107,15 @@ public class UserService {
         dibsRepository.save(dibs);
     }
 
+    // 찜 삭제
+    @Transactional
+    public void removeDibs(Long userId, Long guesthouseId) {
+        DibsEntity dibs = dibsRepository.findByUser_UserIdAndGuesthouse_GuesthouseId(userId, guesthouseId)
+                .orElseThrow(() -> new IllegalArgumentException("Dibs not found for this user and guesthouse"));
+
+        dibsRepository.delete(dibs);
+    }
+
     // 게스트하우스 리뷰 작성
     public Map<String, Object> createReview(Long userId, Long guesthouseId, Float rating) {
         // 평점 유효성 검증

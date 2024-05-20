@@ -98,6 +98,24 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
+    // 찜 삭제
+    @DeleteMapping("/dibs")
+    public ResponseEntity<Object> removeDibs(@RequestHeader("access") String accessToken, @RequestBody Map<String, Object> request) {
+        Long userId = jwtUtil.getUserId(accessToken);
+        Long guesthouseId = Long.parseLong(request.get("guesthouse_id").toString());
+
+        // guesthouseId가 null인 경우
+        if (guesthouseId == null) {
+            throw new IllegalArgumentException("guesthouse_id is required");
+        }
+
+        userService.removeDibs(userId, guesthouseId);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Guesthouse successfully removed from dibs");
+        return ResponseEntity.ok(response);
+    }
+
 
     // 리뷰 작성
     @PostMapping("/review")
