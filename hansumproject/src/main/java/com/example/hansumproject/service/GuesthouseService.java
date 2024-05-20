@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -39,29 +40,90 @@ public class GuesthouseService {
     @Autowired
     private ReviewRepository reviewRepository;
 
+    // 이미지 파일을 Base64로 인코딩하여 문자열로 반환
+    public String encodeFileToBase64Binary(String fileName) {
+        try {
+            // 해당 이미지 path 가져오기
+            GuesthouseEntity guesthouseEntity = guesthouseRepository.findByImageUrlContaining(fileName);
+            String imageUrl = guesthouseEntity.getImageUrl();
+            String currentWorkingDir = System.getProperty("user.dir");
+            String fullPath = Paths.get(currentWorkingDir,"/src/main/java/com/example/hansumproject/files",imageUrl).toString();
+
+            // byte 배열로 읽어오기
+            byte[] fileContent = Files.readAllBytes(new File(fullPath).toPath());
+            // Base64로 인코딩
+            return Base64.getEncoder().encodeToString(fileContent);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     // 게스트하우스 상세 정보 조회
     public ResponseEntity<?> getGuesthouseDetail(Long guesthouseId) {
         Optional<GuesthouseEntity> target = guesthouseRepository.findById(guesthouseId);
         if (target.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Guesthouse not found with ID: " + guesthouseId);
         }
-        return ResponseEntity.ok(target.get());
+
+        // 반환 Entity 만들기
+        GuesthouseEntity guesthouseEntity = target.get();
+        Map<String, Object> response = new HashMap<>();
+
+        response.put("guesthouse_id", guesthouseEntity.getGuesthouseId());
+        response.put("guesthouse_name", guesthouseEntity.getGuesthouseName());
+        response.put("address", guesthouseEntity.getAddress());
+        response.put("location", guesthouseEntity.getLocation());
+        response.put("price", guesthouseEntity.getPrice());
+        response.put("phone", guesthouseEntity.getPhone());
+        response.put("rating", guesthouseEntity.getRating());
+        response.put("mood", guesthouseEntity.getMood());
+
+        // 이미지 Base64 변화
+        String base64Image = encodeFileToBase64Binary(guesthouseEntity.getImageUrl());
+        response.put("imageBase64", base64Image);
+
+        return ResponseEntity.ok(response);
     }
 
-    // FileSystem에서 이미지를 다운로드하여 byte 배열로 반환
+    // FileSystem에서 이미지를 다운로드하여 base64 encoding 하고 결과를 다시 decode해서 반환해보기(테스트용)
     public byte[] downloadImageFromFileSystem(String fileName) throws IOException {
-        log.info("fileName : {}", fileName);
-        // GuesthouseEntity에서 url명 가져와서 image 가져와도 될듯.
+        log.info("filename:{}", fileName);
+        // fileName가지고 게스트하우스 Entity 가져오기
         GuesthouseEntity guesthouseEntity = guesthouseRepository.findByImageUrlContaining(fileName);
+        if (guesthouseEntity == null) {
+            log.error("No guesthouse entity found for fileName: {}", fileName);
+            throw new FileNotFoundException("Guesthouse entity not found for the given fileName");
+        }
+
+        // ImageUrl 가져오기
         String test = guesthouseEntity.getImageUrl();
         log.info("test : {}", test);
+        // 저장된 이미지 읽어오기(상대경로)
         String currentWorkingDir = System.getProperty("user.dir");
         String fullPath = Paths.get(currentWorkingDir,"/src/main/java/com/example/hansumproject/files",test).toString();
 
         log.info("download filePath : {}",fullPath);
 
-        // 파일의 byte 배열을 읽어 반환
-        return Files.readAllBytes(new File(fullPath).toPath());
+        File file = new File(fullPath);
+        if (!file.exists()) {
+            log.error("File does not exist at path: {}", fullPath);
+            throw new FileNotFoundException("File does not exist at path: " + fullPath);
+        }
+
+        try {
+            byte[] fileContent = Files.readAllBytes(file.toPath());
+            log.info("File content length : {}", fileContent.length);
+            // base64 encoding
+            String encodedString = Base64.getEncoder().encodeToString(fileContent);
+            log.info("encodedString length : {}", encodedString.length());
+            // base64 decoding
+            byte[] decodedImgae = Base64.getDecoder().decode(encodedString);
+
+            return decodedImgae;
+        } catch (IOException e) {
+            log.error("Error reading file at path: {}", fullPath, e);
+            throw e;
+        }
     }
 
     // 게스트하우스 검색 결과 조회
@@ -78,7 +140,8 @@ public class GuesthouseService {
                 guesthouseMap.put("price", guesthouse.getPrice());
                 guesthouseMap.put("phone", guesthouse.getPhone());
                 guesthouseMap.put("rating", guesthouse.getRating());
-                guesthouseMap.put("imageUrl", guesthouse.getImageUrl() != null ? guesthouse.getImageUrl() : "default.jpg");
+                String base64Image = encodeFileToBase64Binary(guesthouse.getImageUrl()); // 이미지 인코딩
+                guesthouseMap.put("imageBase64", base64Image);
                 guesthouseMap.put("mood", guesthouse.getMood());
                 return guesthouseMap;
             }).collect(Collectors.toList());
@@ -92,7 +155,6 @@ public class GuesthouseService {
         } catch (Exception e) {
             throw e;
         }
-
     }
 
     // 추천 게스트하우스 조회
@@ -102,13 +164,20 @@ public class GuesthouseService {
         if (recommendations.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "NO guesthouse recommendations");
         }
-        return recommendations.stream().limit(10).map(r -> Map.of (
-                "guesthouse_name", r.getGuesthouse().getGuesthouseName(),
-                "guesthouse_id", r.getGuesthouse().getGuesthouseId(),
-                "imageUrl", r.getGuesthouse().getImageUrl(),
-                "probability", r.getProbability(),
-                "rank", recommendations.indexOf(r) + 1
-        )).collect(Collectors.toList());
+
+
+        return recommendations.stream().limit(10).map(r -> {
+            Map<String, Object> recommendationMap = new HashMap<>();
+            recommendationMap.put("guesthouse_name", r.getGuesthouse().getGuesthouseName());
+            recommendationMap.put("guesthouse_id", r.getGuesthouse().getGuesthouseId());
+            recommendationMap.put("probability", r.getProbability());
+            recommendationMap.put("rank", recommendations.indexOf(r) + 1);
+
+            // 이미지 encoding
+            String base64Image = encodeFileToBase64Binary(r.getGuesthouse().getImageUrl());
+            recommendationMap.put("imageBase64", base64Image);
+            return recommendationMap;
+        }).collect(Collectors.toList());
     }
 
     // 게스트하우스 리뷰 조회
@@ -153,9 +222,7 @@ public class GuesthouseService {
 
         // 저장
         return reservationRepository.save(reservationEntity);
-
     }
-
 
     // 예약한 사람들의 MBTI 조회
     public Map<String, Object> getMembersByGuesthouse(Long guesthouseId) {
@@ -182,6 +249,7 @@ public class GuesthouseService {
         );
     }
 
+    // 같이 사용한 게스트 조회
     public Map<String, Object> findGuestsByReservationId(Long reservationId) throws Exception {
         ReservationEntity reservationEntity = reservationRepository.findById(reservationId)
                 .orElseThrow(() -> new IllegalArgumentException("Reservation not found"));
