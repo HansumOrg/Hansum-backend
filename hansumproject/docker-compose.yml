@@ -16,9 +16,9 @@ services:
 
   spring-boot-app:
 # spring-boot-app build 파일 필요 시
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: hansumproject0520
     image : hansumproject-spring-boot-app:latest
     environment:
