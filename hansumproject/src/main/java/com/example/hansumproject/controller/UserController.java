@@ -1,5 +1,6 @@
 package com.example.hansumproject.controller;
 
+import com.example.hansumproject.dto.DibsDto;
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.dto.StickerDto;
 import com.example.hansumproject.dto.UserDto;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,6 +77,27 @@ public class UserController {
         response.put("message", "Nickname updated successfully");
         return ResponseEntity.ok(response);
     }
+
+    // 찜 등록
+    @PostMapping("/dibs")
+    public ResponseEntity<Object> addDibs(@RequestHeader("access") String accessToken, @RequestBody Map<String, Object> request) {
+
+        Long userId = jwtUtil.getUserId(accessToken);
+        Long guesthouseId = Long.parseLong(request.get("guesthouse_id").toString());
+
+        // guesthouseId가 null인 경우
+        if (guesthouseId == null) {
+            throw new IllegalArgumentException("guesthouse_id is required");
+        }
+
+        // Dibs 추가 로직 실행
+        userService.addDibs(userId, guesthouseId);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "guesthouse successfully added to dibs");
+        return ResponseEntity.ok(response);
+    }
+
 
     // 리뷰 작성
     @PostMapping("/review")

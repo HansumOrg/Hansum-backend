@@ -39,6 +39,9 @@ public class UserService {
     @Autowired
     private StickerRepository stickerRepository;
 
+    @Autowired
+    private DibsRepository dibsRepository;
+
     // 유저 정보 조회
     public UserEntity getUserInfo(Long userId) {
         return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
@@ -78,6 +81,30 @@ public class UserService {
         user.setNickname(newNickname);
 
         return userRepository.save(user);
+    }
+
+    // 찜 등록
+    @Transactional
+    public void addDibs(Long userId, Long guesthouseId) {
+
+        // 중복되는 찜이 있을 경우
+        if (dibsRepository.existsByUser_UserIdAndGuesthouse_GuesthouseId(userId, guesthouseId)) {
+            throw new IllegalArgumentException("Dibs already exists for this user and guesthouse");
+        }
+
+        // 사용자가 존재하지 않을 경우
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        // 게스트하우스가 존재하지 않을 경우
+        GuesthouseEntity guesthouse = guesthouseRepository.findById(guesthouseId)
+                .orElseThrow(() -> new IllegalArgumentException("Guesthouse not found"));
+
+        DibsEntity dibs = new DibsEntity();
+        dibs.setUser(user);
+        dibs.setGuesthouse(guesthouse);
+
+        dibsRepository.save(dibs);
     }
 
     // 게스트하우스 리뷰 작성
