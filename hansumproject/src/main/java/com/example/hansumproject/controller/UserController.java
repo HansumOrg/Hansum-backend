@@ -1,9 +1,6 @@
 package com.example.hansumproject.controller;
 
-import com.example.hansumproject.dto.DibsDto;
-import com.example.hansumproject.dto.ReservationDto;
-import com.example.hansumproject.dto.StickerDto;
-import com.example.hansumproject.dto.UserDto;
+import com.example.hansumproject.dto.*;
 import com.example.hansumproject.entity.UserEntity;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.service.GuesthouseService;
@@ -112,10 +109,24 @@ public class UserController {
         userService.removeDibs(userId, guesthouseId);
 
         Map<String, String> response = new HashMap<>();
-        response.put("message", "Guesthouse successfully removed from dibs");
+        response.put("message", "guesthouse successfully removed from dibs");
         return ResponseEntity.ok(response);
     }
 
+    // 리뷰 수정
+    @PutMapping("/interest")
+    public ResponseEntity<Object> updateInterests(@RequestHeader("access") String accessToken, @RequestBody UserInterestDto userInterestDto) {
+        Long userId = jwtUtil.getUserId(accessToken);
+
+        log.info("Service before");
+
+        // 관심사 업데이트 로직 실행
+        userService.updateUserInterests(userId, userInterestDto);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Interests updated successfully");
+        return ResponseEntity.ok(response);
+    }
 
     // 리뷰 작성
     @PostMapping("/review")

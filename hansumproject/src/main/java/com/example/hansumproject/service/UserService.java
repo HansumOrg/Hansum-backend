@@ -2,8 +2,12 @@ package com.example.hansumproject.service;
 
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.dto.StickerDto;
+import com.example.hansumproject.dto.UserInterestDto;
 import com.example.hansumproject.entity.*;
 import com.example.hansumproject.repository.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +27,6 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class UserService {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -86,7 +89,6 @@ public class UserService {
     // 찜 등록
     @Transactional
     public void addDibs(Long userId, Long guesthouseId) {
-
         // 중복되는 찜이 있을 경우
         if (dibsRepository.existsByUser_UserIdAndGuesthouse_GuesthouseId(userId, guesthouseId)) {
             throw new IllegalArgumentException("Dibs already exists for this user and guesthouse");
@@ -114,6 +116,39 @@ public class UserService {
                 .orElseThrow(() -> new IllegalArgumentException("Dibs not found for this user and guesthouse"));
 
         dibsRepository.delete(dibs);
+    }
+
+    // 리뷰 수정
+    @Transactional
+    public void updateUserInterests(Long userId, UserInterestDto userInterestDto) {
+
+        log.info("Service start");
+
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        // null이 아닌 경우에만 업데이트
+        if (userInterestDto.getInterestedFood() == null){
+            user.setInterestedFood(user.getInterestedFood());
+        }else {
+            user.setInterestedFood(String.join(", ", userInterestDto.getInterestedFood()));
+        }
+
+        if (userInterestDto.getInterestedLocation() == null){
+            user.setInterestedLocation(user.getInterestedLocation());
+        }else {
+            user.setInterestedLocation(String.join(", ", userInterestDto.getInterestedLocation()));
+        }
+
+        if (userInterestDto.getInterestedHobby() == null){
+            user.setInterestedHobby(user.getInterestedHobby());
+        }else {
+            user.setInterestedHobby(String.join(", ", userInterestDto.getInterestedHobby()));
+        }
+
+        log.info("before save");
+
+        userRepository.save(user);
     }
 
     // 게스트하우스 리뷰 작성
