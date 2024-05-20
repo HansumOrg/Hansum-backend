@@ -15,15 +15,18 @@ services:
       - test_network
 
   spring-boot-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
+# spring-boot-app build 파일 필요 시
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    container_name: hansumproject0520
+    image : hansumproject-spring-boot-app:latest
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/hansumDB?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: "root"
       SPRING_DATASOURCE_PASSWORD: "1234"
+    ports:
+      - "8080:8080"
     depends_on:
       - mysql
     networks:
