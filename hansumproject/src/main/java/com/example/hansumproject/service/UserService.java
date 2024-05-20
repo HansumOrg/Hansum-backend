@@ -1,5 +1,6 @@
 package com.example.hansumproject.service;
 
+import com.example.hansumproject.dto.DibsDto;
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.dto.StickerDto;
 import com.example.hansumproject.dto.UserInterestDto;
@@ -18,15 +19,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.nio.file.Files;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 @Slf4j
 public class UserService {
+    private final GuesthouseService guesthouseService;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -44,6 +46,12 @@ public class UserService {
 
     @Autowired
     private DibsRepository dibsRepository;
+
+    // encodeFileToBase64Binary 사용 위해 guesthouseService 가져오기
+    @Autowired
+    public UserService(GuesthouseService guesthouseService) {
+        this.guesthouseService = guesthouseService;
+    }
 
     // 유저 정보 조회
     public UserEntity getUserInfo(Long userId) {
@@ -116,6 +124,34 @@ public class UserService {
                 .orElseThrow(() -> new IllegalArgumentException("Dibs not found for this user and guesthouse"));
 
         dibsRepository.delete(dibs);
+    }
+
+    // 찜 목록
+    public Map<String, Object> getUserDibs(Long userId) {
+        // 찜 목록 가져오기
+        List<DibsEntity> dibsEntities = dibsRepository.findByUserUserId(userId);
+        if (dibsEntities.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No dibs found for the user");
+        }
+
+        // 각 찜마다 게스트하우스 정보 넣기.
+        List<DibsDto> dibsDtos = dibsEntities.stream().map(dibs -> {
+            GuesthouseEntity guesthouse = dibs.getGuesthouse();
+            // 이미지는 base64 인코딩(guesthouseService에 있는 메서드 사용)
+            String base64Image = guesthouseService.encodeFileToBase64Binary(guesthouse.getImageUrl());
+            return new DibsDto(
+                    dibs.getDibsId(),
+                    guesthouse.getGuesthouseId(),
+                    guesthouse.getGuesthouseName(),
+                    guesthouse.getAddress(),
+                    base64Image
+            );
+        }).collect(Collectors.toList());
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("user_id", userId);
+        response.put("dibs", dibsDtos);
+        return response;
     }
 
     // 리뷰 수정
