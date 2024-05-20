@@ -21,6 +21,7 @@ public class JoinService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+    // 회원가입 메서드
     public UserEntity joinProcess(UserDto userDto){
 
         String username = userDto.getUsername();
@@ -40,7 +41,7 @@ public class JoinService {
         if (isExist){
 
             //중단 메세지 오류 추가
-            throw new DuplicateUsernameException("이미 사용 중인 사용자 ID 입니다.");
+            throw new DuplicateUsernameException("The username is already in use.");
         }
 
         UserEntity newUser = new UserEntity();
@@ -64,4 +65,6 @@ public class JoinService {
 
         return newUser;
     }
+
+
 }

@@ -1,16 +1,19 @@
 package com.example.hansumproject.controller;
 
-import com.example.hansumproject.dto.ReservationDto;
-import com.example.hansumproject.dto.StickerDto;
+import com.example.hansumproject.dto.*;
+import com.example.hansumproject.entity.UserEntity;
 import com.example.hansumproject.jwt.JWTUtil;
 import com.example.hansumproject.service.GuesthouseService;
 import com.example.hansumproject.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +30,103 @@ public class UserController {
 
     @Autowired
     private JWTUtil jwtUtil;
+
+    // 유저 정보 조회
+    @GetMapping("")
+    public ResponseEntity<?> showUser(@RequestHeader("access") String accessToken) {
+
+        // JWT 토큰에서 사용자 ID 추출
+        Long userId = jwtUtil.getUserId(accessToken);
+
+        // UserService를 통해 유저 정보 조회
+        UserEntity user = userService.getUserInfo(userId);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("user_id", user.getUserId());
+        response.put("username", user.getUsername());
+        response.put("name", user.getName());
+        response.put("phone", user.getPhone());
+        response.put("sex", user.getSex());
+        response.put("birthday", user.getBirthday());
+        response.put("nickname", user.getNickname());
+        response.put("mbti", user.getMbti());
+        response.put("user_agreement", user.getUserAgreement());
+        response.put("interested_location", user.getInterestedLocation());
+        response.put("interest_hobby", user.getInterestedHobby());
+        response.put("interested_food", user.getInterestedFood());
+        response.put("message", "User Info retrieved successfully");
+
+        return ResponseEntity.ok(response);
+    }
+
+    // 유저 닉네임 수정
+    @PutMapping("/nickname")
+    public ResponseEntity<?> updateNickname(@RequestHeader("access") String accessToken, @RequestBody UserDto userDto) {
+        // JWT 토큰에서 사용자 ID 추출
+        Long userId = jwtUtil.getUserId(accessToken);
+
+        // UserService를 통해 유저 정보 조회 및 닉네임 업데이트
+        UserEntity user = userService.updateNickname(userId, userDto.getNickname());
+
+        // 성공 응답
+        Map<String, Object> response = new HashMap<>();
+        response.put("nickname", user.getNickname());
+        response.put("message", "Nickname updated successfully");
+        return ResponseEntity.ok(response);
+    }
+
+    // 찜 등록
+    @PostMapping("/dibs")
+    public ResponseEntity<Object> addDibs(@RequestHeader("access") String accessToken, @RequestBody Map<String, Object> request) {
+
+        Long userId = jwtUtil.getUserId(accessToken);
+        Long guesthouseId = Long.parseLong(request.get("guesthouse_id").toString());
+
+        // guesthouseId가 null인 경우
+        if (guesthouseId == null) {
+            throw new IllegalArgumentException("guesthouse_id is required");
+        }
+
+        // Dibs 추가 로직 실행
+        userService.addDibs(userId, guesthouseId);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "guesthouse successfully added to dibs");
+        return ResponseEntity.ok(response);
+    }
+
+    // 찜 삭제
+    @DeleteMapping("/dibs")
+    public ResponseEntity<Object> removeDibs(@RequestHeader("access") String accessToken, @RequestBody Map<String, Object> request) {
+        Long userId = jwtUtil.getUserId(accessToken);
+        Long guesthouseId = Long.parseLong(request.get("guesthouse_id").toString());
+
+        // guesthouseId가 null인 경우
+        if (guesthouseId == null) {
+            throw new IllegalArgumentException("guesthouse_id is required");
+        }
+
+        userService.removeDibs(userId, guesthouseId);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "guesthouse successfully removed from dibs");
+        return ResponseEntity.ok(response);
+    }
+
+    // 리뷰 수정
+    @PutMapping("/interest")
+    public ResponseEntity<Object> updateInterests(@RequestHeader("access") String accessToken, @RequestBody UserInterestDto userInterestDto) {
+        Long userId = jwtUtil.getUserId(accessToken);
+
+        log.info("Service before");
+
+        // 관심사 업데이트 로직 실행
+        userService.updateUserInterests(userId, userInterestDto);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Interests updated successfully");
+        return ResponseEntity.ok(response);
+    }
 
     // 리뷰 작성
     @PostMapping("/review")

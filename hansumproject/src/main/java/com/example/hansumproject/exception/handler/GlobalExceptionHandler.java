@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     //시스템 오류 예외 처리
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGeneralException(Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "서버 오류가 발생했습니다."));
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "Server error."));
     }
 
     // 사용자 ID 또는 게스트하우스 ID 유효하지 않을 때의 예외
@@ -45,5 +45,4 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(e.getStatusCode())
                 .body(Map.of("message", e.getReason() == null ? e.getMessage() : e.getReason()));
     }
-
 }

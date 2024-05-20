@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.filter.GenericFilterBean;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class CustomLogoutFilter extends GenericFilterBean{
 
@@ -35,14 +36,12 @@ public class CustomLogoutFilter extends GenericFilterBean{
         //path and method verify
         String requestUri = request.getRequestURI();
         if (!requestUri.matches("^\\/logout$")) {
-
             filterChain.doFilter(request, response);
             return;
         }
         // "POST" 요청인지 확인
         String requestMethod = request.getMethod();
         if (!requestMethod.equals("POST")) {
-
             filterChain.doFilter(request, response);
             return;
         }
@@ -53,7 +52,10 @@ public class CustomLogoutFilter extends GenericFilterBean{
         //refresh Token이 없을 시 400 오류
         //refresh null check
         if (refresh == null) {
-
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            PrintWriter writer = response.getWriter();
+            writer.print("{\"message\": \"Refresh token is null.\"}");
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
@@ -63,8 +65,10 @@ public class CustomLogoutFilter extends GenericFilterBean{
         try {
             jwtUtil.isExpired(refresh);
         } catch (ExpiredJwtException e) {
-
-            //response status code
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            PrintWriter writer = response.getWriter();
+            writer.print("{\"message\": \"Refresh token has expired.\"}");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
@@ -72,8 +76,10 @@ public class CustomLogoutFilter extends GenericFilterBean{
         // 토큰이 refresh인지 확인 (발급시 페이로드에 명시)
         String category = jwtUtil.getCategory(refresh);
         if (!category.equals("refresh")) {
-
-            //response status code
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            PrintWriter writer = response.getWriter();
+            writer.print("{\"message\": \"Refresh token has expired.\"}");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
@@ -81,8 +87,10 @@ public class CustomLogoutFilter extends GenericFilterBean{
         //DB에 저장되어 있는지 확인
         Boolean isExist = refreshRepository.existsByRefresh(refresh);
         if (!isExist) {
-
-            //response status code
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            PrintWriter writer = response.getWriter();
+            writer.print("{\"message\": \"Refresh token not found.\"}");
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
@@ -91,6 +99,10 @@ public class CustomLogoutFilter extends GenericFilterBean{
         //Refresh 토큰 DB에서 제거
         refreshRepository.deleteByRefresh(refresh);
 
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter writer = response.getWriter();
+        writer.print("{\"message\": \"Logout successful.\"}");
         response.setStatus(HttpServletResponse.SC_OK);
     }
 }

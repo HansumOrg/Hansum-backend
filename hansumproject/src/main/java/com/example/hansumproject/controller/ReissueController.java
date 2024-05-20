@@ -17,9 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.Iterator;
+import java.util.*;
 
 @Controller
 @ResponseBody
@@ -35,15 +33,21 @@ public class ReissueController {
     public ResponseEntity<?> reissue(HttpServletRequest request, HttpServletResponse response) {
         String refresh = request.getHeader("refresh");
         if (refresh == null) {
-            return new ResponseEntity<>("refresh token null", HttpStatus.BAD_REQUEST);
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", "Refresh token null");
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
 
         if (!reissueService.isRefreshTokenValid(refresh)) {
-            return new ResponseEntity<>("refresh token expired or invalid", HttpStatus.BAD_REQUEST);
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", "Refresh token expired or invalid");
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
 
         if (!reissueService.isRefreshTokenAuthorized(refresh)) {
-            return new ResponseEntity<>("invalid refresh token", HttpStatus.BAD_REQUEST);
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", "Invalid refresh token");
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
 
         reissueService.deleteOldRefreshToken(refresh);
@@ -51,6 +55,8 @@ public class ReissueController {
         response.setHeader("access", tokens[0]);
         response.setHeader("refresh", tokens[1]);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        Map<String, String> successResponse = new HashMap<>();
+        successResponse.put("message", "Token reissued successfully");
+        return new ResponseEntity<>(successResponse, HttpStatus.OK);
     }
 }

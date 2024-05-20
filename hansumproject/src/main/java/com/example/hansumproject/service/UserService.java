@@ -2,8 +2,12 @@ package com.example.hansumproject.service;
 
 import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.dto.StickerDto;
+import com.example.hansumproject.dto.UserInterestDto;
 import com.example.hansumproject.entity.*;
 import com.example.hansumproject.repository.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +27,6 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class UserService {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -38,6 +41,115 @@ public class UserService {
 
     @Autowired
     private StickerRepository stickerRepository;
+
+    @Autowired
+    private DibsRepository dibsRepository;
+
+    // 유저 정보 조회
+    public UserEntity getUserInfo(Long userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
+    }
+
+    // username 중복확인 메서드
+    public boolean existsByUsername(String username) {
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty");
+        }
+        return userRepository.existsByUsername(username);
+    }
+
+    // nickname 중복확인 메서드
+    public boolean existsByNickname(String nickname) {
+        if (nickname == null || nickname.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nickname cannot be null or empty");
+        }
+        return userRepository.existsByNickname(nickname);
+    }
+
+    // 유저 닉네임 수정
+    @Transactional
+    public UserEntity updateNickname(Long userId, String newNickname) {
+        if (newNickname == null || newNickname.isEmpty()) {
+            throw new IllegalArgumentException("Nickname cannot be null or empty");
+        }
+
+        // 수정할 닉네임이 중복인지
+        if (existsByNickname(newNickname)) {
+            throw new IllegalArgumentException("Nickname is already in use");
+        }
+
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        user.setNickname(newNickname);
+
+        return userRepository.save(user);
+    }
+
+    // 찜 등록
+    @Transactional
+    public void addDibs(Long userId, Long guesthouseId) {
+        // 중복되는 찜이 있을 경우
+        if (dibsRepository.existsByUser_UserIdAndGuesthouse_GuesthouseId(userId, guesthouseId)) {
+            throw new IllegalArgumentException("Dibs already exists for this user and guesthouse");
+        }
+
+        // 사용자가 존재하지 않을 경우
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        // 게스트하우스가 존재하지 않을 경우
+        GuesthouseEntity guesthouse = guesthouseRepository.findById(guesthouseId)
+                .orElseThrow(() -> new IllegalArgumentException("Guesthouse not found"));
+
+        DibsEntity dibs = new DibsEntity();
+        dibs.setUser(user);
+        dibs.setGuesthouse(guesthouse);
+
+        dibsRepository.save(dibs);
+    }
+
+    // 찜 삭제
+    @Transactional
+    public void removeDibs(Long userId, Long guesthouseId) {
+        DibsEntity dibs = dibsRepository.findByUser_UserIdAndGuesthouse_GuesthouseId(userId, guesthouseId)
+                .orElseThrow(() -> new IllegalArgumentException("Dibs not found for this user and guesthouse"));
+
+        dibsRepository.delete(dibs);
+    }
+
+    // 리뷰 수정
+    @Transactional
+    public void updateUserInterests(Long userId, UserInterestDto userInterestDto) {
+
+        log.info("Service start");
+
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        // null이 아닌 경우에만 업데이트
+        if (userInterestDto.getInterestedFood() == null){
+            user.setInterestedFood(user.getInterestedFood());
+        }else {
+            user.setInterestedFood(String.join(", ", userInterestDto.getInterestedFood()));
+        }
+
+        if (userInterestDto.getInterestedLocation() == null){
+            user.setInterestedLocation(user.getInterestedLocation());
+        }else {
+            user.setInterestedLocation(String.join(", ", userInterestDto.getInterestedLocation()));
+        }
+
+        if (userInterestDto.getInterestedHobby() == null){
+            user.setInterestedHobby(user.getInterestedHobby());
+        }else {
+            user.setInterestedHobby(String.join(", ", userInterestDto.getInterestedHobby()));
+        }
+
+        log.info("before save");
+
+        userRepository.save(user);
+    }
 
     // 게스트하우스 리뷰 작성
     public Map<String, Object> createReview(Long userId, Long guesthouseId, Float rating) {

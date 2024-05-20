@@ -46,11 +46,12 @@ public class JWTFilter extends OncePerRequestFilter {
 
             //access token이 만료되었다면,
             //response body
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
 
-            // json 형태로 "messsage" : "access token expired"처럼 출력해야함.
-            // 나중에 GlobalExceptionHandler에 있는 함수쓰면 될듯.
-            writer.print("access token expired");
+            // JSON 형태로 "message" : "access token expired" 출력
+            writer.print("{\"message\": \"access token expired\"}");
 
             //response status code
             //SC_UNAUTHORIZED 401 코드
@@ -65,11 +66,12 @@ public class JWTFilter extends OncePerRequestFilter {
         if (!category.equals("access")) {
 
             //response body
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
 
-            // json 형태로 "messsage" : "invalid access token"처럼 출력해야함.
-            // 나중에 GlobalExceptionHandler에 있는 함수쓰면 될듯.
-            writer.print("invalid access token");
+            // JSON 형태로 "message" : "invalid access token" 출력
+            writer.print("{\"message\": \"invalid access token\"}");
 
             //response status code
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

@@ -13,36 +13,38 @@ import lombok.*;
 public class UserDto {
     private Long userId; // 회원ID
 
-    @NotBlank(message = "로그인 ID는 필수 입력 값입니다.")
+    @NotBlank(message = "Username is a required field.")
     private String username; // 로그인 ID
 
-    @NotBlank(message = "비밀번호는 필수 입력 값입니다.")
+    @NotBlank(message = "Password is a required field.")
     private String password; // 비밀번호
 
     private String role; // 사용자 권한
 
-    @NotBlank(message = "이름은 필수 입력 값입니다.")
+    @NotBlank(message = "Name is a required field.")
     private String name; // 이름
 
-    @NotBlank(message = "전화번호는 필수 입력 값입니다.")
+    @NotBlank(message = "Phone number is a required field.")
     private String phone; // 전화번호
 
-    @NotBlank(message = "성별은 필수 입력 값입니다.")
+    @NotBlank(message = "Sex is a required field.")
     private String sex; // 성별
 
-    @NotBlank(message = "생년월일은 필수 입력 값입니다.")
+    @NotBlank(message = "birthday is a required field.")
     private String birthday; // 생년월일
 
-    @NotBlank(message = "닉네임은 필수 입력 값입니다.")
+    @NotBlank(message = "Nickname is a required field.")
     private String nickname; // 닉네임
 
-    @NotBlank(message = "MBTI는 필수 입력 값입니다.")
+    @NotBlank(message = "MBTI is a required field.")
     private String mbti; // MBTI
 
-    @NotNull(message = "이용약관 동의는 필수입니다.")
+    @NotNull(message = "UserAgreement is required.")
     private Integer userAgreement; // 이용약관 동의
 
     private String interestedHobby; //관심사-취미
 
     private String interestedFood; // 관심사-음식
+
+    private String interestedLocation; // 관심사-관광지
 }
