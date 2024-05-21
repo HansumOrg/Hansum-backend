@@ -1,7 +1,7 @@
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (1, '미도호스텔', '제주 서귀포시 동문동로 13-1 미도호스텔 게스트하우스', '동문동', '25000', '0507-1303-7627', 0, '1_미도호스텔.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (2, '낯선하루', '제주 서귀포시 성산읍 신양로122번길 30-8 낯선하', '성산읍', '30000', '010-2480-1250', 0, '2_낮선하루.jpeg', '여유로운');
+VALUES (2, '낯선하루', '제주 서귀포시 성산읍 신양로122번길 30-8 낯선하', '성산읍', '30000', '010-2480-1250', 0, '2_낯선하루.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (3, '제주도게스트하우스 파티 간장남들', '제주 서귀포시 안덕면 사계북로41번길 30', 'Unknown', '20000', '0507-1335-9219', 0, '3_제주도게스트하우스 파티 간장남들.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)

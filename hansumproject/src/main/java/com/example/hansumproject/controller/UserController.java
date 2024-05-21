@@ -113,6 +113,14 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
+    // 찜 목록
+    @GetMapping("/dibs")
+    public ResponseEntity<?> getUserDibs(@RequestHeader("access") String accessToken) {
+        Long userId = jwtUtil.getUserId(accessToken);
+        Map<String, Object> dibsList = userService.getUserDibs(userId);
+        return ResponseEntity.ok(dibsList);
+    }
+
     // 리뷰 수정
     @PutMapping("/interest")
     public ResponseEntity<Object> updateInterests(@RequestHeader("access") String accessToken, @RequestBody UserInterestDto userInterestDto) {
