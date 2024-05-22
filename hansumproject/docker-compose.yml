@@ -3,6 +3,12 @@ services:
   mysql:
     container_name: mysql_db
     image: mysql:latest
+    # Mysql 서버가 완전히 켜졌는지 확인하기 위함
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     environment:
       MYSQL_ROOT_HOST: '%'
       MYSQL_ROOT_PASSWORD: 1234
@@ -15,12 +21,12 @@ services:
       - test_network
 
   spring-boot-app:
-# spring-boot-app build 파일 필요 시
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-    container_name: hansumproject0522
-    image : ukjang/hansumproject-spring-boot-app:latest
+    # spring-boot-app build 파일 필요 시
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #container_name: hansumproject0522
+    #image : ukjang/hansumproject-spring-boot-app:latest
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/hansumDB?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: "root"
@@ -28,7 +34,9 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - mysql
+      mysql:
+        # Mysql 서버가 완전히 켜졌을 시에 Springboot 서버 실행
+        condition: service_healthy
     networks:
       - test_network
 networks:
