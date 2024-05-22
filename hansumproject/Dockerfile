@@ -14,6 +14,9 @@ VOLUME /tmp
 # ARG JAR_FILE_PATH=target/*.jar
 COPY build/libs/hansumproject-0.0.1-SNAPSHOT.jar app.jar
 
+# image 포함
+COPY resources/images /app/images
+
 EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","/app.jar"]

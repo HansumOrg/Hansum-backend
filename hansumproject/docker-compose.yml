@@ -19,8 +19,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: hansumproject0520
-    image : hansumproject-spring-boot-app:latest
+#    container_name: hansumproject0520
+#    image : hansumproject-spring-boot-app:latest
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/hansumDB?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: "root"

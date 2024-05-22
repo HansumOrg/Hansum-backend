@@ -46,15 +46,31 @@ public class GuesthouseService {
             // 해당 이미지 path 가져오기
             GuesthouseEntity guesthouseEntity = guesthouseRepository.findByImageUrlContaining(fileName);
             String imageUrl = guesthouseEntity.getImageUrl();
-            String currentWorkingDir = System.getProperty("user.dir");
-            String fullPath = Paths.get(currentWorkingDir,"/src/main/java/com/example/hansumproject/files",imageUrl).toString();
+
+            // 기본 이미지 경로 설정
+            String imageDir = "/app/images";
+            String fullPath = Paths.get(imageDir, imageUrl).toString();
+
+            // 파일 존재 여부 확인
+            File file = new File(fullPath);
+            if (!file.exists()) {
+                throw new FileNotFoundException("File not found: " + fullPath);
+            }
 
             // byte 배열로 읽어오기
-            byte[] fileContent = Files.readAllBytes(new File(fullPath).toPath());
+            byte[] fileContent = Files.readAllBytes(file.toPath());
+
             // Base64로 인코딩
             return Base64.getEncoder().encodeToString(fileContent);
+        } catch (FileNotFoundException e) {
+            // 파일을 찾을 수 없는 경우
+            throw new IllegalArgumentException("File not found exception: " + e.getMessage(), e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            // 입출력 오류 발생
+            throw new IllegalArgumentException("IO exception occurred while reading the file: " + e.getMessage(), e);
+        } catch (Exception e) {
+            // 다른 모든 예외에 대한 처리
+            throw new IllegalArgumentException("An unexpected error occurred: " + e.getMessage(), e);
         }
     }
 
