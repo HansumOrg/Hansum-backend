@@ -149,7 +149,6 @@ public class UserService {
         }).collect(Collectors.toList());
 
         Map<String, Object> response = new HashMap<>();
-        response.put("user_id", userId);
         response.put("dibs", dibsDtos);
         return response;
     }
