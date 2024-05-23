@@ -143,9 +143,9 @@ public class GuesthouseService {
     }
 
     // 게스트하우스 검색 결과 조회
-    public Map<String, Object> searchGuesthouses(String location, String checkinDate, String checkoutDate) {
+    public Map<String, Object> searchGuesthouses(String guesthouseName, String location, String mood, List<String> facilities, int minPrice, int maxPrice) {
         try {
-            List<GuesthouseEntity> guesthouses = guesthouseRepository.findByLocation(location);
+            List<GuesthouseEntity> guesthouses = guesthouseRepository.searchGuesthouses(guesthouseName, location, mood, facilities, minPrice, maxPrice);
 
             List<Map<String, Object>> guesthouseList = guesthouses.stream().map(guesthouse -> {
                 Map<String, Object> guesthouseMap = new HashMap<>();
@@ -164,8 +164,6 @@ public class GuesthouseService {
 
             Map<String, Object> result = new HashMap<>();
             result.put("location", location);
-            result.put("checkin_date", checkinDate);
-            result.put("checkout_date", checkoutDate);
             result.put("guesthouses", guesthouseList);
             return result;
         } catch (Exception e) {

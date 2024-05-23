@@ -3,13 +3,15 @@ VALUES (1, '미도호스텔', '제주 서귀포시 동문동로 13-1 미도호�
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (2, '낯선하루', '제주 서귀포시 성산읍 신양로122번길 30-8 낯선하', '성산읍', '30000', '010-2480-1250', 0, '2_낯선하루.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (3, '제주도게스트하우스 파티 간장남들', '제주 서귀포시 안덕면 사계북로41번길 30', 'Unknown', '20000', '0507-1335-9219', 0, '3_제주도게스트하우스 파티 간장남들.jpeg', '여유로운');
+VALUES (3, '제주도게스트하우스 파티 간장남들', '제주 서귀포시 안덕면 사계북로41번길 30', 'Unknown', '20000', '0507-1335-9219', 0,
+        '3_제주도게스트하우스 파티 간장남들.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (4, '오소소게스트하우스', '제주 서귀포시 대정읍 비자낭로 23', '대정읍', '28000', '0507-1385-3592', 0, '4_오소소게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (5, '히든스테이', '제주 서귀포시 성산읍 성산중앙로40번길 12 히든스테이', '성산읍', '30000', '0507-1385-3800', 0, '5_히든스테이.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (6, '제주도성산바랑쉬게스트하우스', '제주 서귀포시 성산읍 환해장성로 496', '성산읍', '10900', '0507-1304-5697', 0, '6_제주도성산바랑쉬게스트하우스.jpeg', '여유로운');
+VALUES (6, '제주도성산바랑쉬게스트하우스', '제주 서귀포시 성산읍 환해장성로 496', '성산읍', '10900', '0507-1304-5697', 0, '6_제주도성산바랑쉬게스트하우스.jpeg',
+        '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (7, '루프탑정원', '제주 서귀포시 남원읍 태위로912번길 37', '남원읍', '25000', '0507-1308-3842', 0, '7_루프탑정원.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
@@ -17,7 +19,8 @@ VALUES (8, '빅썸 호스텔', '제주 서귀포시 남원읍 태위로 984-7 �
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (9, '또똣제주백팩커스', '제주 서귀포시 안덕면 사계남로153번길 10', 'Unknown', '0', '0507-1363-7051', 0, '9_또똣제주백팩커스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (10, '나무이야기 게스트하우스 남원점', '제주 서귀포시 남원읍 남한로21번길 9', '남원읍', '25000', '010-3389-4071', 0, '10_나무이야기 게스트하우스 남원점.jpeg', '여유로운');
+VALUES (10, '나무이야기 게스트하우스 남원점', '제주 서귀포시 남원읍 남한로21번길 9', '남원읍', '25000', '010-3389-4071', 0, '10_나무이야기 게스트하우스 남원점.jpeg',
+        '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (11, '하랑게스트하우스', '제주 서귀포시 대정읍 일과로13번길 1', '대정읍', '40000', '0507-1400-5585', 0, '11_하랑게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
@@ -25,39 +28,48 @@ VALUES (12, '표리네', '제주 서귀포시 표선면 표선중앙로 73-9 표
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (13, '돌담에꽃머무는집', '제주 서귀포시 안덕면 대평로 46', 'Unknown', '70000', '0507-1426-8942', 0, '13_돌담에꽃머무는집.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (14, '후스토리 게스트하우스', '제주 서귀포시 색달중앙로 15-1 후스토리 게스트하우스', 'Unknown', '25000', '0507-1414-2534', 0, '14_후스토리 게스트하우스.jpeg', '여유로운');
+VALUES (14, '후스토리 게스트하우스', '제주 서귀포시 색달중앙로 15-1 후스토리 게스트하우스', 'Unknown', '25000', '0507-1414-2534', 0,
+        '14_후스토리 게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (15, '무명화가의집게스트하우스', '제주 서귀포시 성산읍 시흥하동로55번길 23-5', '성산읍', '25000', '010-9594-6126', 0, '15_무명화가의집게스트하우스.jpeg', '여유로운');
+VALUES (15, '무명화가의집게스트하우스', '제주 서귀포시 성산읍 시흥하동로55번길 23-5', '성산읍', '25000', '010-9594-6126', 0, '15_무명화가의집게스트하우스.jpeg',
+        '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (16, '바람이 불어오는 곳', '제주 서귀포시 대정읍 상모대서로20번길 31-15', '대정읍', '25000', '010-7518-5579', 0, '16_바람이 불어오는 곳.jpeg', '여유로운');
+VALUES (16, '바람이 불어오는 곳', '제주 서귀포시 대정읍 상모대서로20번길 31-15', '대정읍', '25000', '010-7518-5579', 0, '16_바람이 불어오는 곳.jpeg',
+        '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (17, '스테이라움', '제주 서귀포시 성산읍 오조로 120 스테이라움', '성산읍', '140000', '0507-1312-9910', 0, '17_스테이라움.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (18, '담소 게스트하우스', '제주 서귀포시 칠십리로485번길 7-3 담소게스트하우스', 'Unknown', '38000', '0507-1343-2172', 0, '18_담소 게스트하우스.jpeg', '여유로운');
+VALUES (18, '담소 게스트하우스', '제주 서귀포시 칠십리로485번길 7-3 담소게스트하우스', 'Unknown', '38000', '0507-1343-2172', 0, '18_담소 게스트하우스.jpeg',
+        '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (19, '전망게스트하우스', '제주 서귀포시 성산읍 일출로 248 2층3층', '성산읍', '20000', '064-783-1568', 0, '19_전망게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (20, '하늘아래게스트하우스', '제주 서귀포시 표선면 세성로 123-24 하늘아래게스트하우스', 'Unknown', '70000', '010-2408-5602', 0, '20_하늘아래게스트하우스.jpeg', '여유로운');
+VALUES (20, '하늘아래게스트하우스', '제주 서귀포시 표선면 세성로 123-24 하늘아래게스트하우스', 'Unknown', '70000', '010-2408-5602', 0,
+        '20_하늘아래게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (21, '꿈인게스트하우스', '제주 서귀포시 말질로170번길 4-1', 'Unknown', '30000', '0507-1406-0095', 0, '21_꿈인게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (22, '성산에오거들랑게스트하우스', '제주 서귀포시 성산읍 고성동서로 13-7', '성산읍', '20000', '064-784-2692', 0, '22_성산에오거들랑게스트하우스.jpeg', '여유로운');
+VALUES (22, '성산에오거들랑게스트하우스', '제주 서귀포시 성산읍 고성동서로 13-7', '성산읍', '20000', '064-784-2692', 0, '22_성산에오거들랑게스트하우스.jpeg',
+        '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (23, '물고기나무', '제주 서귀포시 성산읍 중산간동로 4204-14', '성산읍', '45000', '0507-1483-1065', 0, '23_물고기나무.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (24, '스테이 동백', '제주 서귀포시 성산읍 오조로100번길 5', '성산읍', '40000', '0507-1355-9322', 0, '24_스테이 동백.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (25, '위미위드미 게스트하우스', '제주 서귀포시 남원읍 태위로151번길 17', '남원읍', '25000', '010-5176-1259', 0, '25_위미위드미 게스트하우스.jpeg', '여유로운');
+VALUES (25, '위미위드미 게스트하우스', '제주 서귀포시 남원읍 태위로151번길 17', '남원읍', '25000', '010-5176-1259', 0, '25_위미위드미 게스트하우스.jpeg',
+        '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (26, '늘푸른게스트하우스', '제주 서귀포시 대정읍 하모백사로 29', '대정읍', '55000', '0507-1437-7892', 0, '26_늘푸른게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (27, '블랑게스트하우스', '제주 서귀포시 표선면 표선관정로43번길 76-31', 'Unknown', '25000', '010-6276-0766', 0, '27_블랑게스트하우스.jpeg', '여유로운');
+VALUES (27, '블랑게스트하우스', '제주 서귀포시 표선면 표선관정로43번길 76-31', 'Unknown', '25000', '010-6276-0766', 0, '27_블랑게스트하우스.jpeg',
+        '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (28, '흰고래', '제주 서귀포시 이어도로1066번길 26', 'Unknown', '40000', '0507-1400-0471', 0, '28_흰고래.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (29, '달휴게스트하우스', '제주 서귀포시 성산읍 온평애향로23번길 25', '성산읍', '45000', '0507-1400-1641', 0, '29_달휴게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (30, '비욘드북카페&게스트하우스', '제주 서귀포시 성산읍 신천동로 24-30', '성산읍', '25000', '0507-1407-5195', 0, '30_비욘드북카페&게스트하우스.jpeg', '여유로운');
+VALUES (30, '비욘드북카페&게스트하우스', '제주 서귀포시 성산읍 신천동로 24-30', '성산읍', '25000', '0507-1407-5195', 0, '30_비욘드북카페&게스트하우스.jpeg',
+        '여유로운');
 
 INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
 VALUES (1, 1, 'INFJ', 0.1543);
@@ -1020,11 +1032,34 @@ VALUES (479, 30, 'ESTJ', 0.0065);
 INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
 VALUES (480, 30, 'ESTP', 0.0092);
 
-
-# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (1, 1, 3, 4.0, "2024-05-10 15:00:00");
-# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (2, 1, 5, 3.0, "2024-05-10 16:00:00");
-# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (3, 1, 5, 3.5, "2024-05-10 12:00:00");
-# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (4, 1, 3, 5.0, "2024-05-10 09:00:00");
-# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (5, 1, 3, 5.0, "2024-05-11 15:00:00");
-# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (6, 1, 4, 2.0, "2024-05-12 15:30:00");
-# INSERT INTO review_entity (review_id, user_id, guesthouse_id, rating, created_date) VALUES (7, 1, 6, 0.0, "2024-05-13 12:00:00");
+INSERT INTO facility_entity (breakfast, parking, party, singleroom, swimmingpool, woman_only, guesthouse_id) VALUES
+                                                                                                                 (1, 0, 1, 0, 1, 0, 1),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 2),
+                                                                                                                 (1, 1, 1, 1, 1, 1, 3),
+                                                                                                                 (0, 0, 0, 0, 0, 0, 4),
+                                                                                                                 (1, 0, 1, 0, 1, 0, 5),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 6),
+                                                                                                                 (1, 1, 1, 1, 1, 1, 7),
+                                                                                                                 (0, 0, 0, 0, 0, 0, 8),
+                                                                                                                 (1, 0, 1, 0, 1, 0, 9),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 10),
+                                                                                                                 (1, 1, 1, 1, 1, 1, 11),
+                                                                                                                 (0, 0, 0, 0, 0, 0, 12),
+                                                                                                                 (1, 0, 1, 0, 1, 0, 13),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 14),
+                                                                                                                 (1, 1, 1, 1, 1, 1, 15),
+                                                                                                                 (0, 0, 0, 0, 0, 0, 16),
+                                                                                                                 (1, 0, 1, 0, 1, 0, 17),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 18),
+                                                                                                                 (1, 1, 1, 1, 1, 1, 19),
+                                                                                                                 (0, 0, 0, 0, 0, 0, 20),
+                                                                                                                 (1, 0, 1, 0, 1, 0, 21),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 22),
+                                                                                                                 (1, 1, 1, 1, 1, 1, 23),
+                                                                                                                 (0, 0, 0, 0, 0, 0, 24),
+                                                                                                                 (1, 0, 1, 0, 1, 0, 25),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 26),
+                                                                                                                 (1, 1, 1, 1, 1, 1, 27),
+                                                                                                                 (0, 0, 0, 0, 0, 0, 28),
+                                                                                                                 (1, 0, 1, 0, 1, 0, 29),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 30);
