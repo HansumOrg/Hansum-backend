@@ -49,14 +49,14 @@ public class CustomLogoutFilter extends GenericFilterBean{
         //get refresh token
         String refresh = request.getHeader("refresh");
 
-        //refresh Token이 없을 시 400 오류
+        //refresh Token이 없을 시 401 오류
         //refresh null check
         if (refresh == null) {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
-            writer.print("{\"message\": \"Refresh token is null.\"}");
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            writer.print("{\"errorMessage\": \"Refresh token is null.\"}");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
 
@@ -68,7 +68,7 @@ public class CustomLogoutFilter extends GenericFilterBean{
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
-            writer.print("{\"message\": \"Refresh token has expired.\"}");
+            writer.print("{\"errorMessage\": \"Refresh token has expired.\"}");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
@@ -79,7 +79,7 @@ public class CustomLogoutFilter extends GenericFilterBean{
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
-            writer.print("{\"message\": \"Refresh token has expired.\"}");
+            writer.print("{\"errorMessage\": \"Refresh token has expired.\"}");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
@@ -90,8 +90,8 @@ public class CustomLogoutFilter extends GenericFilterBean{
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
-            writer.print("{\"message\": \"Refresh token not found.\"}");
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            writer.print("{\"errorMessage\": \"Refresh token not found.\"}");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
 

@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 @Service
-public class ReissueService {
+public class RefreshService {
 
     private final JWTUtil jwtUtil;
     private final RefreshRepository refreshRepository;
 
-    public ReissueService(JWTUtil jwtUtil, RefreshRepository refreshRepository) {
+    public RefreshService(JWTUtil jwtUtil, RefreshRepository refreshRepository) {
         this.jwtUtil = jwtUtil;
         this.refreshRepository = refreshRepository;
     }

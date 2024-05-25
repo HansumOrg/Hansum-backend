@@ -99,7 +99,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                 .requestMatchers("/login", "/", "/join", "/check-username", "/check-nickname").permitAll()
                 .requestMatchers("/admin").hasRole("ADMIN")
-                .requestMatchers("/reissue").permitAll()
+                .requestMatchers("/refresh").permitAll()
                 .anyRequest().authenticated());
 
 

@@ -113,7 +113,8 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         // 응답 바디에 JSON 메시지 작성
         try (PrintWriter writer = response.getWriter()) {
-            writer.write("{\"message\": \"Login Fail.\"}");
+            writer.write("{\"errorMessage\": \"Login Failed.\"}");
+            response.setStatus(401);
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();

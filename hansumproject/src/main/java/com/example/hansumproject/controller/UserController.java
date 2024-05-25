@@ -121,7 +121,7 @@ public class UserController {
         return ResponseEntity.ok(dibsList);
     }
 
-    // 리뷰 수정
+    // 관심사 수정
     @PutMapping("/interest")
     public ResponseEntity<Object> updateInterests(@RequestHeader("access") String accessToken, @RequestBody UserInterestDto userInterestDto) {
         Long userId = jwtUtil.getUserId(accessToken);
