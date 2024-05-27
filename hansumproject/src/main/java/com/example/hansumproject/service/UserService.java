@@ -230,10 +230,17 @@ public class UserService {
         guesthouseRepository.save(guesthouse);
     }
 
+
     // 사용자의 예약 현황 조회
-    public List<ReservationDto> getUserReservations(Long userId) {
+    public ResponseEntity<?> getUserReservations(Long userId) {
         List<ReservationEntity> reservationEntities = reservationRepository.findByUserUserId(userId);
-        return reservationEntities.stream().map(this::convertToDto).collect(Collectors.toList());
+
+        if (reservationEntities.isEmpty()) {
+            return new ResponseEntity<>(Map.of("message", "No reservation found for the user"), HttpStatus.NOT_FOUND);
+        }
+
+        List<ReservationDto> reservationDtos = reservationEntities.stream().map(this::convertToDto).collect(Collectors.toList());
+        return ResponseEntity.ok(reservationDtos);
     }
 
     // ReservationEntity -> ReservationDto
@@ -263,20 +270,30 @@ public class UserService {
         }
     }
 
+
     // 받은 스티커 조회
-    public List<StickerDto> getUserStickers(Long userId) {
-        List<StickerEntity> stickerEntities = stickerRepository.findByUserUserId(userId);
-        if (stickerEntities.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found or no stickers available");
+    public ResponseEntity<?> getUserStickers(Long userId) {
+        Optional<UserEntity> userEntityOptional = userRepository.findById(userId);
+
+        // 찾는 user가 없을 때
+        if (userEntityOptional.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("errorMessage", "user not found"));
         }
 
-        return stickerEntities.stream()
+        List<StickerEntity> stickerEntities = stickerRepository.findByUserUserId(userId);
+        if (stickerEntities.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("errorMessage", "No sticker found for the user"));
+        }
+
+        List<StickerDto> stickerDtos = stickerEntities.stream()
                 .map(sticker -> new StickerDto(
                         sticker.getStickerId(),
                         sticker.getUser().getUserId(),
                         List.of(sticker.getStickerText()),
                         sticker.getStickerCount()
                 )).collect(Collectors.toList());
+
+        return ResponseEntity.ok(stickerDtos);
     }
 
 }
