@@ -58,11 +58,11 @@ public class JoinController {
         Map<String, Object> response = new HashMap<>();
         if (exists) {
             response.put("errorMessage", "Username is already in use.");
-            response.put("is_username_available", false);
+            response.put("isUsernameAvailable", 0);
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         } else {
             response.put("message", "Username is available");
-            response.put("is_nickname_available", true);
+            response.put("isUsernameAvailable", 1);
             return ResponseEntity.ok(response);
         }
     }
@@ -75,11 +75,11 @@ public class JoinController {
         Map<String, Object> response = new HashMap<>();
         if (exists) {
             response.put("errorMessage", "Nickname is already in use.");
-            response.put("is_nickname_available", false);
+            response.put("isNicknameAvailable", 0);
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         } else {
             response.put("message", "Nickname is available");
-            response.put("is_nickname_available", true);
+            response.put("isNicknameAvailable", 1);
             return ResponseEntity.ok(response);
         }
     }

@@ -42,7 +42,6 @@ public class UserController {
         UserEntity user = userService.getUserInfo(userId);
 
         Map<String, Object> response = new HashMap<>();
-        response.put("user_id", user.getUserId());
         response.put("username", user.getUsername());
         response.put("name", user.getName());
         response.put("phone", user.getPhone());
@@ -50,10 +49,10 @@ public class UserController {
         response.put("birthday", user.getBirthday());
         response.put("nickname", user.getNickname());
         response.put("mbti", user.getMbti());
-        response.put("user_agreement", user.getUserAgreement());
-        response.put("interested_location", user.getInterestedLocation());
-        response.put("interest_hobby", user.getInterestedHobby());
-        response.put("interested_food", user.getInterestedFood());
+        response.put("userAgreement", user.getUserAgreement());
+        response.put("interestedLocation", user.getInterestedLocation());
+        response.put("interestHobby", user.getInterestedHobby());
+        response.put("interestedFood", user.getInterestedFood());
         response.put("message", "User Info retrieved successfully");
 
         return ResponseEntity.ok(response);
@@ -80,11 +79,11 @@ public class UserController {
     public ResponseEntity<Object> addDibs(@RequestHeader("access") String accessToken, @RequestBody Map<String, Object> request) {
 
         Long userId = jwtUtil.getUserId(accessToken);
-        Long guesthouseId = Long.parseLong(request.get("guesthouse_id").toString());
+        Long guesthouseId = Long.parseLong(request.get("guesthouseId").toString());
 
         // guesthouseId가 null인 경우
         if (guesthouseId == null) {
-            throw new IllegalArgumentException("guesthouse_id is required");
+            throw new IllegalArgumentException("guesthouseId is required");
         }
 
         // Dibs 추가 로직 실행
@@ -99,11 +98,11 @@ public class UserController {
     @DeleteMapping("/dibs")
     public ResponseEntity<Object> removeDibs(@RequestHeader("access") String accessToken, @RequestBody Map<String, Object> request) {
         Long userId = jwtUtil.getUserId(accessToken);
-        Long guesthouseId = Long.parseLong(request.get("guesthouse_id").toString());
+        Long guesthouseId = Long.parseLong(request.get("guesthouseId").toString());
 
         // guesthouseId가 null인 경우
         if (guesthouseId == null) {
-            throw new IllegalArgumentException("guesthouse_id is required");
+            throw new IllegalArgumentException("guesthouseId is required");
         }
 
         userService.removeDibs(userId, guesthouseId);

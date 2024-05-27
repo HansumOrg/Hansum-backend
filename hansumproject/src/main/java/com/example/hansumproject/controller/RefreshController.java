@@ -27,19 +27,19 @@ public class RefreshController {
         if (refresh == null) {
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("errorMessage", "Refresh token null");
-            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
         }
 
         if (!refreshService.isRefreshTokenValid(refresh)) {
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("errorMessage", "Refresh token expired or invalid");
-            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
         }
 
         if (!refreshService.isRefreshTokenAuthorized(refresh)) {
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("errorMessage", "Invalid refresh token");
-            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
         }
 
         refreshService.deleteOldRefreshToken(refresh);
