@@ -5,21 +5,15 @@ import com.example.hansumproject.dto.ReservationDto;
 import com.example.hansumproject.dto.StickerDto;
 import com.example.hansumproject.dto.UserInterestDto;
 import com.example.hansumproject.entity.*;
+import com.example.hansumproject.exception.DuplicateDataException;
 import com.example.hansumproject.repository.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -83,7 +77,7 @@ public class UserService {
 
         // 수정할 닉네임이 중복인지
         if (existsByNickname(newNickname)) {
-            throw new IllegalArgumentException("Nickname is already in use");
+            throw new DuplicateDataException("Nickname is already in use");
         }
 
         UserEntity user = userRepository.findById(userId)
@@ -99,7 +93,7 @@ public class UserService {
     public void addDibs(Long userId, Long guesthouseId) {
         // 중복되는 찜이 있을 경우
         if (dibsRepository.existsByUser_UserIdAndGuesthouse_GuesthouseId(userId, guesthouseId)) {
-            throw new IllegalArgumentException("Dibs already exists for this user and guesthouse");
+            throw new DuplicateDataException("Dibs already exists for this user and guesthouse");
         }
 
         // 사용자가 존재하지 않을 경우

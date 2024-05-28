@@ -1,11 +1,9 @@
 package com.example.hansumproject.service;
 
-import com.example.hansumproject.dto.JoinDTO;
 import com.example.hansumproject.dto.UserDto;
 import com.example.hansumproject.entity.UserEntity;
-import com.example.hansumproject.exception.DuplicateUsernameException;
+import com.example.hansumproject.exception.DuplicateDataException;
 import com.example.hansumproject.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +14,7 @@ public class JoinService {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public JoinService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) throws DuplicateUsernameException {
+    public JoinService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) throws DuplicateDataException {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
@@ -41,7 +39,7 @@ public class JoinService {
         if (isExist){
 
             //중단 메세지 오류 추가
-            throw new DuplicateUsernameException("The username is already in use.");
+            throw new DuplicateDataException("The username is already in use.");
         }
 
         UserEntity newUser = new UserEntity();

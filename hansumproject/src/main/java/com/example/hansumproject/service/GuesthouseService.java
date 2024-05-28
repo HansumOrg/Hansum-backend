@@ -146,69 +146,10 @@ public class GuesthouseService {
     }
 
     // 게스트하우스 검색 결과 조회
-    public ResponseEntity<?> searchGuesthouses(String location, String guesthouseName, String checkinDate, String checkoutDate, String mood, List<String> facility, Integer minPrice, Integer maxPrice) {
+    public Map<String, Object> searchGuesthouses(String guesthouseName, String location, String mood, List<String> facilities, int minPrice, int maxPrice) {
         try {
-            List<GuesthouseEntity> guesthouses = guesthouseRepository.findAll(); // 기본적으로 모든 게스트하우스를 가져온 후 필터링
+            List<GuesthouseEntity> guesthouses = guesthouseRepository.searchGuesthouses(guesthouseName, location, mood, facilities, minPrice, maxPrice);
 
-            if (location != null && !location.isEmpty()) {
-                guesthouses = guesthouses.stream()
-                        .filter(guesthouse -> guesthouse.getLocation().contains(location))
-                        .collect(Collectors.toList());
-            }
-
-            if (guesthouseName != null && !guesthouseName.isEmpty()) {
-                guesthouses = guesthouses.stream()
-                        .filter(guesthouse -> guesthouse.getGuesthouseName().contains(guesthouseName))
-                        .collect(Collectors.toList());
-            }
-
-            if (mood != null && !mood.isEmpty()) {
-                guesthouses = guesthouses.stream()
-                        .filter(guesthouse -> mood.equals(guesthouse.getMood()))
-                        .collect(Collectors.toList());
-            }
-
-            if (facility != null && !facility.isEmpty()) {
-                guesthouses = guesthouses.stream()
-                        .filter(guesthouse -> {
-                            List<FacilityEntity> facilities = facilityRepository.findByGuesthouse_GuesthouseId(guesthouse.getGuesthouseId());
-                            return facility.stream().allMatch(fac -> {
-                                switch (fac.toLowerCase()) {
-                                    case "party":
-                                        return facilities.stream().anyMatch(f -> f.getParty() == 1);
-                                    case "breakfast":
-                                        return facilities.stream().anyMatch(f -> f.getBreakfast() == 1);
-                                    case "singleroom":
-                                        return facilities.stream().anyMatch(f -> f.getSingleroom() == 1);
-                                    case "parking":
-                                        return facilities.stream().anyMatch(f -> f.getParking() == 1);
-                                    case "swimmingpool":
-                                        return facilities.stream().anyMatch(f -> f.getSwimmingpool() == 1);
-                                    case "womanonly":
-                                        return facilities.stream().anyMatch(f -> f.getWomanOnly() == 1);
-                                    default:
-                                        return false;
-                                }
-                            });
-                        })
-                        .collect(Collectors.toList());
-            }
-
-            if (minPrice != null) {
-                guesthouses = guesthouses.stream()
-                        .filter(guesthouse -> guesthouse.getPrice() >= minPrice)
-                        .collect(Collectors.toList());
-            }
-
-            if (maxPrice != null) {
-                guesthouses = guesthouses.stream()
-                        .filter(guesthouse -> guesthouse.getPrice() <= maxPrice)
-                        .collect(Collectors.toList());
-            }
-
-            if (guesthouses.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("errorMessage", "No guesthouse founded"));
-            }
 
             List<Map<String, Object>> guesthouseList = guesthouses.stream().map(guesthouse -> {
                 Map<String, Object> guesthouseMap = new HashMap<>();
@@ -232,8 +173,6 @@ public class GuesthouseService {
 
             Map<String, Object> result = new HashMap<>();
             result.put("location", location);
-            result.put("checkinDate", checkinDate);
-            result.put("checkoutDate", checkoutDate);
             result.put("guesthouses", guesthouseList);
             return ResponseEntity.ok(result);
         } catch (Exception e) {

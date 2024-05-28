@@ -1,11 +1,10 @@
 package com.example.hansumproject.exception.handler;
 
-import com.example.hansumproject.exception.DuplicateUsernameException;
+import com.example.hansumproject.exception.DuplicateDataException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -27,8 +26,8 @@ public class GlobalExceptionHandler {
     }
 
     //ID 중복 예외 처리
-    @ExceptionHandler(DuplicateUsernameException.class)
-    public ResponseEntity<Object> handleDuplicateUsername(DuplicateUsernameException e) {
+    @ExceptionHandler(DuplicateDataException.class)
+    public ResponseEntity<Object> handleDuplicateUsername(DuplicateDataException e) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("errorMessage", e.getMessage()));
     }
 

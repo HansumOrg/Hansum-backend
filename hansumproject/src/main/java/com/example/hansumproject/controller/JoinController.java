@@ -32,7 +32,7 @@ public class JoinController {
     public ResponseEntity<Object> joinProcess(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             Map<String, String> errorResponse = new HashMap<>();
-            errorResponse.put("message", bindingResult.getFieldError().getDefaultMessage());
+            errorResponse.put("errorMessage", bindingResult.getFieldError().getDefaultMessage());
             return ResponseEntity.badRequest().body(errorResponse);
         }
 
@@ -57,28 +57,29 @@ public class JoinController {
 
         Map<String, Object> response = new HashMap<>();
         if (exists) {
-            response.put("message", "Username is already in use.");
-            response.put("is_username_available", false);
+            response.put("errorMessage", "Username is already in use.");
+            response.put("isUsernameAvailable", 0);
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         } else {
             response.put("message", "Username is available");
-            response.put("is_nickname_available", true);
+            response.put("isUsernameAvailable", 1);
             return ResponseEntity.ok(response);
         }
     }
 
+    // nickname 중복확인
     @GetMapping("/check-nickname")
     public ResponseEntity<Map<String, Object>> checkNickname(@RequestParam String nickname) {
         boolean exists = userService.existsByNickname(nickname);
 
         Map<String, Object> response = new HashMap<>();
         if (exists) {
-            response.put("message", "Nickname is already in use.");
-            response.put("is_nickname_available", false);
+            response.put("errorMessage", "Nickname is already in use.");
+            response.put("isNicknameAvailable", 0);
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         } else {
             response.put("message", "Nickname is available");
-            response.put("is_nickname_available", true);
+            response.put("isNicknameAvailable", 1);
             return ResponseEntity.ok(response);
         }
     }

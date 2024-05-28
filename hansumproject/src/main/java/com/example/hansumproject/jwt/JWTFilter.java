@@ -51,7 +51,7 @@ public class JWTFilter extends OncePerRequestFilter {
             PrintWriter writer = response.getWriter();
 
             // JSON 형태로 "message" : "access token expired" 출력
-            writer.print("{\"message\": \"access token expired\"}");
+            writer.print("{\"errorMessage\": \"access token expired\"}");
 
             //response status code
             //SC_UNAUTHORIZED 401 코드
@@ -71,7 +71,7 @@ public class JWTFilter extends OncePerRequestFilter {
             PrintWriter writer = response.getWriter();
 
             // JSON 형태로 "message" : "invalid access token" 출력
-            writer.print("{\"message\": \"invalid access token\"}");
+            writer.print("{\"errorMessage\": \"invalid access token\"}");
 
             //response status code
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

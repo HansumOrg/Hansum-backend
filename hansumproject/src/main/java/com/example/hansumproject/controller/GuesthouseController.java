@@ -60,15 +60,21 @@ public class GuesthouseController {
 
     // 게스트하우스 검색 결과 조회
     @GetMapping("/search")
-    public ResponseEntity<?> searchGuesthouses(@RequestParam(required = false) String location,
-                                               @RequestParam(required = false) String guesthouse_name,
-                                               @RequestParam(required = false) String checkin_date,
-                                               @RequestParam(required = false) String checkout_date,
-                                               @RequestParam(required = false) String mood,
-                                               @RequestParam(required = false) List<String> facility,
-                                               @RequestParam(required = false) Integer min_price,
-                                               @RequestParam(required = false) Integer max_price) {
-        return guesthouseService.searchGuesthouses(location, guesthouse_name, checkin_date, checkout_date, mood, facility, min_price, max_price);
+    public ResponseEntity<?> searchGuesthouses(@RequestParam(value = "guesthouse_name", required = false) String guesthouse_name,
+                                               @RequestParam(value = "location", required = false) String location,
+                                               @RequestParam(value = "checkin_date") String checkin_date,
+                                               @RequestParam(value = "checkout_date") String checkout_date,
+                                               @RequestParam(value = "mood", required = false) String mood,
+                                               @RequestParam(value = "facility", required = false) List<String> facilities,
+                                               @RequestParam(value = "min_price", required = false, defaultValue = "0") int minPrice,
+                                               @RequestParam(value = "max_price", required = false, defaultValue = "100000") int maxPrice){
+        // 이름이나 위치 둘 다 제공되지 않으면 예외 처리
+        if (guesthouse_name == null && location == null) {
+            throw new IllegalArgumentException("guesthouse_name or location must be provided");
+        }
+
+        Map<String, Object> result = guesthouseService.searchGuesthouses(guesthouse_name, location, mood, facilities, minPrice, maxPrice);
+        return ResponseEntity.ok(result);
     }
 
 
