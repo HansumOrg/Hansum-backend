@@ -40,6 +40,9 @@ public class GuesthouseService {
     @Autowired
     private ReviewRepository reviewRepository;
 
+    @Autowired
+    private FacilityRepository facilityRepository;
+
     // 이미지 파일을 Base64로 인코딩하여 문자열로 반환
     public String encodeFileToBase64Binary(String fileName) {
         try {
@@ -85,8 +88,8 @@ public class GuesthouseService {
         GuesthouseEntity guesthouseEntity = target.get();
         Map<String, Object> response = new HashMap<>();
 
-        response.put("guesthouse_id", guesthouseEntity.getGuesthouseId());
-        response.put("guesthouse_name", guesthouseEntity.getGuesthouseName());
+        response.put("guesthouseId", guesthouseEntity.getGuesthouseId());
+        response.put("guesthouseName", guesthouseEntity.getGuesthouseName());
         response.put("address", guesthouseEntity.getAddress());
         response.put("location", guesthouseEntity.getLocation());
         response.put("price", guesthouseEntity.getPrice());
@@ -147,10 +150,11 @@ public class GuesthouseService {
         try {
             List<GuesthouseEntity> guesthouses = guesthouseRepository.searchGuesthouses(guesthouseName, location, mood, facilities, minPrice, maxPrice);
 
+
             List<Map<String, Object>> guesthouseList = guesthouses.stream().map(guesthouse -> {
                 Map<String, Object> guesthouseMap = new HashMap<>();
-                guesthouseMap.put("guesthouse_id", guesthouse.getGuesthouseId());
-                guesthouseMap.put("guesthouse_name", guesthouse.getGuesthouseName());
+                guesthouseMap.put("guesthouseId", guesthouse.getGuesthouseId());
+                guesthouseMap.put("guesthouseName", guesthouse.getGuesthouseName());
                 guesthouseMap.put("address", guesthouse.getAddress());
                 guesthouseMap.put("location", guesthouse.getLocation());
                 guesthouseMap.put("price", guesthouse.getPrice());
@@ -159,15 +163,20 @@ public class GuesthouseService {
                 String base64Image = encodeFileToBase64Binary(guesthouse.getImageUrl()); // 이미지 인코딩
                 guesthouseMap.put("imageBase64", base64Image);
                 guesthouseMap.put("mood", guesthouse.getMood());
+
+                // Facility 정보 추가
+                List<FacilityEntity> facilities = facilityRepository.findByGuesthouse_GuesthouseId(guesthouse.getGuesthouseId());
+                guesthouseMap.put("facilities", facilities);
+
                 return guesthouseMap;
             }).collect(Collectors.toList());
 
             Map<String, Object> result = new HashMap<>();
             result.put("location", location);
             result.put("guesthouses", guesthouseList);
-            return result;
+            return ResponseEntity.ok(result);
         } catch (Exception e) {
-            throw e;
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("errorMessage", "Invalid values provided"));
         }
     }
 
@@ -182,8 +191,8 @@ public class GuesthouseService {
 
         return recommendations.stream().limit(10).map(r -> {
             Map<String, Object> recommendationMap = new HashMap<>();
-            recommendationMap.put("guesthouse_name", r.getGuesthouse().getGuesthouseName());
-            recommendationMap.put("guesthouse_id", r.getGuesthouse().getGuesthouseId());
+            recommendationMap.put("guesthouseName", r.getGuesthouse().getGuesthouseName());
+            recommendationMap.put("guesthouseId", r.getGuesthouse().getGuesthouseId());
             recommendationMap.put("probability", r.getProbability());
             recommendationMap.put("rank", recommendations.indexOf(r) + 1);
 
@@ -202,14 +211,14 @@ public class GuesthouseService {
         }
 
         List<Map<String, ?>> formattedReviews = reviews.stream().map(review -> Map.of(
-                "user_name", review.getUser().getName(),
-                "guesthouse_name", review.getGuesthouse().getGuesthouseName(),
+                "username", review.getUser().getName(),
+                "guesthouseName", review.getGuesthouse().getGuesthouseName(),
                 "rating", review.getRating(),
-                "created_date", review.getCreatedDate()
+                "createdDate", review.getCreatedDate()
         )).collect(Collectors.toList());
 
         return Map.of(
-                "guesthouse_name", reviews.get(0).getGuesthouse().getGuesthouseName(),
+                "guesthouseName", reviews.get(0).getGuesthouse().getGuesthouseName(),
                 "reviews", formattedReviews
         );
     }
@@ -250,15 +259,15 @@ public class GuesthouseService {
 
         List<Map<String, ?>> members = reservations.stream()
                 .map(reservation -> Map.of(
-                        "user_id", reservation.getUser().getUserId(),
+                        "userId", reservation.getUser().getUserId(),
                         "username", reservation.getUser().getUsername(),
                         "nickname", reservation.getUser().getNickname(),
                         "mbti", reservation.getUser().getMbti()
                 )).collect(Collectors.toList());
 
         return Map.of(
-                "guesthouse_id", guesthouseId,
-                "guesthouse_name", guesthouseEntity.getGuesthouseName(),
+                "guesthouseId", guesthouseId,
+                "guesthouseName", guesthouseEntity.getGuesthouseName(),
                 "members", members
         );
     }
@@ -276,19 +285,17 @@ public class GuesthouseService {
         List<Map<String, ?>> guests = reservationEntities.stream()
                 .filter(r -> !r.getReservationId().equals(reservationId))
                 .map(r -> Map.of(
-                        "user_id", r.getUser().getUserId(),
+                        "userId", r.getUser().getUserId(),
                         "username", r.getUser().getUsername(),
                         "nickname", r.getUser().getNickname(),
-                        "mbti", r.getUser().getMbti(),
-                        "checkin", r.getCheckinDate(),
-                        "checkout", r.getCheckoutDate()
+                        "mbti", r.getUser().getMbti()
                 )).collect(Collectors.toList());
 
         return Map.of(
-                "guesthouse_id", reservationEntity.getGuesthouse().getGuesthouseId(),
-                "guesthouse_name", reservationEntity.getGuesthouse().getGuesthouseName(),
-                "checkin_date", reservationEntity.getCheckinDate().toString(),
-                "checkout_date", reservationEntity.getCheckoutDate().toString(),
+                "guesthouseId", reservationEntity.getGuesthouse().getGuesthouseId(),
+                "guesthouseName", reservationEntity.getGuesthouse().getGuesthouseName(),
+                "checkinDate", reservationEntity.getCheckinDate().toString(),
+                "checkoutDate", reservationEntity.getCheckoutDate().toString(),
                 "guests", guests
         );
 

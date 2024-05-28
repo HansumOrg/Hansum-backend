@@ -20,6 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -39,6 +40,14 @@ public class GuesthouseController {
     public ResponseEntity<?> getGuesthouseDetail(@PathVariable Long guesthouseId) {
         return guesthouseService.getGuesthouseDetail(guesthouseId);
     }
+
+    // 유효 MBTI list
+    private static final List<String> VALID_MBTI_TYPES = Arrays.asList(
+            "INTJ", "INTP", "ENTJ", "ENTP",
+            "INFJ", "INFP", "ENFJ", "ENFP",
+            "ISTJ", "ISFJ", "ESTJ", "ESFJ",
+            "ISTP", "ISFP", "ESTP", "ESFP"
+    );
 
     // 게스트하우스 이미지 조회
     @GetMapping("/{guesthouseId}/{imageUrl}")
@@ -72,6 +81,11 @@ public class GuesthouseController {
     // 추천 게스트하우스 조회
     @GetMapping("/recommendation")
     public ResponseEntity<?> getRecommendations(@RequestParam String mbti) {
+        // MBTI 값 검증
+        if (mbti == null || !VALID_MBTI_TYPES.contains(mbti.toUpperCase())) {
+            return ResponseEntity.badRequest().body(Map.of("errorMessage", "Invalid mbti"));
+        }
+
         // 서비스 호출
         List<Map<String, ?>> recommendations = guesthouseService.getRecommendationsByMbti(mbti);
 
@@ -90,14 +104,23 @@ public class GuesthouseController {
     // 게스트하우스 예약
     @PostMapping("/{guesthouseId}")
     public ResponseEntity<?> createReservation(@PathVariable Long guesthouseId,
-                                               HttpServletRequest request,
+                                               @RequestHeader("access") String accessToken,
                                                @RequestBody Map<String, String> requestBody) throws ParseException {
-        String access = request.getHeader("access"); // 'access' 헤더에서 토큰 가져오기
-        Long userId = jwtUtil.getUserId(access);
+
+        // 'access' 헤더에서 토큰 가져오기
+        Long userId = jwtUtil.getUserId(accessToken);
 
         // Body 값 가져오기
-        String checkin = requestBody.get("checkin_date");
-        String checkout = requestBody.get("checkout_date");
+        String checkin = requestBody.get("checkinDate");
+        String checkout = requestBody.get("checkoutDate");
+
+        // 입력 값 검증
+        if (checkin == null || checkin.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("errorMessage", "checkin date is required"));
+        }
+        if (checkout == null || checkout.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("errorMessage", "checkout date is required"));
+        }
 
         // 예약 로직
         guesthouseService.createReservation(guesthouseId, userId, checkin, checkout);

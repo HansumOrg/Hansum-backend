@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
@@ -142,9 +143,24 @@ public class UserController {
         // 필요 정보 가져오기
         String access = request.getHeader("access");
         Long userId = jwtUtil.getUserId(access);
-        Long guesthouseId = Long.parseLong(requestBody.get("guesthouse_id").toString());
-        Float rating = Float.parseFloat(requestBody.get("rating").toString());
 
+        // guesthouseId와 rating 값 검증
+        if (!requestBody.containsKey("guesthouseId")) {
+            return ResponseEntity.badRequest().body(Map.of("errorMessage", "guesthouseId is required"));
+        }
+        if (!requestBody.containsKey("rating")) {
+            return ResponseEntity.badRequest().body(Map.of("errorMessage", "rating is required"));
+        }
+
+        // 값 형식이 제대로 넘어왔는지 확인
+        Long guesthouseId;
+        Float rating;
+        try {
+            guesthouseId = Long.parseLong(requestBody.get("guesthouseId").toString());
+            rating = Float.parseFloat(requestBody.get("rating").toString());
+        } catch (NumberFormatException e) {
+            return ResponseEntity.badRequest().body(Map.of("errorMessage", "Invalid format for guesthouseId or rating"));
+        }
         Map<String, Object> response = userService.createReview(userId, guesthouseId, rating);
 
         return ResponseEntity.ok(response);
@@ -156,9 +172,14 @@ public class UserController {
         String access = request.getHeader("access");
         Long userId = jwtUtil.getUserId(access);
 
-        List<ReservationDto> reservationDtos = userService.getUserReservations(userId);
+        ResponseEntity<?> reservationDtos = userService.getUserReservations(userId);
 
-        return ResponseEntity.ok(Map.of("reservation_records", reservationDtos));
+        // 404 상태 코드인 경우 그대로 반환
+        if (reservationDtos.getStatusCode() == HttpStatus.NOT_FOUND) {
+            return reservationDtos;
+        }
+
+        return ResponseEntity.ok(Map.of("reservation_records", reservationDtos.getBody()));
     }
 
     // 같이 사용한 게스트 조회
@@ -169,14 +190,22 @@ public class UserController {
 
     // 스티커 작성
     @PostMapping("/sticker")
-    public ResponseEntity<?> sendSticker(@RequestBody StickerDto stickerDto) {
+    public ResponseEntity<?> sendSticker(@RequestBody List<StickerDto> stickerDtos) {
 
-        // 필요 정보 가져오기
-        Long recipientId = stickerDto.getUserId();
-        List<String> stickerTexts = stickerDto.getStickerTexts();
+        for (StickerDto stickerDto : stickerDtos) {
+            // 필요 정보 가져오기
+            Long recipientId = stickerDto.getUserId();
+            List<String> stickerTexts = stickerDto.getStickerTexts();
 
-        userService.sendStickers(recipientId, stickerTexts);
-        return ResponseEntity.ok(Map.of("message", "Sticker sent successfully"));
+            // 입력 값 검증
+            if (recipientId == null || stickerTexts == null || stickerTexts.isEmpty()) {
+                return ResponseEntity.badRequest().body(Map.of("errorMessage", "Invalid request format"));
+            }
+
+            userService.sendStickers(recipientId, stickerTexts);
+        }
+
+        return ResponseEntity.ok(Map.of("message", "Stickers sent successfully"));
     }
 
     // 사용자가 받은 스티커 조회
@@ -189,7 +218,30 @@ public class UserController {
         // userId가 들어왔다는 것은 다른 사람의 스티커를 조회하겠다는 것.
         Long effectiveUserId = (userId != null) ? userId : defaultUserId;
 
-        List<StickerDto> stickerDtos = userService.getUserStickers(effectiveUserId);
-        return ResponseEntity.ok(Map.of("user_id", effectiveUserId, "stickers", stickerDtos));
+        ResponseEntity<?> response = userService.getUserStickers(effectiveUserId);
+
+        // 404 상태 코드인 경우 그대로 반환
+        if (response.getStatusCode() == HttpStatus.NOT_FOUND) {
+            return response;
+        }
+
+        // 응답 바디를 StickerDto 리스트로 캐스팅
+        List<StickerDto> stickerDtos = (List<StickerDto>) response.getBody();
+
+        // StickerDto 리스트를 새로운 형식으로 변환
+        List<Map<?,?>> stickers = stickerDtos.stream()
+                .map(stickerDto -> Map.of(
+                        "stickerId", stickerDto.getStickerId(),
+                        "stickerText", stickerDto.getStickerTexts().get(0),
+                        "stickerCount", stickerDto.getStickerCount()
+                )).collect(Collectors.toList());
+
+        // 최종 응답 형식 구성
+        Map<String, Object> responseBody = Map.of(
+                "userId", effectiveUserId,
+                "stickers", stickers
+        );
+
+        return ResponseEntity.ok(responseBody);
     }
 }
