@@ -150,11 +150,10 @@ public class GuesthouseService {
         try {
             List<GuesthouseEntity> guesthouses = guesthouseRepository.searchGuesthouses(guesthouseName, location, mood, facilities, minPrice, maxPrice);
 
-
             List<Map<String, Object>> guesthouseList = guesthouses.stream().map(guesthouse -> {
                 Map<String, Object> guesthouseMap = new HashMap<>();
-                guesthouseMap.put("guesthouseId", guesthouse.getGuesthouseId());
-                guesthouseMap.put("guesthouseName", guesthouse.getGuesthouseName());
+                guesthouseMap.put("guesthouse_id", guesthouse.getGuesthouseId());
+                guesthouseMap.put("guesthouse_name", guesthouse.getGuesthouseName());
                 guesthouseMap.put("address", guesthouse.getAddress());
                 guesthouseMap.put("location", guesthouse.getLocation());
                 guesthouseMap.put("price", guesthouse.getPrice());
@@ -163,20 +162,15 @@ public class GuesthouseService {
                 String base64Image = encodeFileToBase64Binary(guesthouse.getImageUrl()); // 이미지 인코딩
                 guesthouseMap.put("imageBase64", base64Image);
                 guesthouseMap.put("mood", guesthouse.getMood());
-
-                // Facility 정보 추가
-                List<FacilityEntity> facilities = facilityRepository.findByGuesthouse_GuesthouseId(guesthouse.getGuesthouseId());
-                guesthouseMap.put("facilities", facilities);
-
                 return guesthouseMap;
             }).collect(Collectors.toList());
 
             Map<String, Object> result = new HashMap<>();
             result.put("location", location);
             result.put("guesthouses", guesthouseList);
-            return ResponseEntity.ok(result);
+            return result;
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("errorMessage", "Invalid values provided"));
+            throw e;
         }
     }
 
