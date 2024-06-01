@@ -1,41 +1,41 @@
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (1, '미도호스텔', '제주 서귀포시 동문동로 13-1 미도호스텔 게스트하우스', '동문동', '25000', '0507-1303-7627', 0, '1_미도호스텔.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (2, '낯선하루', '제주 서귀포시 성산읍 신양로122번길 30-8 낯선하', '성산읍', '30000', '010-2480-1250', 0, '2_낯선하루.jpeg', '여유로운');
+VALUES (2, '낯선하루', '제주 서귀포시 성산읍 신양로122번길 30-8 낯선하루', '성산읍', '30000', '010-2480-1250', 0, '2_낯선하루.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (3, '제주도게스트하우스 파티 간장남들', '제주 서귀포시 안덕면 사계북로41번길 30', 'Unknown', '20000', '0507-1335-9219', 0,
-        '3_제주도게스트하우스 파티 간장남들.jpeg', '여유로운');
+        '3_제주도게스트하우스 파티 간장남들.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (4, '오소소게스트하우스', '제주 서귀포시 대정읍 비자낭로 23', '대정읍', '28000', '0507-1385-3592', 0, '4_오소소게스트하우스.jpeg', '여유로운');
+VALUES (4, '오소소게스트하우스', '제주 서귀포시 대정읍 비자낭로 23', '대정읍', '28000', '0507-1385-3592', 0, '4_오소소게스트하우스.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (5, '히든스테이', '제주 서귀포시 성산읍 성산중앙로40번길 12 히든스테이', '성산읍', '30000', '0507-1385-3800', 0, '5_히든스테이.jpeg', '여유로운');
+VALUES (5, '히든스테이', '제주 서귀포시 성산읍 성산중앙로40번길 12 히든스테이', '성산읍', '30000', '0507-1385-3800', 0, '5_히든스테이.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (6, '제주도성산바랑쉬게스트하우스', '제주 서귀포시 성산읍 환해장성로 496', '성산읍', '10900', '0507-1304-5697', 0, '6_제주도성산바랑쉬게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (7, '루프탑정원', '제주 서귀포시 남원읍 태위로912번길 37', '남원읍', '25000', '0507-1308-3842', 0, '7_루프탑정원.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (8, '빅썸 호스텔', '제주 서귀포시 남원읍 태위로 984-7 빅썸호스텔', '남원읍', '9900', '0507-1496-8119', 0, '8_빅썸 호스텔.jpeg', '여유로운');
+VALUES (8, '빅썸 호스텔', '제주 서귀포시 남원읍 태위로 984-7 빅썸호스텔', '남원읍', '9900', '0507-1496-8119', 0, '8_빅썸 호스텔.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (9, '또똣제주백팩커스', '제주 서귀포시 안덕면 사계남로153번길 10', 'Unknown', '0', '0507-1363-7051', 0, '9_또똣제주백팩커스.jpeg', '여유로운');
+VALUES (9, '또똣제주백팩커스', '제주 서귀포시 안덕면 사계남로153번길 10', 'Unknown', '0', '0507-1363-7051', 0, '9_또똣제주백팩커스.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (10, '나무이야기 게스트하우스 남원점', '제주 서귀포시 남원읍 남한로21번길 9', '남원읍', '25000', '010-3389-4071', 0, '10_나무이야기 게스트하우스 남원점.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (11, '하랑게스트하우스', '제주 서귀포시 대정읍 일과로13번길 1', '대정읍', '40000', '0507-1400-5585', 0, '11_하랑게스트하우스.jpeg', '여유로운');
+VALUES (11, '하랑게스트하우스', '제주 서귀포시 대정읍 일과로13번길 1', '대정읍', '40000', '0507-1400-5585', 0, '11_하랑게스트하우스.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (12, '표리네', '제주 서귀포시 표선면 표선중앙로 73-9 표리네게스트하우스', 'Unknown', '22000', '0507-1340-0286', 0, '12_표리네.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (13, '돌담에꽃머무는집', '제주 서귀포시 안덕면 대평로 46', 'Unknown', '70000', '0507-1426-8942', 0, '13_돌담에꽃머무는집.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (14, '후스토리 게스트하우스', '제주 서귀포시 색달중앙로 15-1 후스토리 게스트하우스', 'Unknown', '25000', '0507-1414-2534', 0,
-        '14_후스토리 게스트하우스.jpeg', '여유로운');
+        '14_후스토리 게스트하우스.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (15, '무명화가의집게스트하우스', '제주 서귀포시 성산읍 시흥하동로55번길 23-5', '성산읍', '25000', '010-9594-6126', 0, '15_무명화가의집게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (16, '바람이 불어오는 곳', '제주 서귀포시 대정읍 상모대서로20번길 31-15', '대정읍', '25000', '010-7518-5579', 0, '16_바람이 불어오는 곳.jpeg',
-        '여유로운');
+        '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (17, '스테이라움', '제주 서귀포시 성산읍 오조로 120 스테이라움', '성산읍', '140000', '0507-1312-9910', 0, '17_스테이라움.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
@@ -45,31 +45,75 @@ INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location
 VALUES (19, '전망게스트하우스', '제주 서귀포시 성산읍 일출로 248 2층3층', '성산읍', '20000', '064-783-1568', 0, '19_전망게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (20, '하늘아래게스트하우스', '제주 서귀포시 표선면 세성로 123-24 하늘아래게스트하우스', 'Unknown', '70000', '010-2408-5602', 0,
-        '20_하늘아래게스트하우스.jpeg', '여유로운');
+        '20_하늘아래게스트하우스.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (21, '꿈인게스트하우스', '제주 서귀포시 말질로170번길 4-1', 'Unknown', '30000', '0507-1406-0095', 0, '21_꿈인게스트하우스.jpeg', '여유로운');
+VALUES (21, '꿈인게스트하우스', '제주 서귀포시 말질로170번길 4-1', 'Unknown', '30000', '0507-1406-0095', 0, '21_꿈인게스트하우스.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (22, '성산에오거들랑게스트하우스', '제주 서귀포시 성산읍 고성동서로 13-7', '성산읍', '20000', '064-784-2692', 0, '22_성산에오거들랑게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (23, '물고기나무', '제주 서귀포시 성산읍 중산간동로 4204-14', '성산읍', '45000', '0507-1483-1065', 0, '23_물고기나무.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (24, '스테이 동백', '제주 서귀포시 성산읍 오조로100번길 5', '성산읍', '40000', '0507-1355-9322', 0, '24_스테이 동백.jpeg', '여유로운');
+VALUES (24, '스테이 동백', '제주 서귀포시 성산읍 오조로100번길 5', '성산읍', '40000', '0507-1355-9322', 0, '24_스테이 동백.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (25, '위미위드미 게스트하우스', '제주 서귀포시 남원읍 태위로151번길 17', '남원읍', '25000', '010-5176-1259', 0, '25_위미위드미 게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (26, '늘푸른게스트하우스', '제주 서귀포시 대정읍 하모백사로 29', '대정읍', '55000', '0507-1437-7892', 0, '26_늘푸른게스트하우스.jpeg', '여유로운');
+VALUES (26, '늘푸른게스트하우스', '제주 서귀포시 대정읍 하모백사로 29', '대정읍', '55000', '0507-1437-7892', 0, '26_늘푸른게스트하우스.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (27, '블랑게스트하우스', '제주 서귀포시 표선면 표선관정로43번길 76-31', 'Unknown', '25000', '010-6276-0766', 0, '27_블랑게스트하우스.jpeg',
-        '여유로운');
+VALUES (27, '블랑게스트하우스', '제주 서귀포시 표선면 표선관정로43번길 76-31', 'Unknown', '25000', '010-6276-0766', 0, '27_블랑게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (28, '흰고래', '제주 서귀포시 이어도로1066번길 26', 'Unknown', '40000', '0507-1400-0471', 0, '28_흰고래.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (29, '달휴게스트하우스', '제주 서귀포시 성산읍 온평애향로23번길 25', '성산읍', '45000', '0507-1400-1641', 0, '29_달휴게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (30, '비욘드북카페&게스트하우스', '제주 서귀포시 성산읍 신천동로 24-30', '성산읍', '25000', '0507-1407-5195', 0, '30_비욘드북카페&게스트하우스.jpeg',
-        '여유로운');
+        '힐링하기 좋은');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (31, '제주도게스트하우스 협재정류장', '제주 제주시 한림읍 한림로 391 제주도게스트하우스협재정류장', '한림읍', '30000', '0507-1322-8968', 0, '31_제주도게스트하우스 협재정류장.jpeg',
+        '힐링하기 좋은');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (32, '네모 스테이', '제주 제주시 한림읍 한림로 394 1층~3층', '한림읍', '20000', '0507-1313-0946', 0, '32_네모 스테이.jpeg', '여유로운');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (33, '동행in협재', '제주 제주시 한림읍 협재1길 27 1층 동행in협재', '한림읍', '25000', '0507-1393-3556', 0, '33_동행in협재.jpeg', '여유로운');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+ VALUES (34, '김군아미고게스트하우스', '제주 제주시 애월읍 애월해안로 670', '애월읍', '25000', '0507-1316-6045', 0, '34_김군아미고게스트하우스.jpeg', '액티비티가 다양한');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (35, '1미리 게스트하우스', '제주 제주시 한림읍 협재6길 22-4 1미리게스트하우스', '한림읍', '30000', '010-6566-6446', 0, '35_1미리 게스트하우스.jpeg', '액티비티가 다양한');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (36, '제주도게스트하우스파티애월설레임2호점', '제주 제주시 애월읍 애월북서길 67', '애월읍', '10000', '0507-1371-6431', 0, '36_제주도게스트하우스파티애월설레임2호점.jpeg', '활기 넘치는');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (37, '송당온도', '제주 제주시 구좌읍 송당서3길 13 송당온도 게스트하우스', '구좌읍', '30000', '0507-1428-2200', 0, '37_송당온도.jpeg', '액티비티가 다양한');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (38, '카프리애월 민박', '제주 제주시 애월읍 애월로4길 18', '애월읍', '20000', '0507-1353-7978', 0, '38_카프리애월 민박.jpeg', '활기 넘치는');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (39, '사랑각게스트하우스', '제주 제주시 조천읍 선화길 21 1층 사랑각게스트하우스', '조천읍', '25000', '0507-1400-5912', 0, '39_사랑각게스트하우스.jpeg', '활기 넘치는');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (40, '제주도파티게스트하우스 문어오빠', '제주 제주시 한림읍 한림로 372-15 제주도파티게스트하우스 문어오빠 협재 본점', '한림읍', '20000', '0507-1316-0945', 0,
+        '40_제주도파티게스트하우스 문어오빠.jpeg', '여유로운');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (41, '제주기역', '제주 제주시 한림읍 협재1길 19-8 제주기역', '한림읍', '80000', '064-796-1309', 0, '41_제주기역.jpeg', '여유로운');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (42, '끌림365 2호점 애월의 온도', '제주 제주시 애월읍 애월해안로 384', '애월읍', '20000', '0507-1306-0384', 0, '42_끌림365 2호점 애월의 온도.jpeg', '활기 넘치는');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (43, '제주도 애월 파티하는 오누 게스트하우스', '제주 제주시 애월읍 애월로2길 7 1층 오누게스트하우스', '애월읍', '25000', '0507-1307-3614', 0, '43_제주도 애월 파티하는 오누 게스트하우스.jpeg',
+        '활기 넘치는');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (44, '나무처럼 게스트하우스', '제주 제주시 한림읍 홍수암로 3-1', '한림읍', '47000', '0507-1436-8306', 0, '44_나무처럼 게스트하우스.jpeg', '액티비티가 다양한');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (45, '일공육스테이', '제주 제주시 한림읍 명월로 106 1층', '한림읍', '19900', '0507-1305-3190', 0, '45_일공육스테이.jpeg', '액티비티가 다양한');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (46, '제주 제주로와 게스트하우스', '제주 제주시 제원길 16 2층', 'Unknown', '26000', '0507-1400-4993', 0, '46_제주 제주로와 게스트하우스.jpeg', '액티비티가 다양한');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (47, '숨게스트하우스 제주공항점', '제주 제주시 서광로5길 2-2 숨게스트하우스', 'Unknown', '23000', '0507-1311-0106', 0, '47_숨게스트하우스 제주공항점.jpeg', '여유로운');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (48, '제주도게스트하우스 점보네', '제주 제주시 용마서1길 36 3층', 'Unknown', '25000', '0507-1307-8240', 0, '48_제주도게스트하우스 점보네.jpeg', '여유로운');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (49, '우리들의월정리', '제주 제주시 구좌읍 월정1길 66-3 우리들의월정리', '구좌읍', '35000', '0507-1362-5590', 0, '49_우리들의월정리.jpeg', '여유로운');
+INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
+VALUES (50, '제주도게스트하우스파티 느영나영', '제주 서귀포시 남원읍 신흥로13번길 23 제주도게스트하우스파티 느영나영', '남원읍', '14000', '0507-1400-5002', 0,
+        '50_제주도게스트하우스파티 느영나영.png', '힐링하기 좋은');
+
 
 INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
 VALUES (1, 1, 'INFJ', 0.1543);
@@ -1032,6 +1076,648 @@ VALUES (479, 30, 'ESTJ', 0.0065);
 INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
 VALUES (480, 30, 'ESTP', 0.0092);
 
+
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (481, 31, 'INFJ', 0.1400);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (482, 31, 'INFP', 0.2289);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (483, 31, 'INTJ', 0.1181);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (484, 31, 'INTP', 0.1930);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (485, 31, 'ISFJ', 0.0199);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (486, 31, 'ISFP', 0.0325);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (487, 31, 'ISTJ', 0.0168);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (488, 31, 'ISTP', 0.0274);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (489, 31, 'ENFJ', 0.0403);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (490, 31, 'ENFP', 0.0658);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (491, 31, 'ENTJ', 0.0340);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (492, 31, 'ENTP', 0.0555);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (493, 31, 'ESFJ', 0.0057);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (494, 31, 'ESFP', 0.0093);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (495, 31, 'ESTJ', 0.0048);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (496, 31, 'ESTP', 0.0079);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (497, 32, 'INFJ', 0.0784);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (498, 32, 'INFP', 0.1231);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (499, 32, 'INTJ', 0.0784);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (500, 32, 'INTP', 0.1231);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (501, 32, 'ISFJ', 0.0243);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (502, 32, 'ISFP', 0.0381);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (503, 32, 'ISTJ', 0.0243);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (504, 32, 'ISTP', 0.0381);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (505, 32, 'ENFJ', 0.0701);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (506, 32, 'ENFP', 0.1101);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (507, 32, 'ENTJ', 0.0701);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (508, 32, 'ENTP', 0.1101);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (509, 32, 'ESFJ', 0.0217);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (510, 32, 'ESFP', 0.0341);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (511, 32, 'ESTJ', 0.0217);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (512, 32, 'ESTP', 0.0341);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (513, 33, 'INFJ', 0.1929);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (514, 33, 'INFP', 0.1862);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (515, 33, 'INTJ', 0.1340);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (516, 33, 'INTP', 0.1293);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (517, 33, 'ISFJ', 0.0279);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (518, 33, 'ISFP', 0.0269);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (519, 33, 'ISTJ', 0.0194);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (520, 33, 'ISTP', 0.0187);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (521, 33, 'ENFJ', 0.0695);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (522, 33, 'ENFP', 0.0670);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (523, 33, 'ENTJ', 0.0482);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (524, 33, 'ENTP', 0.0465);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (525, 33, 'ESFJ', 0.0101);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (526, 33, 'ESFP', 0.0097);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (527, 33, 'ESTJ', 0.0070);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (528, 33, 'ESTP', 0.0067);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (529, 34, 'INFJ', 0.1499);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (530, 34, 'INFP', 0.2196);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (531, 34, 'INTJ', 0.0959);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (532, 34, 'INTP', 0.1405);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (533, 34, 'ISFJ', 0.0217);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (534, 34, 'ISFP', 0.0318);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (535, 34, 'ISTJ', 0.0139);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (536, 34, 'ISTP', 0.0203);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (537, 34, 'ENFJ', 0.0663);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (538, 34, 'ENFP', 0.0971);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (539, 34, 'ENTJ', 0.0424);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (540, 34, 'ENTP', 0.0621);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (541, 34, 'ESFJ', 0.0096);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (542, 34, 'ESFP', 0.0140);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (543, 34, 'ESTJ', 0.0061);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (544, 34, 'ESTP', 0.0090);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (545, 35, 'INFJ', 0.1173);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (546, 35, 'INFP', 0.1842);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (547, 35, 'INTJ', 0.0922);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (548, 35, 'INTP', 0.1447);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (549, 35, 'ISFJ', 0.0326);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (550, 35, 'ISFP', 0.0512);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (551, 35, 'ISTJ', 0.0256);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (552, 35, 'ISTP', 0.0402);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (553, 35, 'ENFJ', 0.0532);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (554, 35, 'ENFP', 0.0835);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (555, 35, 'ENTJ', 0.0418);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (556, 35, 'ENTP', 0.0656);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (557, 35, 'ESFJ', 0.0148);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (558, 35, 'ESFP', 0.0232);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (559, 35, 'ESTJ', 0.0116);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (560, 35, 'ESTP', 0.0182);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (561, 36, 'INFJ', 0.1139);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (562, 36, 'INFP', 0.1530);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (563, 36, 'INTJ', 0.0895);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (564, 36, 'INTP', 0.1202);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (565, 36, 'ISFJ', 0.0221);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (566, 36, 'ISFP', 0.0296);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (567, 36, 'ISTJ', 0.0173);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (568, 36, 'ISTP', 0.0233);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (569, 36, 'ENFJ', 0.0863);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (570, 36, 'ENFP', 0.1159);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (571, 36, 'ENTJ', 0.0678);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (572, 36, 'ENTP', 0.0911);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (573, 36, 'ESFJ', 0.0167);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (574, 36, 'ESFP', 0.0225);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (575, 36, 'ESTJ', 0.0131);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (576, 36, 'ESTP', 0.0177);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (577, 37, 'INFJ', 0.1156);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (578, 37, 'INFP', 0.2286);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (579, 37, 'INTJ', 0.0872);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (580, 37, 'INTP', 0.1723);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (581, 37, 'ISFJ', 0.0196);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (582, 37, 'ISFP', 0.0387);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (583, 37, 'ISTJ', 0.0148);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (584, 37, 'ISTP', 0.0292);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (585, 37, 'ENFJ', 0.0481);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (586, 37, 'ENFP', 0.0952);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (587, 37, 'ENTJ', 0.0363);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (588, 37, 'ENTP', 0.0717);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (589, 37, 'ESFJ', 0.0082);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (590, 37, 'ESFP', 0.0161);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (591, 37, 'ESTJ', 0.0061);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (592, 37, 'ESTP', 0.0122);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (593, 38, 'INFJ', 0.0794);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (594, 38, 'INFP', 0.1735);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (595, 38, 'INTJ', 0.0589);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (596, 38, 'INTP', 0.1286);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (597, 38, 'ISFJ', 0.0237);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (598, 38, 'ISFP', 0.0519);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (599, 38, 'ISTJ', 0.0176);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (600, 38, 'ISTP', 0.0384);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (601, 38, 'ENFJ', 0.0594);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (602, 38, 'ENFP', 0.1298);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (603, 38, 'ENTJ', 0.0440);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (604, 38, 'ENTP', 0.0962);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (605, 38, 'ESFJ', 0.0178);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (606, 38, 'ESFP', 0.0388);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (607, 38, 'ESTJ', 0.0132);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (608, 38, 'ESTP', 0.0288);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (609, 39, 'INFJ', 0.0924);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (610, 39, 'INFP', 0.1629);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (611, 39, 'INTJ', 0.0685);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (612, 39, 'INTP', 0.1208);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (613, 39, 'ISFJ', 0.0267);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (614, 39, 'ISFP', 0.0472);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (615, 39, 'ISTJ', 0.0198);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (616, 39, 'ISTP', 0.0350);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (617, 39, 'ENFJ', 0.0688);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (618, 39, 'ENFP', 0.1213);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (619, 39, 'ENTJ', 0.0510);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (620, 39, 'ENTP', 0.0899);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (621, 39, 'ESFJ', 0.0199);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (622, 39, 'ESFP', 0.0351);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (623, 39, 'ESTJ', 0.0148);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (624, 39, 'ESTP', 0.0260);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (625, 40, 'INFJ', 0.0652);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (626, 40, 'INFP', 0.1360);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (627, 40, 'INTJ', 0.0754);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (628, 40, 'INTP', 0.1571);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (629, 40, 'ISFJ', 0.0203);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (630, 40, 'ISFP', 0.0424);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (631, 40, 'ISTJ', 0.0235);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (632, 40, 'ISTP', 0.0490);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (633, 40, 'ENFJ', 0.0494);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (634, 40, 'ENFP', 0.1031);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (635, 40, 'ENTJ', 0.0571);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (636, 40, 'ENTP', 0.1191);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (637, 40, 'ESFJ', 0.0154);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (638, 40, 'ESFP', 0.0321);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (639, 40, 'ESTJ', 0.0178);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (640, 40, 'ESTP', 0.0371);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (641, 41, 'INFJ', 0.1744);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (642, 41, 'INFP', 0.2028);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (643, 41, 'INTJ', 0.1189);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (644, 41, 'INTP', 0.1382);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (645, 41, 'ISFJ', 0.0296);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (646, 41, 'ISFP', 0.0344);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (647, 41, 'ISTJ', 0.0201);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (648, 41, 'ISTP', 0.0234);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (649, 41, 'ENFJ', 0.0607);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (650, 41, 'ENFP', 0.0706);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (651, 41, 'ENTJ', 0.0414);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (652, 41, 'ENTP', 0.0481);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (653, 41, 'ESFJ', 0.0103);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (654, 41, 'ESFP', 0.0120);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (655, 41, 'ESTJ', 0.0070);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (656, 41, 'ESTP', 0.0082);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (657, 42, 'INFJ', 0.1200);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (658, 42, 'INFP', 0.1548);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (659, 42, 'INTJ', 0.0752);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (660, 42, 'INTP', 0.0970);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (661, 42, 'ISFJ', 0.0327);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (662, 42, 'ISFP', 0.0422);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (663, 42, 'ISTJ', 0.0205);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (664, 42, 'ISTP', 0.0264);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (665, 42, 'ENFJ', 0.0910);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (666, 42, 'ENFP', 0.1173);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (667, 42, 'ENTJ', 0.0570);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (668, 42, 'ENTP', 0.0735);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (669, 42, 'ESFJ', 0.0248);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (670, 42, 'ESFP', 0.0320);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (671, 42, 'ESTJ', 0.0155);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (672, 42, 'ESTP', 0.0200);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (673, 43, 'INFJ', 0.0761);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (674, 43, 'INFP', 0.1821);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (675, 43, 'INTJ', 0.0526);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (676, 43, 'INTP', 0.1258);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (677, 43, 'ISFJ', 0.0228);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (678, 43, 'ISFP', 0.0546);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (679, 43, 'ISTJ', 0.0158);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (680, 43, 'ISTP', 0.0377);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (681, 43, 'ENFJ', 0.0580);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (682, 43, 'ENFP', 0.1388);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (683, 43, 'ENTJ', 0.0401);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (684, 43, 'ENTP', 0.0959);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (685, 43, 'ESFJ', 0.0174);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (686, 43, 'ESFP', 0.0416);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (687, 43, 'ESTJ', 0.0120);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (688, 43, 'ESTP', 0.0288);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (689, 44, 'INFJ', 0.1130);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (690, 44, 'INFP', 0.2622);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (691, 44, 'INTJ', 0.0685);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (692, 44, 'INTP', 0.1590);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (693, 44, 'ISFJ', 0.0172);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (694, 44, 'ISFP', 0.0399);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (695, 44, 'ISTJ', 0.0104);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (696, 44, 'ISTP', 0.0242);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (697, 44, 'ENFJ', 0.0497);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (698, 44, 'ENFP', 0.1153);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (699, 44, 'ENTJ', 0.0301);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (700, 44, 'ENTP', 0.0699);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (701, 44, 'ESFJ', 0.0076);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (702, 44, 'ESFP', 0.0176);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (703, 44, 'ESTJ', 0.0046);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (704, 44, 'ESTP', 0.0106);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (705, 45, 'INFJ', 0.0751);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (706, 45, 'INFP', 0.1773);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (707, 45, 'INTJ', 0.0491);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (708, 45, 'INTP', 0.1160);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (709, 45, 'ISFJ', 0.0287);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (710, 45, 'ISFP', 0.0678);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (711, 45, 'ISTJ', 0.0188);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (712, 45, 'ISTP', 0.0444);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (713, 45, 'ENFJ', 0.0550);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (714, 45, 'ENFP', 0.1299);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (715, 45, 'ENTJ', 0.0360);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (716, 45, 'ENTP', 0.0850);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (717, 45, 'ESFJ', 0.0210);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (718, 45, 'ESFP', 0.0497);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (719, 45, 'ESTJ', 0.0138);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (720, 45, 'ESTP', 0.0325);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (721, 46, 'INFJ', 0.1421);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (722, 46, 'INFP', 0.2312);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (723, 46, 'INTJ', 0.0969);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (724, 46, 'INTP', 0.1575);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (725, 46, 'ISFJ', 0.0216);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (726, 46, 'ISFP', 0.0352);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (727, 46, 'ISTJ', 0.0147);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (728, 46, 'ISTP', 0.0240);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (729, 46, 'ENFJ', 0.0544);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (730, 46, 'ENFP', 0.0884);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (731, 46, 'ENTJ', 0.0371);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (732, 46, 'ENTP', 0.0603);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (733, 46, 'ESFJ', 0.0083);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (734, 46, 'ESFP', 0.0135);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (735, 46, 'ESTJ', 0.0056);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (736, 46, 'ESTP', 0.0092);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (737, 47, 'INFJ', 0.1519);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (738, 47, 'INFP', 0.1783);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (739, 47, 'INTJ', 0.1322);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (740, 47, 'INTP', 0.1552);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (741, 47, 'ISFJ', 0.0215);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (742, 47, 'ISFP', 0.0252);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (743, 47, 'ISTJ', 0.0187);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (744, 47, 'ISTP', 0.0220);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (745, 47, 'ENFJ', 0.0636);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (746, 47, 'ENFP', 0.0746);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (747, 47, 'ENTJ', 0.0553);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (748, 47, 'ENTP', 0.0649);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (749, 47, 'ESFJ', 0.0090);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (750, 47, 'ESFP', 0.0106);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (751, 47, 'ESTJ', 0.0078);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (752, 47, 'ESTP', 0.0092);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (753, 48, 'INFJ', 0.1053);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (754, 48, 'INFP', 0.1712);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (755, 48, 'INTJ', 0.0733);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (756, 48, 'INTP', 0.1191);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (757, 48, 'ISFJ', 0.0369);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (758, 48, 'ISFP', 0.0599);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (759, 48, 'ISTJ', 0.0257);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (760, 48, 'ISTP', 0.0417);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (761, 48, 'ENFJ', 0.0610);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (762, 48, 'ENFP', 0.0992);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (763, 48, 'ENTJ', 0.0425);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (764, 48, 'ENTP', 0.0690);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (765, 48, 'ESFJ', 0.0214);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (766, 48, 'ESFP', 0.0347);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (767, 48, 'ESTJ', 0.0149);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (768, 48, 'ESTP', 0.0242);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (769, 49, 'INFJ', 0.1416);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (770, 49, 'INFP', 0.2424);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (771, 49, 'INTJ', 0.1019);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (772, 49, 'INTP', 0.1744);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (773, 49, 'ISFJ', 0.0232);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (774, 49, 'ISFP', 0.0397);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (775, 49, 'ISTJ', 0.0167);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (776, 49, 'ISTP', 0.0286);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (777, 49, 'ENFJ', 0.0426);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (778, 49, 'ENFP', 0.0730);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (779, 49, 'ENTJ', 0.0307);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (780, 49, 'ENTP', 0.0525);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (781, 49, 'ESFJ', 0.0070);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (782, 49, 'ESFP', 0.0120);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (783, 49, 'ESTJ', 0.0050);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (784, 49, 'ESTP', 0.0086);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (785, 50, 'INFJ', 0.1074);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (786, 50, 'INFP', 0.1001);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (787, 50, 'INTJ', 0.0999);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (788, 50, 'INTP', 0.0930);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (789, 50, 'ISFJ', 0.0371);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (790, 50, 'ISFP', 0.0346);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (791, 50, 'ISTJ', 0.0345);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (792, 50, 'ISTP', 0.0322);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (793, 50, 'ENFJ', 0.0920);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (794, 50, 'ENFP', 0.0857);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (795, 50, 'ENTJ', 0.0855);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (796, 50, 'ENTP', 0.0796);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (797, 50, 'ESFJ', 0.0318);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (798, 50, 'ESFP', 0.0296);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (799, 50, 'ESTJ', 0.0295);
+INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
+VALUES (800, 50, 'ESTP', 0.0275);
+
 INSERT INTO facility_entity (breakfast, parking, party, singleroom, swimmingpool, woman_only, guesthouse_id) VALUES
                                                                                                                  (1, 0, 1, 0, 1, 0, 1),
                                                                                                                  (0, 1, 0, 1, 0, 1, 2),
@@ -1062,4 +1748,24 @@ INSERT INTO facility_entity (breakfast, parking, party, singleroom, swimmingpool
                                                                                                                  (1, 1, 1, 1, 1, 1, 27),
                                                                                                                  (0, 0, 0, 0, 0, 0, 28),
                                                                                                                  (1, 0, 1, 0, 1, 0, 29),
-                                                                                                                 (0, 1, 0, 1, 0, 1, 30);
+                                                                                                                 (0, 1, 0, 1, 0, 1, 30),
+                                                                                                                 (0, 1, 0, 1, 1, 1, 31),
+                                                                                                                 (0, 1, 1, 1, 1, 1, 32),
+                                                                                                                 (0, 0, 0, 0, 0, 1, 33),
+                                                                                                                 (0, 0, 0, 1, 0, 1, 34),
+                                                                                                                 (0, 0, 1, 0, 0, 0, 35),
+                                                                                                                 (0, 1, 1, 1, 0, 0, 36),
+                                                                                                                 (0, 1, 0, 1, 0, 1, 37),
+                                                                                                                 (1, 1, 1, 1, 1, 1, 38),
+                                                                                                                 (1, 1, 1, 1, 0, 1, 39),
+                                                                                                                 (1, 1, 0, 1, 0, 1, 40),
+                                                                                                                 (1, 1, 0, 1, 0, 1, 41),
+                                                                                                                 (0, 1, 1, 1, 1, 1, 42),
+                                                                                                                 (0, 1, 0, 1, 0, 0, 43),
+                                                                                                                 (0, 1, 0, 1, 0, 0, 44),
+                                                                                                                 (1, 1, 0, 1, 0, 1, 45),
+                                                                                                                 (1, 1, 0, 1, 0, 1, 46),
+                                                                                                                 (1, 1, 0, 1, 0, 1, 47),
+                                                                                                                 (1, 1, 0, 1, 0, 1, 48),
+                                                                                                                 (1, 1, 1, 1, 0, 1, 49),
+                                                                                                                 (0, 1, 1, 1, 1, 1, 50);

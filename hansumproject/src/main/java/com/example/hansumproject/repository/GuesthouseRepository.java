@@ -10,12 +10,10 @@ import java.util.List;
 public interface GuesthouseRepository extends JpaRepository<GuesthouseEntity, Long> {
     GuesthouseEntity findByImageUrlContaining(String fileName);
 
-    List<GuesthouseEntity> findByLocation(String location);
-
     @Query("SELECT g FROM GuesthouseEntity g WHERE " +
             "(:guesthouseName IS NOT NULL OR :location IS NOT NULL) " +
             "AND (:guesthouseName IS NULL OR g.guesthouseName LIKE %:guesthouseName%) " +
-            "AND (:location IS NULL OR g.location = :location) " +
+            "AND (:location IS NULL OR g.location LIKE %:location%) " +
             "AND (:mood IS NULL OR g.mood LIKE %:mood%) " +
             "AND g.price BETWEEN :minPrice AND :maxPrice " +
             "AND (:facilities IS NULL OR EXISTS (SELECT f FROM FacilityEntity f WHERE f.guesthouse = g AND " +

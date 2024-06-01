@@ -62,8 +62,8 @@ public class GuesthouseController {
     @GetMapping("/search")
     public ResponseEntity<?> searchGuesthouses(@RequestParam(value = "guesthouse_name", required = false) String guesthouse_name,
                                                @RequestParam(value = "location", required = false) String location,
-                                               @RequestParam(value = "checkin_date") String checkin_date,
-                                               @RequestParam(value = "checkout_date") String checkout_date,
+                                               @RequestParam(value = "checkin_date", required = false) String checkin_date,
+                                               @RequestParam(value = "checkout_date", required = false) String checkout_date,
                                                @RequestParam(value = "mood", required = false) String mood,
                                                @RequestParam(value = "facility", required = false) List<String> facilities,
                                                @RequestParam(value = "min_price", required = false, defaultValue = "0") int minPrice,

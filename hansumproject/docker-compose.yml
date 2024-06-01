@@ -22,11 +22,11 @@ services:
 
   spring-boot-app:
     # spring-boot-app build 파일 필요 시
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-    container_name: hansumproject0522
-    image : ukjang/hansumproject-spring-boot-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    container_name: hansumproject0522
+#    image : ukjang/hansumproject-spring-boot-app:latest
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/hansumDB?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: "root"
