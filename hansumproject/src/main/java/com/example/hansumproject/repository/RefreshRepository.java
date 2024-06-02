@@ -12,4 +12,8 @@ public interface RefreshRepository extends JpaRepository<RefreshEntity, Long> {
     // refresh token 삭제 메서드
     @Transactional
     void deleteByRefresh(String refresh);
+
+    // userId를 통해 모든 refresh token 삭제 메서드
+    @Transactional
+    void deleteAllByUserId(Long userId);
 }

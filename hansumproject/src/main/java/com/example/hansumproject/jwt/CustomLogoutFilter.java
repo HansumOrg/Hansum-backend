@@ -46,58 +46,59 @@ public class CustomLogoutFilter extends GenericFilterBean{
             return;
         }
 
-        //get refresh token
-        String refresh = request.getHeader("refresh");
+        //get access token
+        String access = request.getHeader("access");
 
-        //refresh Token이 없을 시 401 오류
-        //refresh null check
-        if (refresh == null) {
+        //access Token이 없을 시 401 오류
+        //access null check
+        if (access == null) {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
-            writer.print("{\"errorMessage\": \"Refresh token is null.\"}");
+            writer.print("{\"errorMessage\": \"Access token is null.\"}");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
 
-        //refresh token이 만료되었는지 확인
+        //access token이 만료되었는지 확인
         //expired check
         try {
-            jwtUtil.isExpired(refresh);
+            jwtUtil.isExpired(access);
         } catch (ExpiredJwtException e) {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
-            writer.print("{\"errorMessage\": \"Refresh token has expired.\"}");
+            writer.print("{\"errorMessage\": \"Access token has expired.\"}");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
 
-        // 토큰이 refresh인지 확인 (발급시 페이로드에 명시)
-        String category = jwtUtil.getCategory(refresh);
-        if (!category.equals("refresh")) {
+        // 토큰이 access 확인 (발급시 페이로드에 명시)
+        String category = jwtUtil.getCategory(access);
+        if (!category.equals("access")) {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
-            writer.print("{\"errorMessage\": \"Refresh token has expired.\"}");
+            writer.print("{\"errorMessage\": \"Access token has expired.\"}");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
 
         //DB에 저장되어 있는지 확인
-        Boolean isExist = refreshRepository.existsByRefresh(refresh);
-        if (!isExist) {
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            PrintWriter writer = response.getWriter();
-            writer.print("{\"errorMessage\": \"Refresh token not found.\"}");
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            return;
-        }
+//        Boolean isExist = refreshRepository.existsByRefresh(access);
+//        if (!isExist) {
+//            response.setContentType("application/json");
+//            response.setCharacterEncoding("UTF-8");
+//            PrintWriter writer = response.getWriter();
+//            writer.print("{\"errorMessage\": \"Refresh token not found.\"}");
+//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//            return;
+//        }
 
         //로그아웃 진행
-        //Refresh 토큰 DB에서 제거
-        refreshRepository.deleteByRefresh(refresh);
+        //Access 토큰을 통해 DB에 저장되어 있는 Refresh 토큰 모두 삭제
+        Long userId = jwtUtil.getUserId(access);
+        refreshRepository.deleteAllByUserId(userId);
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
