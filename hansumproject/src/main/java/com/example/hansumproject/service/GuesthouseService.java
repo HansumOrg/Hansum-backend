@@ -41,6 +41,9 @@ public class GuesthouseService {
     private ReviewRepository reviewRepository;
 
     @Autowired
+    private DibsRepository dibsRepository;
+
+    @Autowired
     private FacilityRepository facilityRepository;
 
     // 이미지 파일을 Base64로 인코딩하여 문자열로 반환
@@ -146,9 +149,15 @@ public class GuesthouseService {
     }
 
     // 게스트하우스 검색 결과 조회
-    public Map<String, Object> searchGuesthouses(String guesthouseName, String location, String mood, List<String> facilities, int minPrice, int maxPrice) {
+    public Map<String, Object> searchGuesthouses(String guesthouseName, String location, String mood, List<String> facilities, int minPrice, int maxPrice, Long userId) {
         try {
             List<GuesthouseEntity> guesthouses = guesthouseRepository.searchGuesthouses(guesthouseName, location, mood, facilities, minPrice, maxPrice);
+
+            // 유저의 찜 목록 가져오기
+            List<DibsEntity> dibsList = dibsRepository.findByUserUserId(userId);
+            Set<Long> dibsGuesthouseIds = dibsList.stream()
+                    .map(dibs -> dibs.getGuesthouse().getGuesthouseId())
+                    .collect(Collectors.toSet());
 
             List<Map<String, Object>> guesthouseList = guesthouses.stream().map(guesthouse -> {
                 Map<String, Object> guesthouseMap = new HashMap<>();
@@ -162,11 +171,11 @@ public class GuesthouseService {
                 String base64Image = encodeFileToBase64Binary(guesthouse.getImageUrl()); // 이미지 인코딩
                 guesthouseMap.put("imageBase64", base64Image);
                 guesthouseMap.put("mood", guesthouse.getMood());
+                guesthouseMap.put("dibs", dibsGuesthouseIds.contains(guesthouse.getGuesthouseId())); // 찜 여부
                 return guesthouseMap;
             }).collect(Collectors.toList());
 
             Map<String, Object> result = new HashMap<>();
-            result.put("location", location);
             result.put("guesthouses", guesthouseList);
             return result;
         } catch (Exception e) {
