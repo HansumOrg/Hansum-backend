@@ -26,13 +26,13 @@ public class RefreshController {
         String refresh = request.getHeader("refresh");
         if (refresh == null) {
             Map<String, String> errorResponse = new HashMap<>();
-            errorResponse.put("errorMessage", "Refresh token null");
+            errorResponse.put("errorMessage", "Invalid refresh token");
             return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
         }
 
         if (!refreshService.isRefreshTokenValid(refresh)) {
             Map<String, String> errorResponse = new HashMap<>();
-            errorResponse.put("errorMessage", "Refresh token expired or invalid");
+            errorResponse.put("errorMessage", "refresh token expired");
             return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
         }
 
