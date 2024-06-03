@@ -1,117 +1,117 @@
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (1, '미도호스텔', '제주 서귀포시 동문동로 13-1 미도호스텔 게스트하우스', '동문동', '25000', '0507-1303-7627', 0, '1_미도호스텔.jpeg', '여유로운');
+VALUES (1, '미도호스텔', '제주 서귀포시 동문동로 13-1 미도호스텔 게스트하우스', '서귀포시,중문,모슬포', '25000', '0507-1303-7627', 0, '1_미도호스텔.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (2, '낯선하루', '제주 서귀포시 성산읍 신양로122번길 30-8 낯선하루', '성산읍', '30000', '010-2480-1250', 0, '2_낯선하루.jpeg', '액티비티가 다양한');
+VALUES (2, '낯선하루', '제주 서귀포시 성산읍 신양로122번길 30-8 낯선하루', '남원,표선,성산', '30000', '010-2480-1250', 0, '2_낯선하루.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (3, '제주도게스트하우스 파티 간장남들', '제주 서귀포시 안덕면 사계북로41번길 30', 'Unknown', '20000', '0507-1335-9219', 0,
+VALUES (3, '제주도게스트하우스 파티 간장남들', '제주 서귀포시 안덕면 사계북로41번길 30', '서귀포시,중문,모슬포', '20000', '0507-1335-9219', 0,
         '3_제주도게스트하우스 파티 간장남들.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (4, '오소소게스트하우스', '제주 서귀포시 대정읍 비자낭로 23', '대정읍', '28000', '0507-1385-3592', 0, '4_오소소게스트하우스.jpeg', '활기 넘치는');
+VALUES (4, '오소소게스트하우스', '제주 서귀포시 대정읍 비자낭로 23', '서귀포시,중문,모슬포', '28000', '0507-1385-3592', 0, '4_오소소게스트하우스.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (5, '히든스테이', '제주 서귀포시 성산읍 성산중앙로40번길 12 히든스테이', '성산읍', '30000', '0507-1385-3800', 0, '5_히든스테이.jpeg', '활기 넘치는');
+VALUES (5, '히든스테이', '제주 서귀포시 성산읍 성산중앙로40번길 12 히든스테이', '남원,표선,성산', '30000', '0507-1385-3800', 0, '5_히든스테이.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (6, '제주도성산바랑쉬게스트하우스', '제주 서귀포시 성산읍 환해장성로 496', '성산읍', '10900', '0507-1304-5697', 0, '6_제주도성산바랑쉬게스트하우스.jpeg',
+VALUES (6, '제주도성산바랑쉬게스트하우스', '제주 서귀포시 성산읍 환해장성로 496', '남원,표선,성산', '10900', '0507-1304-5697', 0, '6_제주도성산바랑쉬게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (7, '루프탑정원', '제주 서귀포시 남원읍 태위로912번길 37', '남원읍', '25000', '0507-1308-3842', 0, '7_루프탑정원.jpeg', '여유로운');
+VALUES (7, '루프탑정원', '제주 서귀포시 남원읍 태위로912번길 37', '남원,표선,성산', '25000', '0507-1308-3842', 0, '7_루프탑정원.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (8, '빅썸 호스텔', '제주 서귀포시 남원읍 태위로 984-7 빅썸호스텔', '남원읍', '9900', '0507-1496-8119', 0, '8_빅썸 호스텔.jpeg', '액티비티가 다양한');
+VALUES (8, '빅썸 호스텔', '제주 서귀포시 남원읍 태위로 984-7 빅썸호스텔', '남원,표선,성산', '9900', '0507-1496-8119', 0, '8_빅썸 호스텔.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (9, '또똣제주백팩커스', '제주 서귀포시 안덕면 사계남로153번길 10', 'Unknown', '0', '0507-1363-7051', 0, '9_또똣제주백팩커스.jpeg', '힐링하기 좋은');
+VALUES (9, '또똣제주백팩커스', '제주 서귀포시 안덕면 사계남로153번길 10', '서귀포시,중문,모슬포', '0', '0507-1363-7051', 0, '9_또똣제주백팩커스.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (10, '나무이야기 게스트하우스 남원점', '제주 서귀포시 남원읍 남한로21번길 9', '남원읍', '25000', '010-3389-4071', 0, '10_나무이야기 게스트하우스 남원점.jpeg',
+VALUES (10, '나무이야기 게스트하우스 남원점', '제주 서귀포시 남원읍 남한로21번길 9', '남원,표선,성산', '25000', '010-3389-4071', 0, '10_나무이야기 게스트하우스 남원점.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (11, '하랑게스트하우스', '제주 서귀포시 대정읍 일과로13번길 1', '대정읍', '40000', '0507-1400-5585', 0, '11_하랑게스트하우스.jpeg', '힐링하기 좋은');
+VALUES (11, '하랑게스트하우스', '제주 서귀포시 대정읍 일과로13번길 1', '서귀포시,중문,모슬포', '40000', '0507-1400-5585', 0, '11_하랑게스트하우스.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (12, '표리네', '제주 서귀포시 표선면 표선중앙로 73-9 표리네게스트하우스', 'Unknown', '22000', '0507-1340-0286', 0, '12_표리네.jpeg', '여유로운');
+VALUES (12, '표리네', '제주 서귀포시 표선면 표선중앙로 73-9 표리네게스트하우스', '남원,표선,성산', '22000', '0507-1340-0286', 0, '12_표리네.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (13, '돌담에꽃머무는집', '제주 서귀포시 안덕면 대평로 46', 'Unknown', '70000', '0507-1426-8942', 0, '13_돌담에꽃머무는집.jpeg', '여유로운');
+VALUES (13, '돌담에꽃머무는집', '제주 서귀포시 안덕면 대평로 46', '서귀포시,중문,모슬포', '70000', '0507-1426-8942', 0, '13_돌담에꽃머무는집.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (14, '후스토리 게스트하우스', '제주 서귀포시 색달중앙로 15-1 후스토리 게스트하우스', 'Unknown', '25000', '0507-1414-2534', 0,
+VALUES (14, '후스토리 게스트하우스', '제주 서귀포시 색달중앙로 15-1 후스토리 게스트하우스', '서귀포시,중문,모슬포', '25000', '0507-1414-2534', 0,
         '14_후스토리 게스트하우스.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (15, '무명화가의집게스트하우스', '제주 서귀포시 성산읍 시흥하동로55번길 23-5', '성산읍', '25000', '010-9594-6126', 0, '15_무명화가의집게스트하우스.jpeg',
+VALUES (15, '무명화가의집게스트하우스', '제주 서귀포시 성산읍 시흥하동로55번길 23-5', '남원,표선,성산', '25000', '010-9594-6126', 0, '15_무명화가의집게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (16, '바람이 불어오는 곳', '제주 서귀포시 대정읍 상모대서로20번길 31-15', '대정읍', '25000', '010-7518-5579', 0, '16_바람이 불어오는 곳.jpeg',
+VALUES (16, '바람이 불어오는 곳', '제주 서귀포시 대정읍 상모대서로20번길 31-15', '서귀포시,중문,모슬포', '25000', '010-7518-5579', 0, '16_바람이 불어오는 곳.jpeg',
         '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (17, '스테이라움', '제주 서귀포시 성산읍 오조로 120 스테이라움', '성산읍', '140000', '0507-1312-9910', 0, '17_스테이라움.jpeg', '여유로운');
+VALUES (17, '스테이라움', '제주 서귀포시 성산읍 오조로 120 스테이라움', '남원,표선,성산', '140000', '0507-1312-9910', 0, '17_스테이라움.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (18, '담소 게스트하우스', '제주 서귀포시 칠십리로485번길 7-3 담소게스트하우스', 'Unknown', '38000', '0507-1343-2172', 0, '18_담소 게스트하우스.jpeg',
+VALUES (18, '담소 게스트하우스', '제주 서귀포시 칠십리로485번길 7-3 담소게스트하우스', '서귀포시,중문,모슬포', '38000', '0507-1343-2172', 0, '18_담소 게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (19, '전망게스트하우스', '제주 서귀포시 성산읍 일출로 248 2층3층', '성산읍', '20000', '064-783-1568', 0, '19_전망게스트하우스.jpeg', '여유로운');
+VALUES (19, '전망게스트하우스', '제주 서귀포시 성산읍 일출로 248 2층3층', '남원,표선,성산', '20000', '064-783-1568', 0, '19_전망게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (20, '하늘아래게스트하우스', '제주 서귀포시 표선면 세성로 123-24 하늘아래게스트하우스', 'Unknown', '70000', '010-2408-5602', 0,
+VALUES (20, '하늘아래게스트하우스', '제주 서귀포시 표선면 세성로 123-24 하늘아래게스트하우스', '남원,표선,성산', '70000', '010-2408-5602', 0,
         '20_하늘아래게스트하우스.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (21, '꿈인게스트하우스', '제주 서귀포시 말질로170번길 4-1', 'Unknown', '30000', '0507-1406-0095', 0, '21_꿈인게스트하우스.jpeg', '힐링하기 좋은');
+VALUES (21, '꿈인게스트하우스', '제주 서귀포시 말질로170번길 4-1', '서귀포시,중문,모슬포', '30000', '0507-1406-0095', 0, '21_꿈인게스트하우스.jpeg', '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (22, '성산에오거들랑게스트하우스', '제주 서귀포시 성산읍 고성동서로 13-7', '성산읍', '20000', '064-784-2692', 0, '22_성산에오거들랑게스트하우스.jpeg',
+VALUES (22, '성산에오거들랑게스트하우스', '제주 서귀포시 성산읍 고성동서로 13-7', '남원,표선,성산', '20000', '064-784-2692', 0, '22_성산에오거들랑게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (23, '물고기나무', '제주 서귀포시 성산읍 중산간동로 4204-14', '성산읍', '45000', '0507-1483-1065', 0, '23_물고기나무.jpeg', '여유로운');
+VALUES (23, '물고기나무', '제주 서귀포시 성산읍 중산간동로 4204-14', '남원,표선,성산', '45000', '0507-1483-1065', 0, '23_물고기나무.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (24, '스테이 동백', '제주 서귀포시 성산읍 오조로100번길 5', '성산읍', '40000', '0507-1355-9322', 0, '24_스테이 동백.jpeg', '액티비티가 다양한');
+VALUES (24, '스테이 동백', '제주 서귀포시 성산읍 오조로100번길 5', '남원,표선,성산', '40000', '0507-1355-9322', 0, '24_스테이 동백.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (25, '위미위드미 게스트하우스', '제주 서귀포시 남원읍 태위로151번길 17', '남원읍', '25000', '010-5176-1259', 0, '25_위미위드미 게스트하우스.jpeg',
+VALUES (25, '위미위드미 게스트하우스', '제주 서귀포시 남원읍 태위로151번길 17', '남원,표선,성산', '25000', '010-5176-1259', 0, '25_위미위드미 게스트하우스.jpeg',
         '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (26, '늘푸른게스트하우스', '제주 서귀포시 대정읍 하모백사로 29', '대정읍', '55000', '0507-1437-7892', 0, '26_늘푸른게스트하우스.jpeg', '액티비티가 다양한');
+VALUES (26, '늘푸른게스트하우스', '제주 서귀포시 대정읍 하모백사로 29', '서귀포시,중문,모슬포', '55000', '0507-1437-7892', 0, '26_늘푸른게스트하우스.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (27, '블랑게스트하우스', '제주 서귀포시 표선면 표선관정로43번길 76-31', 'Unknown', '25000', '010-6276-0766', 0, '27_블랑게스트하우스.jpeg', '여유로운');
+VALUES (27, '블랑게스트하우스', '제주 서귀포시 표선면 표선관정로43번길 76-31', '남원,표선,성산', '25000', '010-6276-0766', 0, '27_블랑게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (28, '흰고래', '제주 서귀포시 이어도로1066번길 26', 'Unknown', '40000', '0507-1400-0471', 0, '28_흰고래.jpeg', '여유로운');
+VALUES (28, '흰고래', '제주 서귀포시 이어도로1066번길 26', '서귀포시,중문,모슬포', '40000', '0507-1400-0471', 0, '28_흰고래.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (29, '달휴게스트하우스', '제주 서귀포시 성산읍 온평애향로23번길 25', '성산읍', '45000', '0507-1400-1641', 0, '29_달휴게스트하우스.jpeg', '여유로운');
+VALUES (29, '달휴게스트하우스', '제주 서귀포시 성산읍 온평애향로23번길 25', '남원,표선,성산', '45000', '0507-1400-1641', 0, '29_달휴게스트하우스.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (30, '비욘드북카페&게스트하우스', '제주 서귀포시 성산읍 신천동로 24-30', '성산읍', '25000', '0507-1407-5195', 0, '30_비욘드북카페&게스트하우스.jpeg',
+VALUES (30, '비욘드북카페&게스트하우스', '제주 서귀포시 성산읍 신천동로 24-30', '남원,표선,성산', '25000', '0507-1407-5195', 0, '30_비욘드북카페&게스트하우스.jpeg',
         '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (31, '제주도게스트하우스 협재정류장', '제주 제주시 한림읍 한림로 391 제주도게스트하우스협재정류장', '한림읍', '30000', '0507-1322-8968', 0, '31_제주도게스트하우스 협재정류장.jpeg',
+VALUES (31, '제주도게스트하우스 협재정류장', '제주 제주시 한림읍 한림로 391 제주도게스트하우스협재정류장', '이호테우,하귀,애월,한림,협재', '30000', '0507-1322-8968', 0, '31_제주도게스트하우스 협재정류장.jpeg',
         '힐링하기 좋은');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (32, '네모 스테이', '제주 제주시 한림읍 한림로 394 1층~3층', '한림읍', '20000', '0507-1313-0946', 0, '32_네모 스테이.jpeg', '여유로운');
+VALUES (32, '네모 스테이', '제주 제주시 한림읍 한림로 394 1층~3층', '이호테우,하귀,애월,한림,협재', '20000', '0507-1313-0946', 0, '32_네모 스테이.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (33, '동행in협재', '제주 제주시 한림읍 협재1길 27 1층 동행in협재', '한림읍', '25000', '0507-1393-3556', 0, '33_동행in협재.jpeg', '여유로운');
+VALUES (33, '동행in협재', '제주 제주시 한림읍 협재1길 27 1층 동행in협재', '이호테우,하귀,애월,한림,협재', '25000', '0507-1393-3556', 0, '33_동행in협재.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
- VALUES (34, '김군아미고게스트하우스', '제주 제주시 애월읍 애월해안로 670', '애월읍', '25000', '0507-1316-6045', 0, '34_김군아미고게스트하우스.jpeg', '액티비티가 다양한');
+VALUES (34, '김군아미고게스트하우스', '제주 제주시 애월읍 애월해안로 670', '이호테우,하귀,애월,한림,협재', '25000', '0507-1316-6045', 0, '34_김군아미고게스트하우스.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (35, '1미리 게스트하우스', '제주 제주시 한림읍 협재6길 22-4 1미리게스트하우스', '한림읍', '30000', '010-6566-6446', 0, '35_1미리 게스트하우스.jpeg', '액티비티가 다양한');
+VALUES (35, '1미리 게스트하우스', '제주 제주시 한림읍 협재6길 22-4 1미리게스트하우스', '이호테우,하귀,애월,한림,협재', '30000', '010-6566-6446', 0, '35_1미리 게스트하우스.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (36, '제주도게스트하우스파티애월설레임2호점', '제주 제주시 애월읍 애월북서길 67', '애월읍', '10000', '0507-1371-6431', 0, '36_제주도게스트하우스파티애월설레임2호점.jpeg', '활기 넘치는');
+VALUES (36, '제주도게스트하우스파티애월설레임2호점', '제주 제주시 애월읍 애월북서길 67', '이호테우,하귀,애월,한림,협재', '10000', '0507-1371-6431', 0, '36_제주도게스트하우스파티애월설레임2호점.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (37, '송당온도', '제주 제주시 구좌읍 송당서3길 13 송당온도 게스트하우스', '구좌읍', '30000', '0507-1428-2200', 0, '37_송당온도.jpeg', '액티비티가 다양한');
+VALUES (37, '송당온도', '제주 제주시 구좌읍 송당서3길 13 송당온도 게스트하우스', '함덕,김녕,세화', '30000', '0507-1428-2200', 0, '37_송당온도.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (38, '카프리애월 민박', '제주 제주시 애월읍 애월로4길 18', '애월읍', '20000', '0507-1353-7978', 0, '38_카프리애월 민박.jpeg', '활기 넘치는');
+VALUES (38, '카프리애월 민박', '제주 제주시 애월읍 애월로4길 18', '이호테우,하귀,애월,한림,협재', '20000', '0507-1353-7978', 0, '38_카프리애월 민박.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (39, '사랑각게스트하우스', '제주 제주시 조천읍 선화길 21 1층 사랑각게스트하우스', '조천읍', '25000', '0507-1400-5912', 0, '39_사랑각게스트하우스.jpeg', '활기 넘치는');
+VALUES (39, '사랑각게스트하우스', '제주 제주시 조천읍 선화길 21 1층 사랑각게스트하우스', '함덕,김녕,세화', '25000', '0507-1400-5912', 0, '39_사랑각게스트하우스.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (40, '제주도파티게스트하우스 문어오빠', '제주 제주시 한림읍 한림로 372-15 제주도파티게스트하우스 문어오빠 협재 본점', '한림읍', '20000', '0507-1316-0945', 0,
+VALUES (40, '제주도파티게스트하우스 문어오빠', '제주 제주시 한림읍 한림로 372-15 제주도파티게스트하우스 문어오빠 협재 본점', '이호테우,하귀,애월,한림,협재', '20000', '0507-1316-0945', 0,
         '40_제주도파티게스트하우스 문어오빠.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (41, '제주기역', '제주 제주시 한림읍 협재1길 19-8 제주기역', '한림읍', '80000', '064-796-1309', 0, '41_제주기역.jpeg', '여유로운');
+VALUES (41, '제주기역', '제주 제주시 한림읍 협재1길 19-8 제주기역', '이호테우,하귀,애월,한림,협재', '80000', '064-796-1309', 0, '41_제주기역.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (42, '끌림365 2호점 애월의 온도', '제주 제주시 애월읍 애월해안로 384', '애월읍', '20000', '0507-1306-0384', 0, '42_끌림365 2호점 애월의 온도.jpeg', '활기 넘치는');
+VALUES (42, '끌림365 2호점 애월의 온도', '제주 제주시 애월읍 애월해안로 384', '이호테우,하귀,애월,한림,협재', '20000', '0507-1306-0384', 0, '42_끌림365 2호점 애월의 온도.jpeg', '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (43, '제주도 애월 파티하는 오누 게스트하우스', '제주 제주시 애월읍 애월로2길 7 1층 오누게스트하우스', '애월읍', '25000', '0507-1307-3614', 0, '43_제주도 애월 파티하는 오누 게스트하우스.jpeg',
+VALUES (43, '제주도 애월 파티하는 오누 게스트하우스', '제주 제주시 애월읍 애월로2길 7 1층 오누게스트하우스', '이호테우,하귀,애월,한림,협재', '25000', '0507-1307-3614', 0, '43_제주도 애월 파티하는 오누 게스트하우스.jpeg',
         '활기 넘치는');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (44, '나무처럼 게스트하우스', '제주 제주시 한림읍 홍수암로 3-1', '한림읍', '47000', '0507-1436-8306', 0, '44_나무처럼 게스트하우스.jpeg', '액티비티가 다양한');
+VALUES (44, '나무처럼 게스트하우스', '제주 제주시 한림읍 홍수암로 3-1', '이호테우,하귀,애월,한림,협재', '47000', '0507-1436-8306', 0, '44_나무처럼 게스트하우스.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (45, '일공육스테이', '제주 제주시 한림읍 명월로 106 1층', '한림읍', '19900', '0507-1305-3190', 0, '45_일공육스테이.jpeg', '액티비티가 다양한');
+VALUES (45, '일공육스테이', '제주 제주시 한림읍 명월로 106 1층', '이호테우,하귀,애월,한림,협재', '19900', '0507-1305-3190', 0, '45_일공육스테이.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (46, '제주 제주로와 게스트하우스', '제주 제주시 제원길 16 2층', 'Unknown', '26000', '0507-1400-4993', 0, '46_제주 제주로와 게스트하우스.jpeg', '액티비티가 다양한');
+VALUES (46, '제주 제주로와 게스트하우스', '제주 제주시 제원길 16 2층', '용담,도두,연동,노형동', '26000', '0507-1400-4993', 0, '46_제주 제주로와 게스트하우스.jpeg', '액티비티가 다양한');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (47, '숨게스트하우스 제주공항점', '제주 제주시 서광로5길 2-2 숨게스트하우스', 'Unknown', '23000', '0507-1311-0106', 0, '47_숨게스트하우스 제주공항점.jpeg', '여유로운');
+VALUES (47, '숨게스트하우스 제주공항점', '제주 제주시 서광로5길 2-2 숨게스트하우스', '용담,도두,연동,노형동', '23000', '0507-1311-0106', 0, '47_숨게스트하우스 제주공항점.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (48, '제주도게스트하우스 점보네', '제주 제주시 용마서1길 36 3층', 'Unknown', '25000', '0507-1307-8240', 0, '48_제주도게스트하우스 점보네.jpeg', '여유로운');
+VALUES (48, '제주도게스트하우스 점보네', '제주 제주시 용마서1길 36 3층', '용담,도두,연동,노형동', '25000', '0507-1307-8240', 0, '48_제주도게스트하우스 점보네.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (49, '우리들의월정리', '제주 제주시 구좌읍 월정1길 66-3 우리들의월정리', '구좌읍', '35000', '0507-1362-5590', 0, '49_우리들의월정리.jpeg', '여유로운');
+VALUES (49, '우리들의월정리', '제주 제주시 구좌읍 월정1길 66-3 우리들의월정리', '함덕,김녕,세화', '35000', '0507-1362-5590', 0, '49_우리들의월정리.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
-VALUES (50, '제주도게스트하우스파티 느영나영', '제주 서귀포시 남원읍 신흥로13번길 23 제주도게스트하우스파티 느영나영', '남원읍', '14000', '0507-1400-5002', 0,
+VALUES (50, '제주도게스트하우스파티 느영나영', '제주 서귀포시 남원읍 신흥로13번길 23 제주도게스트하우스파티 느영나영', '남원,표선,성산', '14000', '0507-1400-5002', 0,
         '50_제주도게스트하우스파티 느영나영.png', '힐링하기 좋은');
 
 
