@@ -3,9 +3,9 @@ name: Java CI with Gradle
 # master 브랜치에 push, PR 이벤트 발생시 동작.
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   deploy: 
