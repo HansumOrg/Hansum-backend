@@ -13,8 +13,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-      with:
-        path: hansumproject  # 프로젝트 경로 지정
     
     # Java 17 설정
     - name: Set up JDK 17
@@ -29,12 +27,13 @@ jobs:
 
     # Spring Boot 어플리케이션 Build (1)
     - name: Spring Boot Build
-      run: ./hansumproject/gradlew clean build --exclude-task test
-      working-directory: ./hansumproject  # Gradle 빌드 파일 경로 지정
+      run: ./gradlew clean build --exclude-task test
+      working-directory: ./hansumproject
     
     # Docker 이미지 Build (2)
     - name: Docker image build
       run: docker build -t ukjang/hansumproject-spring-boot-app .
+      working-directory: ./hansumproject
     
     # DockerHub Login (3)
     - name: Docker login 
@@ -46,3 +45,4 @@ jobs:
     # Docker Hub push (4)
     - name: Docker Hub push
       run: docker buildx build --platform linux/amd64,linux/arm64 -t ukjang/hansumproject-spring-boot-app --push .
+      working-directory: ./hansumproject
