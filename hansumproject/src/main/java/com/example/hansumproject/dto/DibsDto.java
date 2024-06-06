@@ -12,13 +12,13 @@ import lombok.*;
 @Getter
 @Setter
 public class DibsDto {
-    @JsonProperty("dibs_id") // json형식에서 key값 이름 설정
+    @JsonProperty("dibsId") // json형식에서 key값 이름 설정
     private Long dibsId; // 찜 ID
 
-    @JsonProperty("guesthouse_id")
+    @JsonProperty("guesthouseId")
     private Long guesthouseId; // 게스트하우스 ID
 
-    @JsonProperty("guesthouse_name")
+    @JsonProperty("guesthouseName")
     private String guesthouseName; // 게스트하우스 이름
 
     @JsonProperty("address")
