@@ -230,7 +230,7 @@ public class UserService {
         List<ReservationEntity> reservationEntities = reservationRepository.findByUserUserId(userId);
 
         if (reservationEntities.isEmpty()) {
-            return new ResponseEntity<>(Map.of("message", "No reservation found for the user"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(Map.of("errorMessage", "No reservation found for the user"), HttpStatus.NOT_FOUND);
         }
 
         List<ReservationDto> reservationDtos = reservationEntities.stream().map(this::convertToDto).collect(Collectors.toList());
