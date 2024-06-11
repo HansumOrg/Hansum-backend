@@ -133,7 +133,7 @@ public class UserService {
         List<DibsDto> dibsDtos = dibsEntities.stream().map(dibs -> {
             GuesthouseEntity guesthouse = dibs.getGuesthouse();
             // 이미지는 base64 인코딩(guesthouseService에 있는 메서드 사용)
-            String base64Image = "image/jpeg;base64," + guesthouseService.encodeFileToBase64Binary(guesthouse.getImageUrl());
+            String base64Image = "data:image/jpeg;base64," + guesthouseService.encodeFileToBase64Binary(guesthouse.getImageUrl());
             return new DibsDto(
                     dibs.getDibsId(),
                     guesthouse.getGuesthouseId(),

@@ -102,7 +102,7 @@ public class GuesthouseService {
 
         // 이미지 Base64 변화
         String base64Image = encodeFileToBase64Binary(guesthouseEntity.getImageUrl());
-        response.put("imageBase64", "image/jpeg;base64," + base64Image);
+        response.put("imageBase64", "data:image/jpeg;base64," + base64Image);
 
         return ResponseEntity.ok(response);
     }
@@ -169,7 +169,7 @@ public class GuesthouseService {
                 guesthouseMap.put("phone", guesthouse.getPhone());
                 guesthouseMap.put("rating", guesthouse.getRating());
                 String base64Image = encodeFileToBase64Binary(guesthouse.getImageUrl()); // 이미지 인코딩
-                guesthouseMap.put("imageBase64", "image/jpeg;base64," + base64Image);
+                guesthouseMap.put("imageBase64", "data:image/jpeg;base64," + base64Image);
                 guesthouseMap.put("mood", guesthouse.getMood());
                 guesthouseMap.put("dibs", dibsGuesthouseIds.contains(guesthouse.getGuesthouseId())); // 찜 여부
                 return guesthouseMap;
@@ -201,7 +201,7 @@ public class GuesthouseService {
 
             // 이미지 encoding
             String base64Image = encodeFileToBase64Binary(r.getGuesthouse().getImageUrl());
-            recommendationMap.put("imageBase64", "image/jpeg;base64," + base64Image);
+            recommendationMap.put("imageBase64", "data:image/jpeg;base64," + base64Image);
             return recommendationMap;
         }).collect(Collectors.toList());
     }
