@@ -112,7 +112,7 @@ INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location
 VALUES (49, '우리들의월정리', '제주 제주시 구좌읍 월정1길 66-3 우리들의월정리', '함덕,김녕,세화', '35000', '0507-1362-5590', 0, '49_우리들의월정리.jpeg', '여유로운');
 INSERT INTO guesthouse_entity (guesthouse_id, guesthouse_name, address, location, price, phone, rating, image_url, mood)
 VALUES (50, '제주도게스트하우스파티 느영나영', '제주 서귀포시 남원읍 신흥로13번길 23 제주도게스트하우스파티 느영나영', '남원,표선,성산', '14000', '0507-1400-5002', 0,
-        '50_제주도게스트하우스파티 느영나영.png', '힐링하기 좋은');
+        '50.jpeg', '힐링하기 좋은');
 
 
 INSERT INTO mbti_prob_entity (probability_id, guesthouse_id, mbti, probability)
