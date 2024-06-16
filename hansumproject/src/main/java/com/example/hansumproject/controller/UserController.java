@@ -51,9 +51,11 @@ public class UserController {
         response.put("nickname", user.getNickname());
         response.put("mbti", user.getMbti());
         response.put("userAgreement", user.getUserAgreement());
-        response.put("interestedLocation", user.getInterestedLocation());
-        response.put("interestHobby", user.getInterestedHobby());
-        response.put("interestedFood", user.getInterestedFood());
+
+        response.put("interestedLocation", user.getListInterestedLocation());
+        response.put("interestHobby", user.getListInterestedHobby());
+        response.put("interestedFood", user.getListInterestedFood());
+
         response.put("message", "User Info retrieved successfully");
 
         return ResponseEntity.ok(response);

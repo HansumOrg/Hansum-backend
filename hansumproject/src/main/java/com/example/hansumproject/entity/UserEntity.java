@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Getter
 @Setter
 @Entity
@@ -52,4 +57,47 @@ public class UserEntity {
 
     @Column(name = "interestedFood")
     private String interestedFood; // 관심사-음식
+
+    public List<String> getListInterestedLocation() {
+        if (interestedLocation != null) {
+            return Arrays.stream(interestedLocation.split(","))
+                    .map(String::trim)
+                    .collect(Collectors.toList());
+        } else {
+
+            ArrayList interestedLocationList = new ArrayList<>();
+
+            interestedLocationList.add("");
+
+            return interestedLocationList;
+        }
+    }
+
+    public List<String> getListInterestedHobby() {
+        if (interestedHobby != null) {
+            return Arrays.stream(interestedHobby.split(","))
+                    .map(String::trim)
+                    .collect(Collectors.toList());
+        } else {
+            ArrayList interestedLocationHobby = new ArrayList<>();
+
+            interestedLocationHobby.add("");
+
+            return interestedLocationHobby;
+        }
+    }
+
+    public List<String> getListInterestedFood() {
+        if (interestedFood != null) {
+            return Arrays.stream(interestedFood.split(","))
+                    .map(String::trim)
+                    .collect(Collectors.toList());
+        } else {
+            ArrayList interestedLocationFood = new ArrayList<>();
+
+            interestedLocationFood.add("");
+
+            return interestedLocationFood;
+        }
+    }
 }
