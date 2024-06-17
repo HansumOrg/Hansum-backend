@@ -53,7 +53,7 @@ public class UserController {
         response.put("userAgreement", user.getUserAgreement());
 
         response.put("interestedLocation", user.getListInterestedLocation());
-        response.put("interestHobby", user.getListInterestedHobby());
+        response.put("interestedHobby", user.getListInterestedHobby());
         response.put("interestedFood", user.getListInterestedFood());
 
         response.put("message", "User Info retrieved successfully");
