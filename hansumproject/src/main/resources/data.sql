@@ -1775,10 +1775,31 @@ INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nicknam
 VALUES (1, 1, '1990-01-01', 'ENFJ', '장욱', 'Jake', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id1');
 
 INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
-VALUES (1, 2, '1990-01-01', 'ENTJ', '장욱', 'Sheon', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id2');
+VALUES (1, 2, '1990-01-01', 'ENTJ', '김민지', 'Minji', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id2');
 
 INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
 VALUES (1, 3, '1990-01-01', 'ISFJ', '김동욱', 'Dong', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id3');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 4, '1990-01-01', 'ESTP', '신현규', 'HyunGyu', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id4');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 5, '1990-01-01', 'ESFP', '이지현', 'Jihyeon', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id5');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 6, '1990-01-01', 'ENFJ', '김민정', 'Min', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'F', 'id6');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 7, '1990-01-01', 'INTP', '홍재의', 'Hong', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id7');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 8, '1990-01-01', 'INTP', '문사랑', 'Moon', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'F', 'id8');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 9, '1990-01-01', 'ESTJ', '윤설우', 'Yoon', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'F', 'id9');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 10, '1990-01-01', 'INTJ', '이가현', 'Lee', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'F', 'id10');
 
 INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
 VALUES (1, 1, 1);
@@ -1795,6 +1816,66 @@ VALUES (4, 4, 1);
 INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
 VALUES (5, 5, 1);
 
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (6, 15, 3);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (7, 17, 3);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (8, 3, 5);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (9, 5, 5);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (10, 35, 5);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (11, 40, 5);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (12, 1, 6);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (13, 2, 6);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (14, 26, 6);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (15, 28, 6);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (16, 24, 8);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (17, 27, 8);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (18, 47, 9);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (19, 48, 9);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (20, 26, 10);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (21, 27, 10);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (22, 28, 10);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (23, 29, 10);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (24, 30, 10);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (25, 35, 10);
+
 INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
 VALUES ('2024-06-15 14:00:00', '2024-06-16 11:00:00', 1, 1, 1);
 
@@ -1809,3 +1890,78 @@ VALUES ('2024-07-01 14:00:00', '2024-07-07 11:00:00', 2, 4, 1);
 
 INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
 VALUES ('2024-07-01 14:00:00', '2024-07-07 11:00:00', 2, 5, 2);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-25 14:00:00', '2024-06-26 11:00:00', 4, 6, 3);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-18 14:00:00', '2024-06-19 11:00:00', 5, 7, 4);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-18 14:00:00', '2024-06-19 11:00:00', 5, 8, 5);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-18 14:00:00', '2024-06-19 11:00:00', 5, 9, 6);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-10 14:00:00', '2024-07-15 11:00:00', 6, 10, 7);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-20 14:00:00', '2024-07-25 11:00:00', 7, 11, 8);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-20 14:00:00', '2024-07-25 11:00:00', 7, 12, 9);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-25 14:00:00', '2024-07-30 11:00:00', 8, 13, 10);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-25 14:00:00', '2024-07-30 11:00:00', 8, 14, 1);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-28 14:00:00', '2024-06-30 11:00:00', 9, 15, 2);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-29 14:00:00', '2024-07-01 11:00:00', 9, 16, 3);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-05 14:00:00', '2024-07-10 11:00:00', 10, 17, 4);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-05 14:00:00', '2024-07-10 11:00:00', 10, 18, 5);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-10 14:00:00', '2024-07-15 11:00:00', 11, 19, 6);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-10 14:00:00', '2024-07-15 11:00:00', 11, 20, 7);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-15 14:00:00', '2024-07-20 11:00:00', 12, 21, 8);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-15 14:00:00', '2024-07-20 11:00:00', 12, 22, 9);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-20 14:00:00', '2024-07-25 11:00:00', 13, 23, 10);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-20 14:00:00', '2024-07-25 11:00:00', 13, 24, 1);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-25 14:00:00', '2024-07-30 11:00:00', 14, 25, 2);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-25 14:00:00', '2024-07-30 11:00:00', 14, 26, 3);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-30 14:00:00', '2024-08-05 11:00:00', 15, 27, 4);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-30 14:00:00', '2024-08-05 11:00:00', 15, 28, 5);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-08-01 14:00:00', '2024-08-05 11:00:00', 16, 29, 6);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-08-01 14:00:00', '2024-08-05 11:00:00', 16, 30, 7);
