@@ -181,7 +181,7 @@ public class UserController {
             return reservationDtos;
         }
 
-        return ResponseEntity.ok(Map.of("reservation_records", reservationDtos.getBody()));
+        return ResponseEntity.ok(Map.of("reservationRecords", reservationDtos.getBody()));
     }
 
     // 같이 사용한 게스트 조회
