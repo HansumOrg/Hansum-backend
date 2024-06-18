@@ -1769,3 +1769,43 @@ INSERT INTO facility_entity (breakfast, parking, party, singleroom, swimmingpool
                                                                                                                  (1, 1, 0, 1, 0, 1, 48),
                                                                                                                  (1, 1, 1, 1, 0, 1, 49),
                                                                                                                  (0, 1, 1, 1, 1, 1, 50);
+
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 1, '1990-01-01', 'ENFJ', '장욱', 'Jake', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id1');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 2, '1990-01-01', 'ENTJ', '장욱', 'Sheon', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id2');
+
+INSERT INTO user_entity (user_agreement, user_id, birthday , mbit, name, nickname, password, phone, sex, user_name)
+VALUES (1, 3, '1990-01-01', 'ISFJ', '김동욱', 'Dong', '$2a$10$nJNrPfpdap/kZcc4cLCvEeyyS1sq8jPObXPqYseiYRwTLr5oGL8/y', '123-456-7890', 'M', 'id3');
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (1, 1, 1);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (2, 2, 1);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (3, 3, 1);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (4, 4, 1);
+
+INSERT INTO dibs_entity (dibs_id, guesthouse_id, user_id)
+VALUES (5, 5, 1);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-15 14:00:00', '2024-06-16 11:00:00', 1, 1, 1);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-15 14:00:00', '2024-06-16 11:00:00', 1, 2, 2);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-06-15 14:00:00', '2024-06-16 11:00:00', 1, 3, 3);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-01 14:00:00', '2024-07-07 11:00:00', 2, 4, 1);
+
+INSERT INTO reservation_entity (checkin_date, checkout_date, guesthouse_id, reservation_id, user_id)
+VALUES ('2024-07-01 14:00:00', '2024-07-07 11:00:00', 2, 5, 2);
