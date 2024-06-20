@@ -161,8 +161,8 @@ public class GuesthouseService {
 
             List<Map<String, Object>> guesthouseList = guesthouses.stream().map(guesthouse -> {
                 Map<String, Object> guesthouseMap = new HashMap<>();
-                guesthouseMap.put("guesthouse_id", guesthouse.getGuesthouseId());
-                guesthouseMap.put("guesthouse_name", guesthouse.getGuesthouseName());
+                guesthouseMap.put("guesthouseId", guesthouse.getGuesthouseId());
+                guesthouseMap.put("guesthouseName", guesthouse.getGuesthouseName());
                 guesthouseMap.put("address", guesthouse.getAddress());
                 guesthouseMap.put("location", guesthouse.getLocation());
                 guesthouseMap.put("price", guesthouse.getPrice());
